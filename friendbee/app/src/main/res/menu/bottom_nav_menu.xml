@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:title="홈"
-        android:icon="@drawable/home_icon"
+        android:icon="@drawable/selected_home_icon"
         android:id="@+id/home"/>
     <item android:title="이용내역"
         android:icon="@drawable/recipt_icon"
