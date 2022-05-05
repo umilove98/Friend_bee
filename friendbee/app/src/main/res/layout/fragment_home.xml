@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,319 +9,253 @@
     <TextView
         android:id="@+id/HomeBanner"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
         android:background="#00c2ff"
         android:gravity="center"
-        android:padding="50dp"
         android:text="배너 자리"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintBottom_toTopOf="@+id/home_h_guideline3"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline5"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline4"
+        app:layout_constraintTop_toTopOf="@+id/home_h_guideline" />
 
     <TextView
         android:id="@+id/HomeTotalCoin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="99"
+        android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/HomeCoinImg"
-        app:layout_constraintEnd_toStartOf="@+id/HomeCoinImg"
-        app:layout_constraintTop_toTopOf="@+id/HomeBanner" />
+        app:layout_constraintBottom_toTopOf="@+id/home_h_guideline"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline6"
+        app:layout_constraintTop_toTopOf="@+id/home_h_guideline1" />
 
     <ImageView
         android:id="@+id/HomeCoinImg"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:src="@drawable/coin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:src="@drawable/coin"
+        app:layout_constraintBottom_toBottomOf="@+id/HomeTotalCoin"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline5"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline6"
+        app:layout_constraintTop_toTopOf="@+id/HomeTotalCoin" />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:src="@drawable/menu_icon"
+        app:layout_constraintBottom_toTopOf="@+id/home_h_guideline1"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline4"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:src="@drawable/search_icon"
+        app:layout_constraintBottom_toTopOf="@+id/home_h_guideline1"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline5"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline6"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/homeBtn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/home_button_border"
+        android:drawableRight="@drawable/home_button_img_1"
+        android:gravity="left"
+        android:paddingLeft="15dp"
+        android:paddingTop="15dp"
+        android:text="밥먹기   "
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/home_h_guideline4"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline1"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline2"
+        app:layout_constraintTop_toTopOf="@+id/home_h_guideline3" />
+
+    <Button
+        android:id="@+id/homeBtn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/home_button_color"
+        android:drawableBottom="@drawable/home_button_img_2"
+        android:gravity="left"
+        android:padding="15dp"
+        android:text="카페가기"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/home_h_guideline4"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline3"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline1"
+        app:layout_constraintTop_toTopOf="@+id/home_h_guideline3" />
+
+    <Button
+        android:id="@+id/homeBtn3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/home_button_color2"
+        android:drawableBottom="@drawable/home_button_img_3"
+        android:gravity="left"
+        android:padding="15dp"
+        android:text="산책하기"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/home_h_guideline5"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline1"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline2"
+        app:layout_constraintTop_toTopOf="@+id/home_h_guideline4" />
+
+    <Button
+        android:id="@+id/homeBtn4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/home_button_border"
+        android:drawableRight="@drawable/home_button_img_44"
+        android:gravity="left"
+        android:paddingLeft="15dp"
+        android:paddingTop="15dp"
+        android:text="게임하기"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/home_h_guideline5"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline3"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline1"
+        app:layout_constraintTop_toTopOf="@+id/home_h_guideline4" />
+
+    <Button
+        android:id="@+id/homeBtn5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/home_button_border"
+        android:drawableRight="@drawable/home_button_img_5"
+        android:gravity="left"
+        android:paddingLeft="15dp"
+        android:paddingTop="15dp"
+        android:text="운동하기"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/home_h_guideline2"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline1"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline2"
+        app:layout_constraintTop_toTopOf="@+id/home_h_guideline5" />
+
+    <Button
+        android:id="@+id/homeBtn6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/home_button_color3"
+        android:drawableBottom="@drawable/home_button_img_66"
+        android:gravity="left"
+        android:padding="15dp"
+        android:text="공부하기"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/home_h_guideline2"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline3"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline1"
+        app:layout_constraintTop_toTopOf="@+id/home_h_guideline5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/home_h_guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.06" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/home_h_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.12" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/home_h_guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.90" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/home_h_guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.27" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/home_h_guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.48" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/home_h_guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.69" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/home_v_guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:weightSum="5"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/HomeBanner"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintGuide_percent="0.5" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1.17"
-            android:orientation="horizontal"
-            android:weightSum="3">
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/home_v_guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.11" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="15dp"
-                android:weightSum="1">
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/home_v_guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.89" />
 
-                <ImageView
-                    android:id="@+id/imageView10"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.2"
-                    android:src="@drawable/meal_icon" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/home_v_guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.07" />
 
-                <TextView
-                    android:id="@+id/textView11"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.8"
-                    android:gravity="center"
-                    android:text="밥먹기"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/home_v_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.15" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="15dp"
-                android:weightSum="1">
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/home_v_guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.93" />
 
-                <ImageView
-                    android:id="@+id/imageView11"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.2"
-                    android:src="@drawable/cafe_icon" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/home_v_guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.85" />
 
-                <TextView
-                    android:id="@+id/textView12"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.8"
-                    android:gravity="center"
-                    android:text="카페가기"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="15dp"
-                android:weightSum="1">
-
-                <ImageView
-                    android:id="@+id/imageView12"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.2"
-                    android:src="@drawable/conversation_icon" />
-
-                <TextView
-                    android:id="@+id/textView13"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.8"
-                    android:gravity="center"
-                    android:text="대화하기"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1.17"
-            android:orientation="horizontal"
-            android:weightSum="3">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="15dp"
-                android:weightSum="1">
-
-                <ImageView
-                    android:id="@+id/imageView13"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.2"
-                    android:src="@drawable/movie_icon" />
-
-                <TextView
-                    android:id="@+id/textView14"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.8"
-                    android:gravity="center"
-                    android:text="영화보기"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="15dp"
-                android:weightSum="1">
-
-                <ImageView
-                    android:id="@+id/imageView14"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.2"
-                    android:src="@drawable/walk_icon" />
-
-                <TextView
-                    android:id="@+id/textView15"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.8"
-                    android:gravity="center"
-                    android:text="산책하기"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="15dp"
-                android:weightSum="1">
-
-                <ImageView
-                    android:id="@+id/imageView15"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.2"
-                    android:src="@drawable/game_icon" />
-
-                <TextView
-                    android:id="@+id/textView16"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.8"
-                    android:gravity="center"
-                    android:text="게임하기"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1.17"
-            android:orientation="horizontal"
-            android:weightSum="3">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="15dp"
-                android:weightSum="1">
-
-                <ImageView
-                    android:id="@+id/imageView16"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.2"
-                    android:src="@drawable/exercise_icon" />
-
-                <TextView
-                    android:id="@+id/textView17"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.8"
-                    android:gravity="center"
-                    android:text="운동하기"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="15dp"
-                android:weightSum="1">
-
-                <ImageView
-                    android:id="@+id/imageView17"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.2"
-                    android:src="@drawable/singingroom_icon" />
-
-                <TextView
-                    android:id="@+id/textView18"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.8"
-                    android:gravity="center"
-                    android:text="노래방가기"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="15dp"
-                android:weightSum="1">
-
-                <ImageView
-                    android:id="@+id/imageView18"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.2"
-                    android:src="@drawable/studying_icon" />
-
-                <TextView
-                    android:id="@+id/textView19"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.8"
-                    android:gravity="center"
-                    android:text="공부하기"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/textView20"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1.49" />
-
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
