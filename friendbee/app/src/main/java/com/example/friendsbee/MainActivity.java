@@ -11,8 +11,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.friendsbee.databinding.ActivityMainBinding;
@@ -22,8 +23,9 @@ public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
     BottomNavigationView bottomNavigationView;
     Menu menu;
-    Menu menu1;
-    Toolbar myToolbar; // 상단
+    ImageView menuIcon;
+    ImageView searchIcon;
+    TextView title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +34,27 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         replaceFragment(new HomeFragment());
 
+        menuIcon = findViewById(R.id.menu_icon);
+        searchIcon = findViewById(R.id.search_icon);
+        title = findViewById(R.id.toolbar_title);
+
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        myToolbar = findViewById(R.id.toolbar);
 
         menu = bottomNavigationView.getMenu();
 
+
+        menuIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "메뉴 클릭됨", Toast.LENGTH_SHORT).show();
+            }
+        });
+        searchIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "검색 버튼 클릭됨", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         binding.bottomNavigationView.setOnItemSelectedListener(item ->{
 
@@ -47,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
                     menu.findItem(R.id.create).setIcon(R.drawable.create_icon);
                     menu.findItem(R.id.chat).setIcon(R.drawable.chat_icon);
                     menu.findItem(R.id.mypage).setIcon(R.drawable.mypage_icon);
+                    title.setText("홈");
                     replaceFragment(new HomeFragment());
                     break;
                 case R.id.recipt:
@@ -55,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
                     menu.findItem(R.id.create).setIcon(R.drawable.create_icon);
                     menu.findItem(R.id.chat).setIcon(R.drawable.chat_icon);
                     menu.findItem(R.id.mypage).setIcon(R.drawable.mypage_icon);
+                    title.setText("이용내역");
                     replaceFragment((new ReciptFragment()));
                     break;
                 case R.id.create:
@@ -63,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
                     menu.findItem(R.id.recipt).setIcon(R.drawable.recipt_icon);
                     menu.findItem(R.id.chat).setIcon(R.drawable.chat_icon);
                     menu.findItem(R.id.mypage).setIcon(R.drawable.mypage_icon);
+                    title.setText("요청서 작성");
                     replaceFragment((new CreateFragment()));
                     break;
                 case R.id.chat:
@@ -71,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
                     menu.findItem(R.id.recipt).setIcon(R.drawable.recipt_icon);
                     menu.findItem(R.id.create).setIcon(R.drawable.create_icon);
                     menu.findItem(R.id.mypage).setIcon(R.drawable.mypage_icon);
+                    title.setText("채팅");
                     replaceFragment((new ChatFragment()));
                     break;
                 case R.id.mypage:
@@ -79,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
                     menu.findItem(R.id.recipt).setIcon(R.drawable.recipt_icon);
                     menu.findItem(R.id.create).setIcon(R.drawable.create_icon);
                     menu.findItem(R.id.chat).setIcon(R.drawable.chat_icon);
+                    title.setText("마이페이지");
                     replaceFragment((new MypageFragment()));
                     break;
             }

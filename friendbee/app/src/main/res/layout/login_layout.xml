@@ -52,7 +52,7 @@
         app:layout_constraintBottom_toTopOf="@+id/login_email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/app_icon" />
+        app:srcCompat="@drawable/logo" />
 
 
     <Button
@@ -84,7 +84,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginBottom="8dp"
-        android:text="전화번호 입"
+        android:text="전화번호 입력"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/login_email"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -94,6 +95,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginBottom="8dp"
+        android:textStyle="bold"
         android:text="인증번호 입력"
         app:layout_constraintBottom_toTopOf="@+id/login_password"
         app:layout_constraintStart_toStartOf="parent" />
