@@ -1,13 +1,19 @@
 package com.example.friendsbee;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.viewbinding.ViewBinding;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.friendsbee.databinding.ActivityMainBinding;
 
@@ -16,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
     BottomNavigationView bottomNavigationView;
     Menu menu;
+    Menu menu1;
+    Toolbar myToolbar; // 상단
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +33,10 @@ public class MainActivity extends AppCompatActivity {
         replaceFragment(new HomeFragment());
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        myToolbar = findViewById(R.id.toolbar);
+
         menu = bottomNavigationView.getMenu();
+
 
         binding.bottomNavigationView.setOnItemSelectedListener(item ->{
 
@@ -77,10 +88,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void replaceFragment(Fragment fragment){
-
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frame_layout, fragment);
         fragmentTransaction.commit();
     }
+
+
 }

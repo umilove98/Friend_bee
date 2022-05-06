@@ -6,6 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#837C7C"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="@color/black">
+    </androidx.appcompat.widget.Toolbar>
+
     <TextView
         android:id="@+id/HomeBanner"
         android:layout_width="0dp"
@@ -42,30 +55,6 @@
         app:layout_constraintEnd_toStartOf="@+id/home_v_guideline5"
         app:layout_constraintStart_toStartOf="@+id/home_v_guideline6"
         app:layout_constraintTop_toTopOf="@+id/HomeTotalCoin" />
-
-    <ImageView
-        android:id="@+id/imageView15"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="4dp"
-        android:src="@drawable/menu_icon"
-        app:layout_constraintBottom_toTopOf="@+id/home_h_guideline1"
-        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline"
-        app:layout_constraintStart_toStartOf="@+id/home_v_guideline4"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView16"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="4dp"
-        android:src="@drawable/search_icon"
-        app:layout_constraintBottom_toTopOf="@+id/home_h_guideline1"
-        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline5"
-        app:layout_constraintStart_toStartOf="@+id/home_v_guideline6"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/homeBtn1"
