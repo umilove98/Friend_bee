@@ -2,11 +2,15 @@ package com.example.friendsbee;
 
 import android.os.Bundle;
 
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Spinner;
+
+import com.example.friendsbee.databinding.ActivityMainBinding;
 
 /**
  * A simple {@link Fragment} subclass.
