@@ -65,7 +65,7 @@
                 android:layout_height="40dp"
                 android:layout_marginBottom="20dp"
                 android:ems="10"
-                android:hint=" 이름"
+                android:hint=""
                 android:inputType="textPersonName"
                 android:text="" />
 
@@ -89,7 +89,7 @@
                     android:layout_height="40dp"
                     android:layout_marginBottom="20dp"
                     android:ems="10"
-                    android:hint=" 비밀번호 다시 입력"
+                    android:hint=""
                     android:inputType="textPassword"
                     android:text="" />
 
@@ -121,7 +121,7 @@
                 android:layout_height="40dp"
                 android:layout_marginBottom="20dp"
                 android:ems="10"
-                android:hint=" 비밀번호"
+                android:hint=" "
                 android:inputType="textPassword"
                 android:text="" />
 
@@ -146,8 +146,7 @@
                     android:layout_height="40dp"
                     android:layout_marginBottom="20dp"
                     android:ems="10"
-                    android:hint=" 비밀번호 다시 입력"
-                    android:inputType="textPassword"
+                    android:hint=""
                     android:text="" />
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -182,7 +181,7 @@
                     android:layout_height="40dp"
                     android:layout_marginBottom="20dp"
                     android:ems="10"
-                    android:hint=" 비밀번호 다시 입력"
+                    android:hint=""
                     android:inputType="textPassword"
                     android:text="" />
 

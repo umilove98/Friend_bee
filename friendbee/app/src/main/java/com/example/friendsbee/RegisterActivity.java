@@ -1,6 +1,9 @@
 package com.example.friendsbee;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.provider.ContactsContract;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.FirebaseTooManyRequestsException;
@@ -27,14 +32,16 @@ import java.util.concurrent.TimeUnit;
 
 public class RegisterActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
-    private EditText editTextEmail;
-    private EditText editTextPassword;
+    private EditText editTextPhoneNumber;
+    private EditText editTextVer;
     private EditText editTextName;
-    private Button buttonJoin;
-    private Button buttonv;
-    private String s;
-
+    private Button regist_button;
+    private Button ver_button;
+    
+    private String s; // otp코드 저장
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
+    private ProgressDialog pd;
+    private PhoneAuthProvider.ForceResendingToken forceResendingToken;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,106 +50,102 @@ public class RegisterActivity extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
 
-        editTextEmail = (EditText) findViewById(R.id.phone_Number);
-        editTextPassword = (EditText) findViewById(R.id.cerTi);
+        editTextPhoneNumber = (EditText) findViewById(R.id.phone_Number);
+        editTextVer = (EditText) findViewById(R.id.cerTi);
         editTextName = (EditText) findViewById(R.id.nickName);
 
-        buttonJoin = (Button) findViewById(R.id.signupbutton);
-        buttonv = (Button) findViewById(R.id.phone_Number_button);
+        regist_button = (Button) findViewById(R.id.signupbutton);
+        ver_button = (Button) findViewById(R.id.phone_Number_button);
 
-        buttonv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String number = editTextEmail.getText().toString();
-
-                PhoneAuthOptions options =
-                        PhoneAuthOptions.newBuilder(firebaseAuth)
-                                .setPhoneNumber(number)       // Phone number to verify
-                                .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
-                                .setActivity(RegisterActivity.this)                 // Activity (for callback binding)
-                                .setCallbacks(mCallbacks)          // OnVerificationStateChangedCallbacks
-                                .build();
-                PhoneAuthProvider.verifyPhoneNumber(options);
-            }
-        });
 
         mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-
             @Override
-            public void onVerificationCompleted(PhoneAuthCredential credential) { // 전송 성공시
-                signInWithPhoneAuthCredential(credential);
+            public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
+
             }
 
-
             @Override
-            public void onVerificationFailed(FirebaseException e) { // 전송 실패시
+            public void onVerificationFailed(@NonNull FirebaseException e) {
 
-                if (e instanceof FirebaseAuthInvalidCredentialsException) {
-                    // Invalid request
-                } else if (e instanceof FirebaseTooManyRequestsException) {
-                    // The SMS quota for the project has been exceeded
-                }
             }
 
             @Override
             public void onCodeSent(@NonNull String verificationId,
-                                   @NonNull PhoneAuthProvider.ForceResendingToken token) { // 코드 전달
+                                   @NonNull PhoneAuthProvider.ForceResendingToken token) {
                 s = verificationId;
+                forceResendingToken = token;
+                pd.dismiss();
+
+
             }
         };
 
-        buttonJoin.setOnClickListener(new View.OnClickListener() {
+        regist_button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                /*if (!editTextEmail.getText().toString().equals("") && !editTextPassword.getText().toString().equals("")) {
-                    // 이메일과 비밀번호가 공백이 아닌 경우
-                    createUser(editTextEmail.getText().toString(), editTextPassword.getText().toString(), editTextName.getText().toString());
+            public void onClick(View view) {
+                String code = editTextVer.getText().toString();
+                if(TextUtils.isEmpty(code)){
+                    Toast.makeText(RegisterActivity.this,"enter code",Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    verifyPhoneNumberWithCode(s,code);
+                }
+            }
+        });
 
-                } else {
-                    // 이메일과 비밀번호가 공백인 경우
-                    Toast.makeText(RegisterActivity.this, "계정과 비밀번호를 입력하세요.", Toast.LENGTH_LONG).show();
-                }*/
-
-                String otp = editTextPassword.getText().toString();
-                PhoneAuthCredential credential = PhoneAuthProvider.getCredential(s,otp);
-
+        ver_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String Phone_Number = editTextPhoneNumber.getText().toString();
+                if(TextUtils.isEmpty(Phone_Number)){
+                    Toast.makeText(RegisterActivity.this,"enter phone number",Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    startPhoneNumberVerification(Phone_Number);
+                }
             }
         });
     }
 
-    /*private void createUser(String email, String password, String name) {
-        firebaseAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // 회원가입 성공시
-                            Toast.makeText(RegisterActivity.this, "회원가입 성공", Toast.LENGTH_SHORT).show();
-                            finish();
-                        } else {
-                            // 계정이 중복된 경우
-                            Toast.makeText(RegisterActivity.this, "이미 존재하는 계정입니다.", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-    }*/
+    private void verifyPhoneNumberWithCode(String s, String code) {
+        pd.setMessage("Verifiy Code");
+        pd.show();
+
+        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(s,code);
+        signInWithPhoneAuthCredential(credential);
+    }
+
+    private void startPhoneNumberVerification(String phone_number) {
+        pd.setMessage("verifying Phone Number");
+        pd.show();
+
+        PhoneAuthOptions options =
+                PhoneAuthOptions.newBuilder(firebaseAuth)
+                .setPhoneNumber(phone_number)
+                .setTimeout(60L, TimeUnit.SECONDS)
+                .setActivity(this)
+                .setCallbacks(mCallbacks)
+                .build();
+        PhoneAuthProvider.verifyPhoneNumber(options);
+    }
 
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
-        firebaseAuth.signInWithCredential(credential)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
+        pd.setMessage("Logging In");
 
-                            FirebaseUser user = task.getResult().getUser();
-                            // Update UI
-                        } else {
-                            // Sign in failed, display a message and update the UI
-                            if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
-                                // The verification code entered was invalid
-                            }
-                        }
+        firebaseAuth.signInWithCredential(credential)
+                .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                    @Override
+                    public void onSuccess(AuthResult authResult) {
+                        pd.dismiss();
+                        String phone = firebaseAuth.getCurrentUser().getPhoneNumber();
+                        Toast.makeText(RegisterActivity.this,"Logged in as" + phone, Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        pd.dismiss();
+                        Toast.makeText(RegisterActivity.this,"d", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
