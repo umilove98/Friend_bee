@@ -10,7 +10,6 @@
         android:id="@+id/HomeBanner"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
         android:background="#00c2ff"
         android:gravity="center"
         android:text="배너 자리"
@@ -45,14 +44,13 @@
 
     <Button
         android:id="@+id/homeBtn1"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/home_button_border"
-        android:drawableRight="@drawable/home_button_img_1"
-        android:gravity="left"
-        android:paddingLeft="15dp"
-        android:paddingTop="15dp"
-        android:text="밥먹기   "
+        android:drawableLeft="@drawable/home_button_img_1"
+        android:drawablePadding="15dp"
+        android:padding="15dp"
+        android:text="밥먹기"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/home_h_guideline4"
@@ -62,11 +60,11 @@
 
     <Button
         android:id="@+id/homeBtn2"
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/home_button_color"
-        android:drawableBottom="@drawable/home_button_img_2"
-        android:gravity="left"
+        android:background="@drawable/home_button_border"
+        android:drawableLeft="@drawable/home_button_img_2"
+        android:drawablePadding="15dp"
         android:padding="15dp"
         android:text="카페가기"
         android:textSize="20sp"
@@ -78,11 +76,11 @@
 
     <Button
         android:id="@+id/homeBtn3"
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/home_button_color2"
-        android:drawableBottom="@drawable/home_button_img_3"
-        android:gravity="left"
+        android:background="@drawable/home_button_border"
+        android:drawableLeft="@drawable/home_button_img_3"
+        android:drawablePadding="15dp"
         android:padding="15dp"
         android:text="산책하기"
         android:textSize="20sp"
@@ -94,13 +92,12 @@
 
     <Button
         android:id="@+id/homeBtn4"
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:background="@drawable/home_button_border"
-        android:drawableRight="@drawable/home_button_img_44"
-        android:gravity="left"
-        android:paddingLeft="15dp"
-        android:paddingTop="15dp"
+        android:drawableLeft="@drawable/home_button_img_4"
+        android:drawablePadding="15dp"
+        android:padding="15dp"
         android:text="게임하기"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -111,36 +108,67 @@
 
     <Button
         android:id="@+id/homeBtn5"
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:background="@drawable/home_button_border"
-        android:drawableRight="@drawable/home_button_img_5"
-        android:gravity="left"
-        android:paddingLeft="15dp"
-        android:paddingTop="15dp"
+        android:drawableLeft="@drawable/home_button_img_5"
+        android:drawablePadding="15dp"
+        android:padding="15dp"
         android:text="운동하기"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/home_h_guideline2"
+        app:layout_constraintBottom_toTopOf="@+id/home_h_guideline6"
         app:layout_constraintEnd_toStartOf="@+id/home_v_guideline1"
         app:layout_constraintStart_toStartOf="@+id/home_v_guideline2"
         app:layout_constraintTop_toTopOf="@+id/home_h_guideline5" />
 
     <Button
         android:id="@+id/homeBtn6"
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/home_button_color3"
-        android:drawableBottom="@drawable/home_button_img_66"
-        android:gravity="left"
+        android:background="@drawable/home_button_border"
+        android:drawableLeft="@drawable/home_button_img_6"
+        android:drawablePadding="15dp"
         android:padding="15dp"
         android:text="공부하기"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/home_h_guideline6"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline3"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline1"
+        app:layout_constraintTop_toTopOf="@+id/home_h_guideline5" />
+
+    <Button
+        android:id="@+id/homeBtn7"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/home_button_border"
+        android:drawableLeft="@drawable/home_button_img_7"
+        android:drawablePadding="15dp"
+        android:padding="15dp"
+        android:text="노래방가기"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/home_h_guideline2"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline1"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline2"
+        app:layout_constraintTop_toTopOf="@+id/home_h_guideline6" />
+
+    <Button
+        android:id="@+id/homeBtn8"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/home_button_border"
+        android:drawableLeft="@drawable/home_button_img_8"
+        android:drawablePadding="15dp"
+        android:padding="15dp"
+        android:text="대화하기"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/home_h_guideline2"
         app:layout_constraintEnd_toStartOf="@+id/home_v_guideline3"
         app:layout_constraintStart_toStartOf="@+id/home_v_guideline1"
-        app:layout_constraintTop_toTopOf="@+id/home_h_guideline5" />
+        app:layout_constraintTop_toTopOf="@+id/home_h_guideline6" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/home_h_guideline1"
@@ -168,21 +196,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.27" />
+        app:layout_constraintGuide_percent="0.3" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/home_h_guideline4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.48" />
+        app:layout_constraintGuide_percent="0.45" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/home_h_guideline5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.69" />
+        app:layout_constraintGuide_percent="0.6" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/home_h_guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/home_v_guideline1"

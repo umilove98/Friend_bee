@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FragmentHomeDetailMenuActivity">
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="22dp"
+        android:gravity="center_vertical"
+        android:text="상세 카테고리"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/home_h_guideline11"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/home_h_guideline10" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#C4C4C4"
+        app:layout_constraintBottom_toTopOf="@+id/home_h_guideline7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/home_h_guideline11" />
+
+    <Button
+        android:id="@+id/homeDetailBtn1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/home_button_border"
+        android:drawableLeft="@drawable/home_button_img_1"
+        android:drawablePadding="10dp"
+        android:padding="10dp"
+        android:text="밥먹기"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline9"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline8"
+        app:layout_constraintTop_toTopOf="@+id/home_h_guideline7" />
+
+    <Button
+        android:id="@+id/homeDetailBtn2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/home_button_border"
+        android:drawableLeft="@drawable/home_button_img_2"
+        android:drawablePadding="10dp"
+        android:padding="10dp"
+        android:text="카페가기"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline9"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline8"
+        app:layout_constraintTop_toBottomOf="@+id/homeDetailBtn1" />
+
+    <Button
+        android:id="@+id/homeDetailBtn3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/home_button_border"
+        android:drawableLeft="@drawable/home_button_img_3"
+        android:drawablePadding="10dp"
+        android:padding="10dp"
+        android:text="산책하기"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline9"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline8"
+        app:layout_constraintTop_toBottomOf="@+id/homeDetailBtn2" />
+
+    <Button
+        android:id="@+id/homeDetailBtn4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/home_button_border"
+        android:drawableLeft="@drawable/home_button_img_4"
+        android:drawablePadding="10dp"
+        android:padding="10dp"
+        android:text="게임하기"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline9"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline8"
+        app:layout_constraintTop_toBottomOf="@+id/homeDetailBtn3" />
+
+    <Button
+        android:id="@+id/homeDetailBtn5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/home_button_border"
+        android:drawableLeft="@drawable/home_button_img_5"
+        android:drawablePadding="10dp"
+        android:padding="10dp"
+        android:text="운동하기"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline9"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline8"
+        app:layout_constraintTop_toBottomOf="@+id/homeDetailBtn4" />
+
+    <Button
+        android:id="@+id/homeDetailBtn6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/home_menu_button_border"
+        android:drawableLeft="@drawable/home_button_img_6"
+        android:drawablePadding="10dp"
+        android:padding="10dp"
+        android:text="공부하기"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline9"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline8"
+        app:layout_constraintTop_toBottomOf="@+id/homeDetailBtn5" />
+
+    <Button
+        android:id="@+id/homeDetailBtn7"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/home_menu_button_border"
+        android:drawableLeft="@drawable/home_button_img_7"
+        android:drawablePadding="10dp"
+        android:padding="10dp"
+        android:text="노래방가기"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline9"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline8"
+        app:layout_constraintTop_toBottomOf="@+id/homeDetailBtn6" />
+
+    <Button
+        android:id="@+id/homeDetailBtn8"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/home_menu_button_border"
+        android:drawableLeft="@drawable/home_button_img_8"
+        android:drawablePadding="10dp"
+        android:padding="10dp"
+        android:text="대화하기"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline9"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline8"
+        app:layout_constraintTop_toBottomOf="@+id/homeDetailBtn7" />
+
+    <Button
+        android:id="@+id/homeDetailBtn9"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/home_menu_button_border"
+        android:drawableLeft="@drawable/home_button_img_1"
+        android:drawablePadding="10dp"
+        android:padding="10dp"
+        android:text="영화보기"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline9"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline8"
+        app:layout_constraintTop_toBottomOf="@+id/homeDetailBtn8" />
+
+    <Button
+        android:id="@+id/homeDetailBtn10"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/home_menu_button_border"
+        android:drawableLeft="@drawable/home_button_img_1"
+        android:drawablePadding="10dp"
+        android:padding="10dp"
+        android:text="쇼핑하기"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/home_h_guideline8"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline9"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline8"
+        app:layout_constraintTop_toBottomOf="@+id/homeDetailBtn9" />
+
+    <Button
+        android:id="@+id/homeDetailBtn11"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/home_button_border"
+        android:drawableLeft="@drawable/home_button_img_1"
+        android:drawablePadding="10dp"
+        android:padding="10dp"
+        android:text="볼링"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline11"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline10"
+        app:layout_constraintTop_toTopOf="@+id/home_h_guideline7" />
+
+    <Button
+        android:id="@+id/homeDetailBtn12"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/home_button_border"
+        android:drawableLeft="@drawable/home_button_img_1"
+        android:drawablePadding="10dp"
+        android:padding="10dp"
+        android:text="당구"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline11"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline10"
+        app:layout_constraintTop_toBottomOf="@+id/homeDetailBtn11" />
+
+    <Button
+        android:id="@+id/homeDetailBtn13"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/home_button_border"
+        android:drawableLeft="@drawable/home_button_img_1"
+        android:drawablePadding="10dp"
+        android:padding="10dp"
+        android:text="보드게임"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline11"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline10"
+        app:layout_constraintTop_toBottomOf="@+id/homeDetailBtn12" />
+
+    <Button
+        android:id="@+id/homeDetailBtn14"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/home_button_border"
+        android:drawableLeft="@drawable/home_button_img_1"
+        android:drawablePadding="10dp"
+        android:padding="10dp"
+        android:text="방탈출"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline11"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline10"
+        app:layout_constraintTop_toBottomOf="@+id/homeDetailBtn13" />
+
+    <Button
+        android:id="@+id/homeDetailBtn15"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/home_button_border"
+        android:drawableLeft="@drawable/home_button_img_1"
+        android:drawablePadding="10dp"
+        android:padding="10dp"
+        android:text="장보기"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline11"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline10"
+        app:layout_constraintTop_toBottomOf="@+id/homeDetailBtn14" />
+
+    <Button
+        android:id="@+id/homeDetailBtn16"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/home_menu_button_border"
+        android:drawableLeft="@drawable/home_button_img_1"
+        android:drawablePadding="10dp"
+        android:padding="10dp"
+        android:text="전시회"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline11"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline10"
+        app:layout_constraintTop_toBottomOf="@+id/homeDetailBtn15" />
+
+    <Button
+        android:id="@+id/homeDetailBtn17"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/home_menu_button_border"
+        android:drawableLeft="@drawable/home_button_img_1"
+        android:drawablePadding="10dp"
+        android:padding="10dp"
+        android:text="연극"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline11"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline10"
+        app:layout_constraintTop_toBottomOf="@+id/homeDetailBtn16" />
+
+    <Button
+        android:id="@+id/homeDetailBtn18"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/home_menu_button_border"
+        android:drawableLeft="@drawable/home_button_img_1"
+        android:drawablePadding="10dp"
+        android:padding="10dp"
+        android:text="술"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline11"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline10"
+        app:layout_constraintTop_toBottomOf="@+id/homeDetailBtn17" />
+
+    <Button
+        android:id="@+id/homeDetailBtn19"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/home_menu_button_border"
+        android:drawableLeft="@drawable/home_button_img_1"
+        android:drawablePadding="10dp"
+        android:padding="10dp"
+        android:text="체험"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline11"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline10"
+        app:layout_constraintTop_toBottomOf="@+id/homeDetailBtn18" />
+
+    <Button
+        android:id="@+id/homeDetailBtn20"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/home_menu_button_border"
+        android:drawableLeft="@drawable/home_button_img_1"
+        android:drawablePadding="10dp"
+        android:padding="10dp"
+        android:text="여행"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/home_h_guideline8"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline11"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline10"
+        app:layout_constraintTop_toBottomOf="@+id/homeDetailBtn19" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/home_v_guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/home_v_guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/home_v_guideline9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.45" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/home_v_guideline10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.55" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/home_v_guideline11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/home_h_guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.90" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/home_h_guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.12" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/home_h_guideline11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.115" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/home_h_guideline10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.06" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

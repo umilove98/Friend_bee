@@ -9,16 +9,18 @@
         android:roundIcon="@drawable/app_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.Friendsbee">
-
-        <activity android:name=".LoginActivity"
+        <activity
+            android:name=".FragmentHomeDetailMenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
             android:exported="true" />
-
-        <activity android:name=".RegisterActivity"
+        <activity
+            android:name=".RegisterActivity"
             android:exported="true" />
-
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:exported="true" />
-
         <activity
             android:name=".SplashScreen"
             android:exported="true"
