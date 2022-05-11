@@ -2,6 +2,7 @@ package com.example.friendsbee;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,10 +12,18 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthOptions;
+import com.google.firebase.auth.PhoneAuthProvider;
+
+import java.util.concurrent.TimeUnit;
 
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
@@ -23,6 +32,9 @@ public class LoginActivity extends AppCompatActivity {
     private EditText editTextPassword;
     private Button buttonLogIn;
     private Button buttonSignUp;
+    private Button ver_btn;
+    private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
+    private String s1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +45,27 @@ public class LoginActivity extends AppCompatActivity {
 
         editTextEmail = (EditText) findViewById(R.id.login_email);
         editTextPassword = (EditText) findViewById(R.id.login_password);
+
+        mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+            @Override
+            public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
+                //signInWithPhoneAuthCredential(phoneAuthCredential);
+            }
+
+            @Override
+            public void onVerificationFailed(@NonNull FirebaseException e) {
+                Toast.makeText(LoginActivity.this,"fuk",Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCodeSent(@NonNull String verificationId,
+                                   @NonNull PhoneAuthProvider.ForceResendingToken token) {
+                s1 = verificationId;
+
+            }
+        };
+
+
 
         buttonSignUp = (Button) findViewById(R.id.join_button);
         buttonSignUp.setOnClickListener(new View.OnClickListener() {
@@ -48,10 +81,27 @@ public class LoginActivity extends AppCompatActivity {
         buttonLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!editTextEmail.getText().toString().equals("") && !editTextPassword.getText().toString().equals("")) {
-                    loginUser(editTextEmail.getText().toString(), editTextPassword.getText().toString());
-                } else {
-                    Toast.makeText(LoginActivity.this, "계정과 비밀번호를 입력하세요.", Toast.LENGTH_LONG).show();
+                String code = editTextPassword.getText().toString();
+                if(TextUtils.isEmpty(code)){
+                    Toast.makeText(LoginActivity.this,"enter code",Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    PhoneAuthCredential credential = PhoneAuthProvider.getCredential(s1,code);
+                    signInWithPhoneAuthCredential(credential);
+                }
+            }
+        });
+
+        ver_btn = (Button) findViewById(R.id.button);
+        ver_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String Phone_Number = editTextEmail.getText().toString();
+                if(TextUtils.isEmpty(Phone_Number)){
+                    Toast.makeText(LoginActivity.this,"enter phone number",Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    startPhoneNumberVerification(Phone_Number);
                 }
             }
         });
@@ -65,38 +115,44 @@ public class LoginActivity extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 } else {
+                    Toast.makeText(LoginActivity.this,"실패",Toast.LENGTH_SHORT).show();
                 }
             }
         };
     }
 
-    public void loginUser(String email, String password) {
-        firebaseAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+
+    private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
+
+        firebaseAuth.signInWithCredential(credential)
+                .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // 로그인 성공
-                            Toast.makeText(LoginActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
-                            firebaseAuth.addAuthStateListener(firebaseAuthListener);
-                        } else {
-                            // 로그인 실패
-                            Toast.makeText(LoginActivity.this, "아이디 또는 비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show();
-                        }
+                    public void onSuccess(AuthResult authResult) {
+                        String phone = firebaseAuth.getCurrentUser().getPhoneNumber();
+                        Toast.makeText(LoginActivity.this,"Logged in", Toast.LENGTH_SHORT).show();
+
+                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(LoginActivity.this,"코드 틀림", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
+    private void startPhoneNumberVerification(String phone_number) {
+        PhoneAuthOptions options =
+                PhoneAuthOptions.newBuilder(firebaseAuth)
+                        .setPhoneNumber(phone_number)
+                        .setTimeout(60L, TimeUnit.SECONDS)
+                        .setActivity(this)
+                        .setCallbacks(mCallbacks)
+                        .build();
+        PhoneAuthProvider.verifyPhoneNumber(options);
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        if (firebaseAuthListener != null) {
-            firebaseAuth.removeAuthStateListener(firebaseAuthListener);
-        }
-    }
+
+
 }

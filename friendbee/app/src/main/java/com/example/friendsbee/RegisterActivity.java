@@ -1,6 +1,7 @@
 package com.example.friendsbee;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
@@ -34,7 +35,6 @@ public class RegisterActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private EditText editTextPhoneNumber;
     private EditText editTextVer;
-    private EditText editTextName;
     private Button regist_button;
     private Button ver_button;
     
@@ -52,21 +52,23 @@ public class RegisterActivity extends AppCompatActivity {
 
         editTextPhoneNumber = (EditText) findViewById(R.id.phone_Number);
         editTextVer = (EditText) findViewById(R.id.cerTi);
-        editTextName = (EditText) findViewById(R.id.nickName);
 
         regist_button = (Button) findViewById(R.id.signupbutton);
         ver_button = (Button) findViewById(R.id.phone_Number_button);
 
+        pd = new ProgressDialog(this);
+        pd.setTitle("please wait...");
+        pd.setCanceledOnTouchOutside(false);
 
         mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             @Override
             public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
-
+                //signInWithPhoneAuthCredential(phoneAuthCredential);
             }
 
             @Override
             public void onVerificationFailed(@NonNull FirebaseException e) {
-
+                Toast.makeText(RegisterActivity.this,"fuk",Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -139,6 +141,8 @@ public class RegisterActivity extends AppCompatActivity {
                         pd.dismiss();
                         String phone = firebaseAuth.getCurrentUser().getPhoneNumber();
                         Toast.makeText(RegisterActivity.this,"Logged in as" + phone, Toast.LENGTH_SHORT).show();
+
+                        startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
