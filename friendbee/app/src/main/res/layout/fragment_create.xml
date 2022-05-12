@@ -44,6 +44,7 @@
                 android:textSize="17sp"
                 android:layout_marginBottom="20dp" />
             <EditText
+                android:id="@+id/request_title"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:paddingStart="10dp"
@@ -59,6 +60,7 @@
                 android:textSize="17sp"
                 android:layout_marginBottom="20dp" />
             <EditText
+                android:id="@+id/request_place"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:paddingStart="10dp"
@@ -74,6 +76,7 @@
                 android:textSize="17sp"
                 android:layout_marginBottom="20dp" />
             <EditText
+                android:id="@+id/request_contents"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:paddingStart="10dp"
@@ -130,11 +133,31 @@
                 android:textSize="17sp"
                 android:layout_marginBottom="20dp" />
             <EditText
+                android:id="@+id/request_date"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:paddingStart="10dp"
                 android:background="@drawable/create_border"
                 android:hint="날짜 및 시간 추가" />
+
+            <TextView
+                android:id="@+id/editDate"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="날짜 : "
+                android:textColor="@color/colorGray"
+                android:textSize="25sp" />
+            <Button
+                android:id="@+id/date_picker_button"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:text="JAN 01 2020"
+                android:textSize="30sp"
+                android:textColor="@color/black"
+                style="?android:spinnerStyle"
+                />
+
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -149,10 +172,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <Spinner
+                    android:id="@+id/hourSpinner"
                     android:entries="@array/hour_spinner_array"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"/>
                 <Spinner
+                    android:id="@+id/minSpinner"
                     android:entries="@array/min_spinner_array"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
@@ -168,6 +193,7 @@
                 android:textSize="17sp"
                 android:layout_marginBottom="20dp" />
             <EditText
+                android:id="@+id/request_price"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:paddingStart="10dp"
@@ -212,6 +238,7 @@
             </LinearLayout>
 
             <Button
+                android:id="@+id/create_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="100dp"

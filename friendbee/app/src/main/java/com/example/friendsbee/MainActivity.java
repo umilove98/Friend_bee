@@ -9,6 +9,7 @@ import androidx.viewbinding.ViewBinding;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -47,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(MainActivity.this, "메뉴 클릭됨", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(view.getContext(), FragmentHomeDetailMenuActivity.class);
+                startActivity(intent);
             }
         });
         searchIcon.setOnClickListener(new View.OnClickListener() {
