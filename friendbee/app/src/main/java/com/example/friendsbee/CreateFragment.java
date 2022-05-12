@@ -2,6 +2,7 @@ package com.example.friendsbee;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -77,12 +78,12 @@ public class CreateFragment extends Fragment implements View.OnClickListener {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-        initDatePicker();
+        //initDatePicker();
         //dateButton.setText(getTodaysDate());
         mDatabase = FirebaseDatabase.getInstance().getReference();  // 파이어베이스에 연결
 
     }
-
+/*
     private String getTodaysDate() {
         Calendar cal = Calendar.getInstance();
         int year = cal.get(Calendar.YEAR);
@@ -112,7 +113,7 @@ public class CreateFragment extends Fragment implements View.OnClickListener {
 
         datePickerDialog = new DatePickerDialog(getActivity(), style, dateSetListener, year, month, day);
     }
-
+*/
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -156,22 +157,22 @@ public class CreateFragment extends Fragment implements View.OnClickListener {
                 RequestInfo requestInfo = new RequestInfo(title, place, contents, date, price, category, hour, min); // requestInfo 클래스에 지정해둔 데이터 저장 형태에 맞춰 생성
                 mDatabase.child("requests").push().setValue(requestInfo);   // request 테이블에 생성한 요청서를 등록
                 Toast.makeText(getContext(), "등록 성공", Toast.LENGTH_SHORT).show();
-                //uploader(requestInfo);
+
             }else{
                 Toast.makeText(getContext(), "다시 입력해 주세요", Toast.LENGTH_SHORT).show();
             }
         }
-        if(view.getId() == R.id.date_picker_button){
+        /*if(view.getId() == R.id.date_picker_button){
             openDatePicker();
-        }
+        }*/
 
     }
 
-    private String makeDateString(int day, int month, int year) {
+    /*private String makeDateString(int day, int month, int year) {
         return month + " " + day + " " + year;
     }
 
     public void openDatePicker(){
         datePickerDialog.show();
-    }
+    }*/
 }
