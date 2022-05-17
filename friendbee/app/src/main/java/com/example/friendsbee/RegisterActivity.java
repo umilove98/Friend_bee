@@ -36,7 +36,11 @@ import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 
@@ -44,6 +48,7 @@ public class RegisterActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private EditText editTextPhoneNumber;
     private EditText editTextVer;
+    private Button nick_button;
     private Button regist_button;
     private Button ver_button;
     private ImageView img_button;
@@ -52,12 +57,23 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText editTextBirth_Number;
     private Uri imageUri;
     private String pathUri;
+    private String uid;
+    private String profileImageUrl;
+
     
     private String s; // otp코드 저장
-    private DatabaseReference mDatabase;
+    private FirebaseDatabase mDatabase;
+    private FirebaseStorage mStorage;
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
     private ProgressDialog pd;
     private PhoneAuthProvider.ForceResendingToken forceResendingToken;
+
+
+    String name;
+    String nick_name;
+    String birth_number;
+    String phone_number;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +81,8 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.register_layout);
 
         firebaseAuth = FirebaseAuth.getInstance();
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mStorage = FirebaseStorage.getInstance();
+        mDatabase = FirebaseDatabase.getInstance();
 
         editTextName = findViewById(R.id.signName);
         editTextNick_Name = findViewById(R.id.nickName);
@@ -73,11 +90,8 @@ public class RegisterActivity extends AppCompatActivity {
         editTextPhoneNumber = (EditText) findViewById(R.id.phone_Number);
         editTextVer = (EditText) findViewById(R.id.cerTi);
         img_button = findViewById(R.id.pro_Img);
+        nick_button = findViewById(R.id.nickName_button);
 
-        String name = editTextName.getText().toString();
-        String nick_name = editTextNick_Name.getText().toString();
-        String birth_number = editTextBirth_Number.getText().toString();
-        String phone_number = editTextPhoneNumber.getText().toString();
 
         regist_button = (Button) findViewById(R.id.signupbutton);
         ver_button = (Button) findViewById(R.id.phone_Number_button);
@@ -103,8 +117,6 @@ public class RegisterActivity extends AppCompatActivity {
                 s = verificationId;
                 forceResendingToken = token;
                 pd.dismiss();
-
-
             }
         };
 
@@ -132,12 +144,12 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this,"enter code",Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    if(name.length() > 0) {
-                        Myprofile myprofile = new Myprofile(name, nick_name, phone_number, birth_number);
-                        mDatabase.child("profile").push().setValue(myprofile);
-                        verifyPhoneNumberWithCode(s, code);
-                        Toast.makeText(RegisterActivity.this, "회원가입 성공", Toast.LENGTH_SHORT).show();
-                    }
+                    name = editTextName.getText().toString();
+                    nick_name = editTextNick_Name.getText().toString();
+                    birth_number = editTextBirth_Number.getText().toString();
+                    phone_number = editTextPhoneNumber.getText().toString();
+                    verifyPhoneNumberWithCode(s, code);
+                    Toast.makeText(RegisterActivity.this, "회원가입 성공", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -161,6 +173,14 @@ public class RegisterActivity extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_PICK);
                 intent.setType(MediaStore.Images.Media.CONTENT_TYPE);
                 mStartForResult.launch(intent);
+            }
+        });
+
+        nick_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String name = editTextName.getText().toString();
+                Toast.makeText(RegisterActivity.this,"name: " + name, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -197,10 +217,35 @@ public class RegisterActivity extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
-                        pd.dismiss();
-                        String phone = firebaseAuth.getCurrentUser().getPhoneNumber();
-                        Toast.makeText(RegisterActivity.this,"Logged in as" + phone, Toast.LENGTH_SHORT).show();
 
+                        uid = authResult.getUser().getUid();
+                        String uid_code = uid.toString();
+                        Uri file = Uri.fromFile(new File(pathUri)); // path
+
+                        StorageReference storageReference = mStorage.getReference().child("usersprofileImages").child("uid/"+file.getLastPathSegment());
+                        storageReference.putFile(imageUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+                                final Task<Uri> imageUrl = task.getResult().getStorage().getDownloadUrl();
+                                while (!imageUrl.isComplete()) ;
+                                profileImageUrl = imageUrl.getResult().toString();
+
+
+                                Myprofile myprofile = new Myprofile(name, nick_name, phone_number, birth_number,profileImageUrl, uid);
+                                mDatabase.getReference().child("profile").child(uid_code)
+                                        .setValue(myprofile);
+                            }
+                        })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Toast.makeText(RegisterActivity.this,"프로필 저장 실패 ", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+
+                        pd.dismiss();
+                        Toast.makeText(RegisterActivity.this,"hi " + uid, Toast.LENGTH_SHORT).show();
+                        String phone = firebaseAuth.getCurrentUser().getPhoneNumber();
                         startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                     }
                 })
@@ -208,7 +253,7 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         pd.dismiss();
-                        Toast.makeText(RegisterActivity.this,"d", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this,"회원가입 실패", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
