@@ -2,17 +2,24 @@ package com.example.friendsbee;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.loader.content.CursorLoader;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -27,6 +34,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.concurrent.TimeUnit;
 
@@ -37,8 +46,15 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText editTextVer;
     private Button regist_button;
     private Button ver_button;
+    private ImageView img_button;
+    private EditText editTextName;
+    private EditText editTextNick_Name;
+    private EditText editTextBirth_Number;
+    private Uri imageUri;
+    private String pathUri;
     
     private String s; // otp코드 저장
+    private DatabaseReference mDatabase;
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
     private ProgressDialog pd;
     private PhoneAuthProvider.ForceResendingToken forceResendingToken;
@@ -49,9 +65,19 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.register_layout);
 
         firebaseAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
+        editTextName = findViewById(R.id.signName);
+        editTextNick_Name = findViewById(R.id.nickName);
+        editTextBirth_Number = findViewById(R.id.R_R_Number);
         editTextPhoneNumber = (EditText) findViewById(R.id.phone_Number);
         editTextVer = (EditText) findViewById(R.id.cerTi);
+        img_button = findViewById(R.id.pro_Img);
+
+        String name = editTextName.getText().toString();
+        String nick_name = editTextNick_Name.getText().toString();
+        String birth_number = editTextBirth_Number.getText().toString();
+        String phone_number = editTextPhoneNumber.getText().toString();
 
         regist_button = (Button) findViewById(R.id.signupbutton);
         ver_button = (Button) findViewById(R.id.phone_Number_button);
@@ -82,6 +108,22 @@ public class RegisterActivity extends AppCompatActivity {
             }
         };
 
+        ActivityResultLauncher<Intent> mStartForResult = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    //result.getResultCode()를 통하여 결과값 확인
+                    if(result.getResultCode() == RESULT_OK) {
+                        //ToDo
+                        imageUri = result.getData().getData();
+                        pathUri = getPath(result.getData().getData());
+                        img_button.setImageURI(imageUri); // 이미지 띄움
+                    }
+                    if(result.getResultCode() == RESULT_CANCELED){
+                        //ToDo
+                    }
+                }
+        );
+
         regist_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -90,7 +132,12 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this,"enter code",Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    verifyPhoneNumberWithCode(s,code);
+                    if(name.length() > 0) {
+                        Myprofile myprofile = new Myprofile(name, nick_name, phone_number, birth_number);
+                        mDatabase.child("profile").push().setValue(myprofile);
+                        verifyPhoneNumberWithCode(s, code);
+                        Toast.makeText(RegisterActivity.this, "회원가입 성공", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
@@ -107,7 +154,19 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         });
+
+        img_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_PICK);
+                intent.setType(MediaStore.Images.Media.CONTENT_TYPE);
+                mStartForResult.launch(intent);
+            }
+        });
+
+
     }
+
 
     private void verifyPhoneNumberWithCode(String s, String code) {
         pd.setMessage("Verifiy Code");
@@ -153,5 +212,17 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                 });
     }
+    public String getPath(Uri uri) {
+
+        String[] proj = {MediaStore.Images.Media.DATA};
+        CursorLoader cursorLoader = new CursorLoader(this, uri, proj, null, null, null);
+
+        Cursor cursor = cursorLoader.loadInBackground();
+        int index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+
+        cursor.moveToFirst();
+        return cursor.getString(index);
+    }
+
 
 }
