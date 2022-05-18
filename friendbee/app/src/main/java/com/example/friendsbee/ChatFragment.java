@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -62,6 +64,7 @@ public class ChatFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
@@ -78,6 +81,8 @@ public class ChatFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
         Log.e("Frag", "MainFragment");
+
+
 
 
         return view;
