@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "697834538206",
+    "project_id": "friendsbee-71146",
+    "storage_bucket": "friendsbee-71146.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:697834538206:android:4526ca518d7bbd4e72ae4f",
+        "android_client_info": {
+          "package_name": "com.example.friendsbee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "697834538206-m1r5ddtr63q3easegv550m1uqa47ulhb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzw6Bh28aJIzNhb1tmsoThHeV4qO4MibQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "697834538206-m1r5ddtr63q3easegv550m1uqa47ulhb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

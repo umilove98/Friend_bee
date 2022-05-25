@@ -10,5 +10,8 @@
     <color name="yellow">#FFD400</color>
     <color name="blue">#3AB7FC</color>
     <color name="red">#ED7161</color>
-
+    <color name="colorPrimary">#FFC107</color>
+    <color name="colorPrimaryDark">#FF7043</color>
+    <color name="colorAccent">#FFAB40</color>
+    <color name="colorGray">#8C8C8C</color>
 </resources>

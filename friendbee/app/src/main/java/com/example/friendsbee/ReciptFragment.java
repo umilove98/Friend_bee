@@ -3,10 +3,15 @@ package com.example.friendsbee;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +28,9 @@ public class ReciptFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private RecyclerView recyclerView;
+    private ArrayList<ReciptItem> list = new ArrayList<ReciptItem>();
+    private ReciptAdapter adapter;
 
     public ReciptFragment() {
         // Required empty public constructor
@@ -59,6 +67,16 @@ public class ReciptFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_recipt, container, false);
+        View view = inflater.inflate(R.layout.fragment_recipt, container, false);
+        recyclerView = (RecyclerView) view.findViewById(R.id.recipt_fragment_recyclerview);
+
+        list = ReciptItem.createContactsList(5);
+        recyclerView.setHasFixedSize(true);
+        adapter = new ReciptAdapter(getActivity(), list);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setAdapter(adapter);
+
+        Log.e("Frag", "MainFragment");
+        return view;
     }
 }
