@@ -11,22 +11,30 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import android.content.Intent;
 import android.os.Bundle;
+
 import android.view.Menu;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
 
 import com.example.friendsbee.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
+
     BottomNavigationView bottomNavigationView;
     Menu menu;
     ImageView menuIcon;
     ImageView searchIcon;
     TextView title;
+
+    private Spinner spinner;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +42,10 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         replaceFragment(new HomeFragment());
+
+
+        spinner = findViewById(R.id.categorySpinner);
+
 
         menuIcon = findViewById(R.id.menu_icon);
         searchIcon = findViewById(R.id.search_icon);
