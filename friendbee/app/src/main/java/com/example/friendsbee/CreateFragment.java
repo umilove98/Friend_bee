@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,7 +29,7 @@ import java.util.Calendar;
  * Use the {@link CreateFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CreateFragment extends Fragment implements View.OnClickListener {
+public class CreateFragment extends Fragment implements View.OnClickListener, RadioGroup.OnCheckedChangeListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -46,6 +47,8 @@ public class CreateFragment extends Fragment implements View.OnClickListener {
     TextView vDate;
     private DatePickerDialog datePickerDialog;
     private Button dateButton;
+    private RadioGroup selectedGender;
+    private String gender;
 
 
 
@@ -83,37 +86,6 @@ public class CreateFragment extends Fragment implements View.OnClickListener {
         mDatabase = FirebaseDatabase.getInstance().getReference();  // 파이어베이스에 연결
 
     }
-/*
-    private String getTodaysDate() {
-        Calendar cal = Calendar.getInstance();
-        int year = cal.get(Calendar.YEAR);
-        int month = cal.get(Calendar.MONTH);
-        month = month + 1;
-        int day = cal.get(Calendar.DAY_OF_MONTH);
-
-        return makeDateString(day,month,year);
-    }
-
-    private void initDatePicker() {
-
-        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                month = month + 1;
-                String date = makeDateString(day, month, year);
-                dateButton.setText(date);
-            }
-        };
-        Calendar cal = Calendar.getInstance();
-        int year = cal.get(Calendar.YEAR);
-        int month = cal.get(Calendar.MONTH);
-        int day = cal.get(Calendar.DAY_OF_MONTH);
-
-        int style = AlertDialog.THEME_HOLO_LIGHT;
-
-        datePickerDialog = new DatePickerDialog(getActivity(), style, dateSetListener, year, month, day);
-    }
-*/
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -136,6 +108,8 @@ public class CreateFragment extends Fragment implements View.OnClickListener {
         vDate.setOnClickListener(this);
         dateButton = view.findViewById(R.id.date_picker_button);
         dateButton.setOnClickListener(this);
+        selectedGender = view.findViewById(R.id.gender_radiogroup);
+        selectedGender.setOnCheckedChangeListener(this);
 
         return view;
     }
@@ -162,17 +136,20 @@ public class CreateFragment extends Fragment implements View.OnClickListener {
                 Toast.makeText(getContext(), "다시 입력해 주세요", Toast.LENGTH_SHORT).show();
             }
         }
-        /*if(view.getId() == R.id.date_picker_button){
-            openDatePicker();
-        }*/
-
     }
 
-    /*private String makeDateString(int day, int month, int year) {
-        return month + " " + day + " " + year;
+    @Override
+    public void onCheckedChanged(RadioGroup radioGroup, int i) {
+        switch(i){
+            case R.id.radiobutton_none:
+                gender = "없음";
+                break;
+            case R.id.radiobutton_male:
+                gender = "남자";
+                break;
+            case R.id.radiobutton_female:
+                gender = "여자";
+                break;
+        }
     }
-
-    public void openDatePicker(){
-        datePickerDialog.show();
-    }*/
 }
