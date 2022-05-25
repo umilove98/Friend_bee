@@ -1,5 +1,6 @@
 package com.example.friendsbee;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -79,6 +80,20 @@ public class ChatFragment extends Fragment {
 
         Log.e("Frag", "MainFragment");
 
+<<<<<<< Updated upstream
+=======
+        ChatAdapter.setOnItemClickListener(new ChatAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View v, int pos) {
+                if (pos == 1){
+                    Intent intent = new Intent(getActivity(),MessageActivity.class);
+                    intent.putExtra("destUid","hi");
+                    startActivity(intent);
+                   Toast.makeText(getContext(), "클릭이벤트", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+>>>>>>> Stashed changes
 
         return view;
     }

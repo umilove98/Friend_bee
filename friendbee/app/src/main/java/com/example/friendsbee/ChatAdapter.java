@@ -16,7 +16,17 @@ import java.util.List;
 public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.Holder> {
 
     private Context context;
+    private static OnItemClickListener itemClickListener;
     private List<WordItem> list = new ArrayList<>();
+
+    public interface OnItemClickListener {
+        //클릭시 동작할 함수
+        void onItemClick(View v, int pos);
+    }
+
+    public static void setOnItemClickListener(OnItemClickListener listener) {
+        itemClickListener = listener;
+    }
 
     public ChatAdapter(Context context, List<WordItem> list) {
         this.context = context;
@@ -53,15 +63,40 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.Holder> {
     }
 
     // ViewHolder는 하나의 View를 보존하는 역할을 한다
-    public class Holder extends RecyclerView.ViewHolder{
+    public class Holder extends RecyclerView.ViewHolder {
         public TextView wordText;
         public TextView meaningText;
 
-        public Holder(View view){
+        public Holder(View view) {
             super(view);
+<<<<<<< Updated upstream
                 wordText = (TextView) view.findViewById(R.id.chat_textview_title);
                 meaningText = (TextView) view.findViewById(R.id.chat_item_textview_lastmessage);
+=======
+            wordText = (TextView) view.findViewById(R.id.chat_textview_title);
+            meaningText = (TextView) view.findViewById(R.id.chat_item_textview_lastmessage);
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int pos = getAdapterPosition();
+
+                    if (pos != RecyclerView.NO_POSITION) {
+                        //동작 호출 (onItemClick 함수 호출)
+                        if (itemClickListener != null) {
+                            itemClickListener.onItemClick(view, pos);
+                        }
+                    }
+                }
+
+            });
+>>>>>>> Stashed changes
         }
     }
 }
 
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
