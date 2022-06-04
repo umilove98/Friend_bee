@@ -64,8 +64,8 @@ public class MessageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
 
-        //init();
-        //sendMsg();
+        init();
+        sendMsg();
     }
 
     private void init()
