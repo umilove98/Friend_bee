@@ -70,11 +70,9 @@ public class HomeFragment extends Fragment {
         Eating.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((MainActivity)getActivity()).menu.findItem(R.id.home).setIcon(R.drawable.home_icon);
-                ((MainActivity)getActivity()).menu.findItem(R.id.recipt).setIcon(R.drawable.recipt_icon);
-                ((MainActivity)getActivity()).menu.findItem(R.id.chat).setIcon(R.drawable.chat_icon);
-                ((MainActivity)getActivity()).menu.findItem(R.id.mypage).setIcon(R.drawable.mypage_icon);
-
+                //((MainActivity)getActivity()).menu.findItem(R.id.home).setIcon(R.drawable.home_icon);
+                //((MainActivity)getActivity()).binding.bottomNavigationView.getMenu().getItem(2).setIcon(R.drawable.selected_create_icon);
+                ((MainActivity)getActivity()).title.setText("요청서 작성");
                 ((MainActivity)getActivity()).replaceFragment(new CreateFragment());
 
             }

@@ -9,6 +9,8 @@ import androidx.viewbinding.ViewBinding;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -16,6 +18,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.SearchView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,10 +41,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView menuIcon;
     ImageView searchIcon;
     TextView title;
-    FirebaseDatabase mDatabase;
-    FirebaseUser user;
     DatabaseReference DatabaseRef;
-    String name;
 
     private Spinner spinner;
 
@@ -78,6 +78,10 @@ public class MainActivity extends AppCompatActivity {
         searchIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+                SearchView searchView = findViewById(R.id.search_view);
+                searchView.setVisibility(View.VISIBLE);
+                searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
                 Toast.makeText(MainActivity.this, "검색 버튼 클릭됨", Toast.LENGTH_SHORT).show();
             }
         });
@@ -91,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                     menu.findItem(R.id.create).setIcon(R.drawable.create_icon);
                     menu.findItem(R.id.chat).setIcon(R.drawable.chat_icon);
                     menu.findItem(R.id.mypage).setIcon(R.drawable.mypage_icon);
-                    title.setText("s");
+                    title.setText("홈");
                     replaceFragment(new HomeFragment());
                     break;
                 case R.id.recipt:
