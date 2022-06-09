@@ -1,8 +1,12 @@
 package com.example.friendsbee;
 
+import android.content.Intent;
 import android.util.Log;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -14,7 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class ReciptItem {
+public class ReciptItem extends AppCompatActivity {
     public String title;
     public String time;
     public String userName;
@@ -34,11 +38,25 @@ public class ReciptItem {
         this.status = status;
 
     }
+    // 값을 전달 받음
+    ActivityResultLauncher<Intent> mStartForResult = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if(result.getResultCode() == RESULT_OK) {
+                    Intent intent = result.getData();
+
+                    Log.d("MainActivity", intent.getStringExtra("result"));
+                }
+            }
+    );
+
 
 
     // 입력받은 숫자의 리스트생성
     public static ArrayList<ReciptItem> createContactsList(int numContacts) {
         ArrayList<ReciptItem> contacts = new ArrayList<ReciptItem>();
+
+
 
 
         for (int i = 1; i <= numContacts; i++) {

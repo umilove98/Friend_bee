@@ -44,8 +44,8 @@ public class MypageFragment extends Fragment {
     private String mParam2;
     private FirebaseDatabase mDatabase;
     private DatabaseReference DatabaseRef;
-    private TextView textView;
-    private String name, hi;
+    private TextView text_name, text_age;
+    private String name;
 
     public MypageFragment() {
         // Required empty public constructor
@@ -77,7 +77,8 @@ public class MypageFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         ViewGroup view = (ViewGroup) inflater.inflate(R.layout.fragment_mypage, container, false);
-        textView = view.findViewById(R.id.textView4);
+        text_name = view.findViewById(R.id.textView4);
+        text_age = view.findViewById(R.id.textView5);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         name = user.getUid();
@@ -97,15 +98,11 @@ public class MypageFragment extends Fragment {
                     Log.d("firebase", String.valueOf(task.getResult().getValue()));
 
                     Myprofile myprofile = task.getResult().getValue(Myprofile.class);
-                    textView.setText(myprofile.getName());
+                    text_name.setText(myprofile.getName());
+                    text_age.setText("24세 남");
                 }
             }
         });
-
-        textView.setText(hi);
-
-
-
 
 
         return view;

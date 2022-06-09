@@ -37,6 +37,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.Holder> {
     public Holder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_chat, parent, false);
         Holder holder = new Holder(view);
+
         return holder;
     }
 
@@ -84,6 +85,8 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.Holder> {
                     else
                         Toast.makeText(context, "클릭이벤트", Toast.LENGTH_SHORT).show();
                 }
+
+
             });
 
         }

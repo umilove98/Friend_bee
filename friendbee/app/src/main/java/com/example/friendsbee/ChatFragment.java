@@ -80,6 +80,8 @@ public class ChatFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
 
+
+
         Log.e("Frag", "MainFragment");
 
 
