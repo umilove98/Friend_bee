@@ -81,6 +81,8 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.Holder> {
                     }
                     if (pos == 1){
                         Toast.makeText(context, "1", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(context, MessageActivity.class);
+                        context.startActivity(intent);
                     }
                     else
                         Toast.makeText(context, "클릭이벤트", Toast.LENGTH_SHORT).show();

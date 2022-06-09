@@ -50,14 +50,14 @@ public class MessageActivity extends AppCompatActivity {
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyy.MM.dd HH:mm");
 
 
-    @Override
+   /* @Override
     public void onBackPressed() {
         Intent intent = new Intent(MessageActivity.this, ChatFragment.class);
 
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
 
         startActivity(intent);
-    }
+    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

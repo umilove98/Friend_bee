@@ -1,11 +1,13 @@
 package com.example.friendsbee;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -76,6 +78,26 @@ public class ReciptAdapter extends RecyclerView.Adapter<ReciptAdapter.Holder> {
             place = view.findViewById(R.id.recipt_place);
             price = view.findViewById(R.id.recipt_price);
             status = view.findViewById(R.id.recipt_status);
+
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int pos = getAdapterPosition();
+                    if(pos != RecyclerView.NO_POSITION){
+                        // 아무것도 없으면
+                        //어댑터에 직접 리스너 인터페이스를 정의하고 액티비티 or 프래그먼트에서 해당 리스너 객체를 생성하고 어댑터에 전달해 호출되게 하는 것이다.
+                    }
+                    if (pos == 1){
+                        Intent intent = new Intent(context, RequestActivity.class);
+                        context.startActivity(intent);
+                    }
+                    else
+                        Toast.makeText(context, "클릭이벤트", Toast.LENGTH_SHORT).show();
+                }
+
+
+            });
         }
     }
 }
