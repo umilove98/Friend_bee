@@ -69,7 +69,7 @@
         android:stepSize="1"
         android:layout_gravity="center"
         android:background="#ffffff"
-        android:progressTint="@color/yellow"
+        android:progressTint="@color/yellow_500"
 
         />
 

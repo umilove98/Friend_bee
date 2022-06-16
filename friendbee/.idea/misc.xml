@@ -86,8 +86,8 @@
         <entry key="app/src/main/res/layout/item_recipt.xml" value="0.18020833333333333" />
         <entry key="app/src/main/res/layout/login_layout.xml" value="0.13044579533941236" />
         <entry key="app/src/main/res/layout/register_layout.xml" value="0.13044579533941236" />
-        <entry key="app/src/main/res/layout/review_my.xml" value="0.2526397705078125" />
-        <entry key="app/src/main/res/layout/review_my_write.xml" value="0.20294036865234377" />
+        <entry key="app/src/main/res/layout/review_my.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/review_my_write.xml" value="0.1" />
         <entry key="app/src/main/res/layout/review_write_layout.xml" value="0.1" />
         <entry key="app/src/main/res/layout/room2.xml" value="0.1" />
         <entry key="app/src/main/res/layout/room_center_item_list.xml" value="0.1" />

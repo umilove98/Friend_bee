@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.friendsbee">
+    package="com.example.friendsbee"
+    android:installLocation="preferExternal">
+
 
     <application
         android:allowBackup="true"

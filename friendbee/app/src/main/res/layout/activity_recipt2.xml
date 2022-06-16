@@ -173,7 +173,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/blue_modify_button"
-                android:backgroundTint="@color/yellow"
+                android:backgroundTint="@color/yellow_500"
                 android:text="리뷰쓰기"
                 android:textColor="@color/black"
                 android:textSize="16sp"
