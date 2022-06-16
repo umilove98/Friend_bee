@@ -83,7 +83,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 ((MainActivity)getActivity()).menu.findItem(R.id.home).setIcon(R.drawable.home_icon);
                 ((MainActivity)getActivity()).binding.bottomNavigationView.setSelectedItemId(R.id.recipt);
-                ((MainActivity)getActivity()).title.setText("이용내역");
+                //((MainActivity)getActivity()).title.setText("이용내역");
                 //String str = spinnerCategory.getItemAtPosition(1).toString();
                 spinnerCategory.setSelection(1);
                 //Toast.makeText(getContext(),str,Toast.LENGTH_SHORT).show();
@@ -98,7 +98,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 ((MainActivity)getActivity()).menu.findItem(R.id.home).setIcon(R.drawable.home_icon);
                 ((MainActivity)getActivity()).binding.bottomNavigationView.setSelectedItemId(R.id.create);
-                ((MainActivity)getActivity()).title.setText("요청서 작성");
+                //((MainActivity)getActivity()).title.setText("요청서 작성");
 
                 ((MainActivity)getActivity()).replaceFragment(new CreateFragment());
             }

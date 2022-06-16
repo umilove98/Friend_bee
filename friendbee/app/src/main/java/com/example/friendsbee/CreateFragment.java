@@ -135,7 +135,7 @@ public class CreateFragment extends Fragment implements View.OnClickListener, Ra
                 Toast.makeText(getContext(), "등록 성공", Toast.LENGTH_SHORT).show();
                 ((MainActivity)getActivity()).menu.findItem(R.id.home).setIcon(R.drawable.home_icon);
                 ((MainActivity)getActivity()).binding.bottomNavigationView.setSelectedItemId(R.id.recipt);
-                ((MainActivity)getActivity()).title.setText("요청서 작성");
+                //((MainActivity)getActivity()).title.setText("요청서 작성");
                 ((MainActivity)getActivity()).replaceFragment(new ReciptFragment());
 
             }else{

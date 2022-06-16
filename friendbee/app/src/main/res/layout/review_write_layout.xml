@@ -68,7 +68,7 @@
         android:background="#ffffff"
         android:numStars="5"
         android:progressTint="@color/yellow_500"
-        android:rating="1"
+        android:rating="3"
         android:stepSize="1"
 
         />
