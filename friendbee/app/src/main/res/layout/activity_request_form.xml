@@ -52,27 +52,38 @@
         </LinearLayout>
     </LinearLayout>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout_back"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="0dp"
         android:layout_height="80dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+        app:layout_constraintEnd_toEndOf="@+id/constraintLayout_back"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayout_back"
+        app:layout_constraintTop_toTopOf="@+id/constraintLayout_back">
 
-        <ImageView
-            android:id="@+id/imageView9"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/meal_icon" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/recipt_user_image"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ricenoodle" />
 
         <TextView
             android:id="@+id/request_form_nickname"
@@ -81,9 +92,9 @@
             android:layout_marginStart="16dp"
             android:text="juwon"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView9"
-            app:layout_constraintStart_toEndOf="@+id/imageView9"
-            app:layout_constraintTop_toTopOf="@+id/imageView9" />
+            app:layout_constraintBottom_toBottomOf="@+id/recipt_user_image"
+            app:layout_constraintStart_toEndOf="@+id/recipt_user_image"
+            app:layout_constraintTop_toTopOf="@+id/recipt_user_image" />
 
         <TextView
             android:id="@+id/request_form_age"
@@ -103,8 +114,9 @@
         android:layout_height="380dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/request_yellow_back"
+        app:layout_constraintEnd_toEndOf="@+id/constraintLayout_back"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayout_back"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
         <TextView
@@ -231,6 +243,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/request_form_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/request_form_title" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
@@ -245,7 +258,7 @@
         android:textStyle="bold"
         android:textSize="17sp"
         app:layout_constraintEnd_toStartOf="@+id/request_form_apply_btn"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayout_back"
         app:layout_constraintTop_toBottomOf="@+id/request_form" />
 
     <Button
@@ -258,9 +271,10 @@
         android:text="지원하기"
         android:textStyle="bold"
         android:textSize="17sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/constraintLayout_back"
         app:layout_constraintStart_toEndOf="@+id/request_form_chat_btn"
         app:layout_constraintTop_toTopOf="@+id/request_form_chat_btn" />
+</androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
