@@ -260,20 +260,21 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Button
-        android:id="@+id/request_form_chat_btn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/button_style"
-        android:text="1:1 채팅하기"
-        android:textStyle="bold"
-        android:textSize="17sp"
-        app:layout_constraintEnd_toStartOf="@+id/request_form_apply_btn3"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayout_back"
-        app:layout_constraintTop_toBottomOf="@+id/request_form" />
+        <Button
+            android:id="@+id/request_form_chat_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/button_style"
+            android:text="1:1 채팅하기"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/request_form_apply_btn3"
+            app:layout_constraintStart_toStartOf="@+id/constraintLayout_back"
+            app:layout_constraintTop_toBottomOf="@+id/request_form" />
 
         <Button
             android:id="@+id/request_form_apply_btn3"
@@ -283,6 +284,7 @@
             android:layout_marginEnd="16dp"
             android:background="@drawable/button_style"
             android:text="전화하기"
+            android:textColor="@color/black"
             android:textSize="17sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/constraintLayout_back"
