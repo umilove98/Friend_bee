@@ -79,7 +79,7 @@ public class ReciptFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_recipt, container, false);
-        recyclerView = (RecyclerView) view.findViewById(R.id.recipt_fragment_recyclerview);
+        /*recyclerView = (RecyclerView) view.findViewById(R.id.recipt_fragment_recyclerview);
 
         list = ReciptItem.createContactsList(2);
 
@@ -110,7 +110,7 @@ public class ReciptFragment extends Fragment {
         });*/
 
 
-        Log.e("Frag", "MainFragment");
+        //Log.e("Frag", "MainFragment");
         return view;
 
     }
