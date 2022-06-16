@@ -107,6 +107,7 @@
             android:layout_weight="0.3"
             android:background="@drawable/create_border_gender"
             android:text="없음"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -118,6 +119,7 @@
             android:layout_weight="0.3"
             android:background="@drawable/create_border_gender"
             android:text="1 코인"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -129,6 +131,7 @@
             android:layout_weight="0.3"
             android:background="@drawable/create_border_gender"
             android:text="3 코인"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -149,6 +152,7 @@
             android:layout_weight="1"
             android:background="@drawable/create_border_gender"
             android:text="5 코인"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -161,6 +165,7 @@
             android:layout_weight="1"
             android:background="@drawable/create_border_gender"
             android:text="10 코인"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold" />
     </LinearLayout>
@@ -208,6 +213,7 @@
         android:layout_weight="1.85"
         android:background="@drawable/button_style"
         android:text="완료"
+        android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold" />
 

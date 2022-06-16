@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
         menuIcon = findViewById(R.id.menu_icon);
         searchIcon = findViewById(R.id.search_icon);
-        title = findViewById(R.id.toolbar_title);
+        //title = findViewById(R.id.toolbar_title);
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                     menu.findItem(R.id.create).setIcon(R.drawable.create_icon);
                     menu.findItem(R.id.chat).setIcon(R.drawable.chat_icon);
                     menu.findItem(R.id.mypage).setIcon(R.drawable.mypage_icon);
-                    title.setText("홈");
+                    //title.setText("홈");
                     replaceFragment(new HomeFragment());
                     break;
                 case R.id.recipt:
@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
                     menu.findItem(R.id.create).setIcon(R.drawable.create_icon);
                     menu.findItem(R.id.chat).setIcon(R.drawable.chat_icon);
                     menu.findItem(R.id.mypage).setIcon(R.drawable.mypage_icon);
-                    title.setText("이용내역");
+                    //title.setText("이용내역");
                     replaceFragment((new ReciptFragment()));
                     break;
                 case R.id.create:
@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
                     menu.findItem(R.id.recipt).setIcon(R.drawable.recipt_icon);
                     menu.findItem(R.id.chat).setIcon(R.drawable.chat_icon);
                     menu.findItem(R.id.mypage).setIcon(R.drawable.mypage_icon);
-                    title.setText("요청서 작성");
+                    //title.setText("요청서 작성");
                     replaceFragment((new CreateFragment()));
                     break;
                 case R.id.chat:
@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
                     menu.findItem(R.id.recipt).setIcon(R.drawable.recipt_icon);
                     menu.findItem(R.id.create).setIcon(R.drawable.create_icon);
                     menu.findItem(R.id.mypage).setIcon(R.drawable.mypage_icon);
-                    title.setText("채팅");
+                    //title.setText("채팅");
                     replaceFragment((new ChatFragment()));
                     break;
                 case R.id.mypage:
@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
                     menu.findItem(R.id.recipt).setIcon(R.drawable.recipt_icon);
                     menu.findItem(R.id.create).setIcon(R.drawable.create_icon);
                     menu.findItem(R.id.chat).setIcon(R.drawable.chat_icon);
-                    title.setText("마이페이지");
+                    //title.setText("마이페이지");
                     replaceFragment((new MypageFragment()));
                     break;
             }

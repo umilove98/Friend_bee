@@ -60,6 +60,7 @@
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.176" />
         <entry key="app/src/main/res/drawable/back_img.xml" value="0.176" />
         <entry key="app/src/main/res/drawable/background_splashscreen.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/blue_modify_button.xml" value="0.1165" />
         <entry key="app/src/main/res/drawable/f.xml" value="0.176" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/redcircle.xml" value="0.1" />
@@ -71,7 +72,7 @@
         <entry key="app/src/main/res/layout/activity_recipt2.xml" value="0.1804656982421875" />
         <entry key="app/src/main/res/layout/activity_request_form.xml" value="0.2493667602539063" />
         <entry key="app/src/main/res/layout/activity_request_form2.xml" value="0.1828125" />
-        <entry key="app/src/main/res/layout/activity_request_form3.xml" value="0.125445556640625" />
+        <entry key="app/src/main/res/layout/activity_request_form3.xml" value="0.2046356201171875" />
         <entry key="app/src/main/res/layout/activity_request_list.xml" value="0.16337890625" />
         <entry key="app/src/main/res/layout/application_status.xml" value="0.25146484375000006" />
         <entry key="app/src/main/res/layout/background_splash.xml" value="0.12487335359675786" />

@@ -195,7 +195,7 @@
         android:layout_marginStart="8dp"
         android:fontFamily="@font/font_custom"
         android:includeFontPadding="false"
-        android:text="22-03-31"
+        android:text="22-06-17"
         android:textFontWeight="600"
         android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/textView35"
@@ -209,7 +209,7 @@
         android:layout_marginStart="8dp"
         android:fontFamily="@font/font_custom"
         android:includeFontPadding="false"
-        android:text="오후 8:00 ~ 10:00 (2시간)"
+        android:text="오전 2:30 ~ 4:30 (2시간)"
         android:textFontWeight="600"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageButton3"
@@ -236,7 +236,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="4dp"
         android:fontFamily="@font/font_custom"
-        android:text="20"
+        android:text="10"
         android:textColor="@color/black"
         android:textFontWeight="700"
         android:textSize="18sp"
@@ -322,24 +322,25 @@
         app:layout_constraintStart_toStartOf="@+id/home_v_guideline26"
         app:layout_constraintTop_toTopOf="@+id/home_h_guideline13" />
 
-    <ImageButton
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageButton5"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_marginStart="4dp"
         android:layout_marginEnd="4dp"
         android:background="@color/lightGray"
-        android:scaleType="fitCenter"
+        android:scaleType="centerCrop"
+        android:src="@drawable/maxresdefault"
         app:layout_constraintEnd_toStartOf="@+id/home_v_guideline29"
         app:layout_constraintStart_toStartOf="@+id/textView38"
         app:layout_constraintTop_toTopOf="@+id/textView38"
-        app:srcCompat="@drawable/jeno" />
+        app:srcCompat="@drawable/maxresdefault" />
 
     <TextView
         android:id="@+id/textView40"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="엘사"
+        android:text="크롱"
         android:fontFamily="@font/font_custom"
         android:textColor="@color/black"
         android:textFontWeight="600"

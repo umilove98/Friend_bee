@@ -108,10 +108,8 @@ public class CreateFragment extends Fragment implements View.OnClickListener, Ra
         spinnerCategory = view.findViewById(R.id.categorySpinner);
         spinnerHour = view.findViewById(R.id.hourSpinner);
         spinnerMin = view.findViewById(R.id.minSpinner);
-        vDate = view.findViewById(R.id.editDate);
-        vDate.setOnClickListener(this);
-        dateButton = view.findViewById(R.id.date_picker_button);
-        dateButton.setOnClickListener(this);
+
+
         selectedGender = view.findViewById(R.id.gender_radiogroup);
         selectedGender.setOnCheckedChangeListener(this);
 

@@ -141,7 +141,7 @@
                             android:id="@+id/recipt_time"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="22-03-31\n오후 8:00 ~ 10:00 (2시간)"
+                            android:text="22-06-17\n오전 2:30 ~ 4:30 (2시간)"
                             android:textColor="#808080"
                             android:textSize="14sp"
                             android:textStyle="bold" />

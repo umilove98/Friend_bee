@@ -88,8 +88,8 @@ public class MypageFragment extends Fragment {
         text_age = view.findViewById(R.id.textView5);
         img = view.findViewById(R.id.imageView);
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        name = user.getUid();
+       // FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+       // name = user.getUid();
 
 
         text_name.setText("juwon");
