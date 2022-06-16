@@ -50,6 +50,10 @@ public class ChatRoomActivity2 extends Activity {
         //dataList.add(new DataItem("사용자2님 입장했음",null,Code.ViewType.CENTER_CONTENT));
         dataList.add(new DataItem("안녕하세요!!!","크롱",Code.ViewType.LEFT_CONTENT));
         dataList.add(new DataItem("반가워요~","사용자2",Code.ViewType.RIGHT_CONTENT));
+        dataList.add(new DataItem("역 앞에서 만나요 노랑모자에 검은바지에요","크롱",Code.ViewType.LEFT_CONTENT));
+        dataList.add(new DataItem("네 잠시 후 도착합니다","사용자2",Code.ViewType.RIGHT_CONTENT));
+        dataList.add(new DataItem("오늘 정말 감사했어요~","크롱",Code.ViewType.LEFT_CONTENT));
+        dataList.add(new DataItem("네 조심히 들어가세요!","사용자2",Code.ViewType.RIGHT_CONTENT));
 
 
 

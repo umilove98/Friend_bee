@@ -60,7 +60,7 @@
                 android:id="@+id/textv_time"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="2020-03-12 12:30" />
+                android:text="2022-06-17 2:12" />
         </LinearLayout>
     </LinearLayout>
 
