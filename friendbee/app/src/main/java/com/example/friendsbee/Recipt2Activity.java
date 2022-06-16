@@ -25,29 +25,20 @@ import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
 
-public class RequestActivity extends AppCompatActivity {
+public class Recipt2Activity extends AppCompatActivity {
 
     private Button button1, button2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_request_form);
+        setContentView(R.layout.activity_request_form2);
 
         button1 = findViewById(R.id.request_form_chat_btn);
-        button2 = findViewById(R.id.request_form_apply_btn);
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(RequestActivity.this, ChatRoomActivity2.class);
-                startActivity(intent);
-            }
-        });
-
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(RequestActivity.this, Recipt3Activity.class);
+                Intent intent = new Intent(Recipt2Activity.this, ChatRoomActivity2.class);
                 startActivity(intent);
             }
         });

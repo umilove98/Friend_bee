@@ -13,6 +13,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -42,6 +44,7 @@ public class ReciptFragment extends Fragment {
     private ReciptAdapter adapter;
     private FirebaseDatabase mDatabase;
     private DatabaseReference DatabaseRef;
+    private ImageView recipt_user_image;
 
     public ReciptFragment() {
         // Required empty public constructor
@@ -79,6 +82,7 @@ public class ReciptFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_recipt, container, false);
+        recipt_user_image = view.findViewById(R.id.recipt_user_image);
         /*recyclerView = (RecyclerView) view.findViewById(R.id.recipt_fragment_recyclerview);
 
         list = ReciptItem.createContactsList(2);
@@ -109,7 +113,13 @@ public class ReciptFragment extends Fragment {
             }
         });*/
 
-
+        recipt_user_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), RequestActivity.class);
+                startActivity(intent);
+            }
+        });
         //Log.e("Frag", "MainFragment");
         return view;
 
