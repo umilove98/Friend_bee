@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -30,201 +31,239 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/home_h_guideline"
         app:layout_constraintEnd_toStartOf="@+id/home_v_guideline6"
-        app:layout_constraintTop_toTopOf="@+id/home_h_guideline1" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/HomeCoinImg"
+
+    <ImageButton
+        android:id="@+id/homeCoinBtn"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:padding="0dp"
+        android:scaleType="centerCrop"
         android:src="@drawable/coin"
         app:layout_constraintBottom_toBottomOf="@+id/HomeTotalCoin"
         app:layout_constraintEnd_toStartOf="@+id/home_v_guideline5"
         app:layout_constraintStart_toStartOf="@+id/home_v_guideline6"
-        app:layout_constraintTop_toTopOf="@+id/HomeTotalCoin" />
+        app:layout_constraintTop_toTopOf="@+id/HomeTotalCoin"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/homeBtn1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/home_button_border"
-        android:drawableLeft="@drawable/home_button_img_1"
-        android:drawablePadding="15dp"
-        android:padding="15dp"
         android:text="밥먹기"
+        app:icon="@drawable/home_button_img_1"
+        android:textColor="@color/gray_500"
+        android:fontFamily="@font/font_custom"
+        android:textFontWeight="600"
+        app:cornerRadius="15dp"
+        app:iconTint="@color/black"
+        app:iconPadding="15dp"
+        android:padding="15dp"
         android:textSize="20sp"
-        android:textStyle="bold"
+        android:includeFontPadding="false"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
         app:layout_constraintBottom_toTopOf="@+id/home_h_guideline4"
         app:layout_constraintEnd_toStartOf="@+id/home_v_guideline1"
         app:layout_constraintStart_toStartOf="@+id/home_v_guideline2"
-        app:layout_constraintTop_toTopOf="@+id/home_h_guideline3" />
+        app:layout_constraintTop_toTopOf="@+id/home_h_guideline3"
+        />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/homeBtn2"
-        android:layout_width="160dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/home_button_border"
-        android:drawableLeft="@drawable/home_button_img_2"
-        android:drawablePadding="15dp"
-        android:padding="15dp"
         android:text="카페가기"
+        app:icon="@drawable/home_button_img_2"
+        app:cornerRadius="15dp"
+        app:iconTint="@color/black"
+        app:iconPadding="10dp"
+        android:fontFamily="@font/font_custom"
+        android:includeFontPadding="false"
+        android:padding="15dp"
+        android:textColor="@color/gray_500"
+        android:textFontWeight="600"
         android:textSize="20sp"
-        android:textStyle="bold"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
         app:layout_constraintBottom_toTopOf="@+id/home_h_guideline4"
         app:layout_constraintEnd_toStartOf="@+id/home_v_guideline3"
-        app:layout_constraintStart_toStartOf="@+id/home_v_guideline1"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline12"
         app:layout_constraintTop_toTopOf="@+id/home_h_guideline3" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/homeBtn3"
-        android:layout_width="160dp"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/home_button_border"
-        android:drawableLeft="@drawable/home_button_img_3"
-        android:drawablePadding="15dp"
+        android:fontFamily="@font/font_custom"
+        android:includeFontPadding="false"
         android:padding="15dp"
         android:text="산책하기"
+        android:textColor="@color/gray_500"
+        android:textFontWeight="600"
         android:textSize="20sp"
-        android:textStyle="bold"
+        app:cornerRadius="15dp"
+        app:icon="@drawable/home_button_img_3"
+        app:iconPadding="10dp"
+        app:iconTint="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/home_h_guideline5"
         app:layout_constraintEnd_toStartOf="@+id/home_v_guideline1"
         app:layout_constraintStart_toStartOf="@+id/home_v_guideline2"
         app:layout_constraintTop_toTopOf="@+id/home_h_guideline4" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/homeBtn4"
-        android:layout_width="160dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/home_button_border"
-        android:drawableLeft="@drawable/home_button_img_4"
-        android:drawablePadding="15dp"
-        android:padding="15dp"
         android:text="게임하기"
+        app:icon="@drawable/home_button_img_4"
+        app:cornerRadius="15dp"
+        app:iconTint="@color/black"
+        app:iconPadding="10dp"
+        android:fontFamily="@font/font_custom"
+        android:includeFontPadding="false"
+        android:padding="15dp"
+        android:textColor="@color/gray_500"
+        android:textFontWeight="600"
         android:textSize="20sp"
-        android:textStyle="bold"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
         app:layout_constraintBottom_toTopOf="@+id/home_h_guideline5"
         app:layout_constraintEnd_toStartOf="@+id/home_v_guideline3"
-        app:layout_constraintStart_toStartOf="@+id/home_v_guideline1"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline12"
         app:layout_constraintTop_toTopOf="@+id/home_h_guideline4" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/homeBtn5"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/home_button_border"
-        android:drawableLeft="@drawable/home_button_img_5"
-        android:drawablePadding="15dp"
-        android:padding="15dp"
         android:text="운동하기"
+        app:icon="@drawable/home_button_img_5"
+        app:cornerRadius="15dp"
+        app:iconTint="@color/black"
+        app:iconPadding="10dp"
+        android:fontFamily="@font/font_custom"
+        android:includeFontPadding="false"
+        android:padding="15dp"
+        android:textColor="@color/gray_500"
+        android:textFontWeight="600"
         android:textSize="20sp"
-        android:textStyle="bold"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
         app:layout_constraintBottom_toTopOf="@+id/home_h_guideline6"
         app:layout_constraintEnd_toStartOf="@+id/home_v_guideline1"
         app:layout_constraintStart_toStartOf="@+id/home_v_guideline2"
         app:layout_constraintTop_toTopOf="@+id/home_h_guideline5" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/homeBtn6"
-        android:layout_width="160dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/home_button_border"
-        android:drawableLeft="@drawable/home_button_img_6"
-        android:drawablePadding="15dp"
-        android:padding="15dp"
         android:text="공부하기"
+        app:icon="@drawable/home_button_img_6"
+        app:cornerRadius="15dp"
+        app:iconTint="@color/black"
+        app:iconPadding="10dp"
+        android:fontFamily="@font/font_custom"
+        android:includeFontPadding="false"
+        android:padding="15dp"
+        android:textColor="@color/gray_500"
+        android:textFontWeight="600"
         android:textSize="20sp"
-        android:textStyle="bold"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
         app:layout_constraintBottom_toTopOf="@+id/home_h_guideline6"
         app:layout_constraintEnd_toStartOf="@+id/home_v_guideline3"
-        app:layout_constraintStart_toStartOf="@+id/home_v_guideline1"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline12"
         app:layout_constraintTop_toTopOf="@+id/home_h_guideline5" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/homeBtn7"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/home_button_border"
-        android:drawableLeft="@drawable/home_button_img_7"
-        android:drawablePadding="15dp"
-        android:padding="15dp"
         android:text="노래방가기"
-        android:textSize="18sp"
-        android:textStyle="bold"
+        app:icon="@drawable/home_button_img_7"
+        app:cornerRadius="15dp"
+        app:iconTint="@color/black"
+        app:iconPadding="0dp"
+        android:fontFamily="@font/font_custom"
+        android:includeFontPadding="false"
+        android:padding="15dp"
+        android:textColor="@color/gray_500"
+        android:textFontWeight="600"
+        android:textSize="20sp"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
         app:layout_constraintBottom_toTopOf="@+id/home_h_guideline2"
         app:layout_constraintEnd_toStartOf="@+id/home_v_guideline1"
         app:layout_constraintStart_toStartOf="@+id/home_v_guideline2"
         app:layout_constraintTop_toTopOf="@+id/home_h_guideline6" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/homeBtn8"
-        android:layout_width="160dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/home_button_border"
-        android:drawableLeft="@drawable/home_button_img_8"
-        android:drawablePadding="15dp"
-        android:padding="15dp"
         android:text="대화하기"
+        app:icon="@drawable/home_button_img_8"
+        app:cornerRadius="15dp"
+        app:iconTint="@color/black"
+        app:iconPadding="10dp"
+        android:fontFamily="@font/font_custom"
+        android:includeFontPadding="false"
+        android:padding="15dp"
+        android:textColor="@color/gray_500"
+        android:textFontWeight="600"
         android:textSize="20sp"
-        android:textStyle="bold"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
         app:layout_constraintBottom_toTopOf="@+id/home_h_guideline2"
         app:layout_constraintEnd_toStartOf="@+id/home_v_guideline3"
-        app:layout_constraintStart_toStartOf="@+id/home_v_guideline1"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline12"
         app:layout_constraintTop_toTopOf="@+id/home_h_guideline6" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/home_h_guideline1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.06" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/home_h_guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.12" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/home_h_guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.90" />
+        app:layout_constraintGuide_percent="0.08" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/home_h_guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.3" />
+        app:layout_constraintGuide_percent="0.25" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/home_h_guideline4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.45" />
+        app:layout_constraintGuide_percent="0.425" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/home_h_guideline5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.6" />
+        app:layout_constraintGuide_percent="0.60" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/home_h_guideline6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.75" />
+        app:layout_constraintGuide_percent="0.775" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/home_h_guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.94" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/home_v_guideline1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintGuide_percent="0.48" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/home_v_guideline2"
@@ -267,6 +306,13 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.85" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/home_v_guideline12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.52" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

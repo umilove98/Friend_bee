@@ -1,103 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/login_button"
-        android:layout_width="204dp"
-        android:layout_height="39dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginBottom="64dp"
-        android:background="@drawable/button_style"
-        android:text="로그인 하기"
-        app:layout_constraintBottom_toTopOf="@+id/join_button"
-        app:layout_constraintEnd_toEndOf="@+id/login_password"
-        app:layout_constraintHorizontal_bias="0.88"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/login_email"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnVer"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:ems="10"
-        android:hint="전화번호 입력"
-        android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/login_password"
-        app:layout_constraintEnd_toStartOf="@+id/button"
-        app:layout_constraintHorizontal_bias="0.597"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/login_password"
-        android:layout_width="335dp"
-        android:layout_height="53dp"
-        android:layout_marginBottom="40dp"
-        android:ems="10"
-        android:hint="인증번호 입력"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/login_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/login_email" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:layout_marginBottom="41dp"
-        app:layout_constraintBottom_toTopOf="@+id/login_email"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/logo" />
-
+        android:layout_marginTop="16dp"
+        android:background="@drawable/button_style"
+        android:fontFamily="@font/font_custom"
+        android:includeFontPadding="false"
+        android:text="인증 번호 전송"
+        android:textColor="@color/black"
+        android:textFontWeight="500"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline14"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline13"
+        app:layout_constraintTop_toBottomOf="@+id/outlinedTextFieldBirth" />
 
     <Button
-        android:id="@+id/join_button"
-        android:layout_width="199dp"
-        android:layout_height="36dp"
-        android:layout_marginBottom="136dp"
+        android:id="@+id/btnLogIn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:background="@drawable/button_style"
+        android:fontFamily="@font/font_custom"
+        android:includeFontPadding="false"
+        android:text="로그인"
+        android:textColor="@color/black"
+        android:textFontWeight="500"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline14"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline13"
+        app:layout_constraintTop_toBottomOf="@+id/outlinedTextField2" />
+
+    <TextView
+        android:id="@+id/textViewSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="회원가입"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline14"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline13"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogIn" />
 
-    <Button
-        android:id="@+id/button"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/home_v_guideline13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="40dp"
-        android:text="인증번호 입력"
-        android:background="@drawable/button_style"
-        app:layout_constraintBottom_toTopOf="@+id/login_password"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.07" />
 
-    <TextView
-        android:id="@+id/textView34"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/home_v_guideline14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginBottom="8dp"
-        android:text="전화번호 입력"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/login_email"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.93" />
 
-    <TextView
-        android:id="@+id/textView35"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginBottom="8dp"
-        android:textStyle="bold"
-        android:text="인증번호 입력"
-        app:layout_constraintBottom_toTopOf="@+id/login_password"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/outlinedTextFieldBirth"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="전화 번호를 입력하세요."
+        android:textColorHint="@color/gray_700"
+        app:hintTextColor="@color/gray_700"
+        app:boxStrokeColor="@color/gray_700"
+        app:layout_constraintTop_toTopOf="@+id/guideline3"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline14"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline13"
+        android:layout_marginTop="8dp"
+        app:endIconMode="clear_text"
+        app:startIconDrawable="@drawable/android_dialer_fill1_wght400_opsz24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/registerBirth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/font_custom"
+            android:includeFontPadding="false"
+            android:inputType="phone"
+            android:textFontWeight="400"
+            android:textSize="17sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/outlinedTextField2"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="인증 번호를 입력하세요."
+        app:boxStrokeColor="@color/gray_700"
+        app:hintTextColor="@color/gray_700"
+        android:textColorHint="@color/gray_700"
+        app:layout_constraintEnd_toStartOf="@+id/home_v_guideline14"
+        app:layout_constraintStart_toStartOf="@+id/home_v_guideline13"
+        app:layout_constraintTop_toBottomOf="@+id/guideline2"
+        android:layout_marginTop="8dp"
+        app:startIconDrawable="@drawable/vpn_key_fill1_wght400_opsz24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/loginPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/font_custom"
+            android:includeFontPadding="false"
+            android:textFontWeight="400"
+            android:textSize="17sp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
