@@ -1,5 +1,8 @@
 package com.example.friendsbee;
 
+import static java.lang.Integer.parseInt;
+
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +29,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.net.URI;
 import java.util.ArrayList;
 
 /**
@@ -46,6 +51,7 @@ public class MypageFragment extends Fragment {
     private DatabaseReference DatabaseRef;
     private TextView text_name, text_age;
     private String name;
+    private ImageView img;
 
     public MypageFragment() {
         // Required empty public constructor
@@ -79,6 +85,7 @@ public class MypageFragment extends Fragment {
         ViewGroup view = (ViewGroup) inflater.inflate(R.layout.fragment_mypage, container, false);
         text_name = view.findViewById(R.id.textView4);
         text_age = view.findViewById(R.id.textView5);
+        img = view.findViewById(R.id.imageView);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         name = user.getUid();
@@ -101,7 +108,8 @@ public class MypageFragment extends Fragment {
                     text_name.setText(myprofile.getName());
                     String birth = myprofile.getBirth_number();
                     String temp = birth.substring(0, 2);
-                    int ii = Integer.parseInt(temp);
+                    String st = myprofile.getProfileImageUrl();
+                    int ii = parseInt(temp);
                     ii -= 75;
 
                     text_age.setText(ii + "세 남");

@@ -1,10 +1,14 @@
 package com.example.friendsbee;
 
+import android.media.Image;
+import android.widget.ImageView;
+
 import java.util.ArrayList;
 
 public class WordItem {
     public String word;
     public String meaning;
+    public String profileImageUrl; // 사용자 프로필사진
 
     // 화면에 표시될 문자열 초기화
     public WordItem(String word, String meaning) {
@@ -12,13 +16,12 @@ public class WordItem {
         this.meaning = meaning;
     }
 
+
     // 입력받은 숫자의 리스트생성
     public static ArrayList<WordItem> createContactsList(int numContacts) {
         ArrayList<WordItem> contacts = new ArrayList<WordItem>();
+        contacts.add(new WordItem("크롱", "반가워요~"));
 
-        for (int i = 1; i <= numContacts; i++) {
-            contacts.add(new WordItem("Person ", "wohahahaha"));
-        }
 
         return contacts;
     }

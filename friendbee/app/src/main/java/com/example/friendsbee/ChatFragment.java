@@ -74,7 +74,7 @@ public class ChatFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_chat, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.chatfragment_recyclerview);
 
-        list = WordItem.createContactsList(5);
+        list = WordItem.createContactsList(2);
         recyclerView.setHasFixedSize(true);
         adapter = new ChatAdapter(getActivity(), list);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
