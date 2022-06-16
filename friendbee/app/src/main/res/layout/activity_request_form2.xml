@@ -78,6 +78,7 @@
             android:id="@+id/recipt_user_image"
             android:layout_width="70dp"
             android:layout_height="70dp"
+            android:layout_marginBottom="10dp"
             android:scaleType="centerCrop"
             android:src="@drawable/ricenoodle"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -243,6 +244,20 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/request_form_title" />
 
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:textStyle="bold"
+            android:textColor="#3AB7FC"
+            android:textSize="18sp"
+            android:text="진행중"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/request_form_area2" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
@@ -260,19 +275,19 @@
         app:layout_constraintStart_toStartOf="@+id/constraintLayout_back"
         app:layout_constraintTop_toBottomOf="@+id/request_form" />
 
-    <Button
-        android:id="@+id/request_form_apply_btn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/button_style"
-        android:text="지원하기"
-        android:textStyle="bold"
-        android:textSize="17sp"
-        app:layout_constraintEnd_toEndOf="@+id/constraintLayout_back"
-        app:layout_constraintStart_toEndOf="@+id/request_form_chat_btn"
-        app:layout_constraintTop_toTopOf="@+id/request_form_chat_btn" />
+        <Button
+            android:id="@+id/request_form_apply_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/button_style"
+            android:text="완료"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/constraintLayout_back"
+            app:layout_constraintStart_toEndOf="@+id/request_form_chat_btn"
+            app:layout_constraintTop_toTopOf="@+id/request_form_chat_btn" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
