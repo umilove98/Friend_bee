@@ -83,17 +83,20 @@ public class MypageFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         ViewGroup view = (ViewGroup) inflater.inflate(R.layout.fragment_mypage, container, false);
+
         text_name = view.findViewById(R.id.textView4);
         text_age = view.findViewById(R.id.textView5);
         img = view.findViewById(R.id.imageView);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         name = user.getUid();
-        //textView.setText(name);
 
-        mDatabase = FirebaseDatabase.getInstance();
+
+        text_name.setText("juwon");
+        text_age.setText("24세 남");
+
+       /* mDatabase = FirebaseDatabase.getInstance();
         DatabaseRef = mDatabase.getReference();
-
 
         DatabaseRef.child("profile").child(name).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
@@ -115,7 +118,8 @@ public class MypageFragment extends Fragment {
                     text_age.setText(ii + "세 남");
                 }
             }
-        });
+        });*/
+
 
 
         return view;

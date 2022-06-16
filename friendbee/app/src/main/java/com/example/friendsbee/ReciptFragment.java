@@ -116,7 +116,7 @@ public class ReciptFragment extends Fragment {
         recipt_user_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), RequestActivity.class);
+                Intent intent = new Intent(getContext(), ApplicationStatus.class);
                 startActivity(intent);
             }
         });

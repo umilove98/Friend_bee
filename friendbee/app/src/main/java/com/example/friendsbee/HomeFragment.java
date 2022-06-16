@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,7 +36,7 @@ public class HomeFragment extends Fragment {
 
     private Button Eating, cafe, walking, game, exer, study, sing, talk;
     private Spinner spinnerCategory;
-    private TextView HomeBanner;
+    private ImageView HomeBanner;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -88,7 +89,6 @@ public class HomeFragment extends Fragment {
                 //Toast.makeText(getContext(),str,Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getContext(),request_list.class);
                 startActivity(intent);
-
             }
         });
 

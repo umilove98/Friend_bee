@@ -73,11 +73,12 @@
         <entry key="app/src/main/res/layout/activity_request_form2.xml" value="0.1828125" />
         <entry key="app/src/main/res/layout/activity_request_form3.xml" value="0.125445556640625" />
         <entry key="app/src/main/res/layout/activity_request_list.xml" value="0.16337890625" />
+        <entry key="app/src/main/res/layout/application_status.xml" value="0.25146484375000006" />
         <entry key="app/src/main/res/layout/background_splash.xml" value="0.12487335359675786" />
         <entry key="app/src/main/res/layout/chating.xml" value="0.2682291666666667" />
         <entry key="app/src/main/res/layout/fragment_chat.xml" value="0.18982630272952852" />
         <entry key="app/src/main/res/layout/fragment_create.xml" value="0.29257246376811596" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.29257246376811596" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.14098815917968754" />
         <entry key="app/src/main/res/layout/fragment_home_detail_menu.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_mypage.xml" value="0.2361111111111111" />
         <entry key="app/src/main/res/layout/fragment_recipt.xml" value="0.24548736462093862" />
@@ -85,10 +86,15 @@
         <entry key="app/src/main/res/layout/item_messagebox.xml" value="0.13297872340425532" />
         <entry key="app/src/main/res/layout/item_recipt.xml" value="0.18020833333333333" />
         <entry key="app/src/main/res/layout/login_layout.xml" value="0.13044579533941236" />
+        <entry key="app/src/main/res/layout/register_fifth.xml" value="0.16869300911854104" />
+        <entry key="app/src/main/res/layout/register_first.xml" value="0.16869300911854104" />
+        <entry key="app/src/main/res/layout/register_fourth.xml" value="0.16869300911854104" />
         <entry key="app/src/main/res/layout/register_layout.xml" value="0.13044579533941236" />
-        <entry key="app/src/main/res/layout/review_my.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/review_my_write.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/review_write_layout.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/register_second.xml" value="0.16869300911854104" />
+        <entry key="app/src/main/res/layout/register_third.xml" value="0.16869300911854104" />
+        <entry key="app/src/main/res/layout/review_my.xml" value="0.4161392211914063" />
+        <entry key="app/src/main/res/layout/review_my_write.xml" value="0.32071838378906264" />
+        <entry key="app/src/main/res/layout/review_write_layout.xml" value="0.3372177124023438" />
         <entry key="app/src/main/res/layout/room2.xml" value="0.1" />
         <entry key="app/src/main/res/layout/room_center_item_list.xml" value="0.1" />
         <entry key="app/src/main/res/layout/room_left_item_list.xml" value="0.22954406738281252" />

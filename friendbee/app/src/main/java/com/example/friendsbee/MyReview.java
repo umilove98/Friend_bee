@@ -27,12 +27,20 @@ import java.util.concurrent.TimeUnit;
 
 public class MyReview extends AppCompatActivity {
 
-    private Button button1, button2;
+    private Button button1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.review_my);
 
+        button1 = findViewById(R.id.button6);
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                startActivity(intent);
+            }
+        });
 
 
     }

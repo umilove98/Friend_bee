@@ -1,27 +1,30 @@
 package com.example.friendsbee;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class ApplicationStatus extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
 
-    private Button button;
+public class Recipt22Activity extends AppCompatActivity {
+
+    private Button button1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.application_status);
-        button = findViewById(R.id.button5);
+        setContentView(R.layout.activity_recipt2);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        button1 = findViewById(R.id.go_to_review);
+        button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ApplicationStatus.this, Recipt2Activity.class);
+                Intent intent = new Intent(Recipt22Activity.this,ReviewWrite.class);
                 startActivity(intent);
             }
         });
+
+
     }
+
 }

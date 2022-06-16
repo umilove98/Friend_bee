@@ -3,6 +3,7 @@ package com.example.friendsbee;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -134,6 +135,10 @@ public class CreateFragment extends Fragment implements View.OnClickListener, Ra
                 RequestInfo requestInfo = new RequestInfo(title, place, contents, date, price, category, hour, min); // requestInfo 클래스에 지정해둔 데이터 저장 형태에 맞춰 생성
                 mDatabase.child("requests").push().setValue(requestInfo);   // request 테이블에 생성한 요청서를 등록
                 Toast.makeText(getContext(), "등록 성공", Toast.LENGTH_SHORT).show();
+                ((MainActivity)getActivity()).menu.findItem(R.id.home).setIcon(R.drawable.home_icon);
+                ((MainActivity)getActivity()).binding.bottomNavigationView.setSelectedItemId(R.id.recipt);
+                ((MainActivity)getActivity()).title.setText("요청서 작성");
+                ((MainActivity)getActivity()).replaceFragment(new ReciptFragment());
 
             }else{
                 Toast.makeText(getContext(), "다시 입력해 주세요", Toast.LENGTH_SHORT).show();

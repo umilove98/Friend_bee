@@ -34,11 +34,20 @@ public class Recipt2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_request_form2);
 
         button1 = findViewById(R.id.request_form_chat_btn);
+        button2 = findViewById(R.id.request_form_apply_btn);
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Recipt2Activity.this, ChatRoomActivity2.class);
+                startActivity(intent);
+            }
+        });
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Recipt2Activity.this, Recipt22Activity.class);
                 startActivity(intent);
             }
         });

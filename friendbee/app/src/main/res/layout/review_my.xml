@@ -36,7 +36,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="0dp"
         android:background="@color/white"
-        android:text="나의 리뷰"
+        android:text="나의 리뷰    "
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageButton3"
         app:layout_constraintTop_toTopOf="parent"
@@ -49,7 +49,7 @@
         android:id="@+id/button4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:backgroundTint="@color/white"
         android:text="내가 작성한 리뷰"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toStartOf="@+id/button5"
@@ -64,7 +64,7 @@
         android:id="@+id/button5"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:backgroundTint="@color/white"
         android:text="내가 받은 리뷰"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -176,13 +176,14 @@
         app:layout_constraintBottom_toBottomOf="@+id/textView18"
         app:layout_constraintStart_toStartOf="@+id/guideline3" />
 
-    <Button
+    <TextView
         android:id="@+id/reportbutton"
         android:layout_width="45dp"
         android:layout_height="30dp"
         android:layout_marginBottom="4dp"
         android:background="@color/white"
         android:text="신고"
+        android:gravity="center"
         android:textColor="@color/red"
         android:textSize="17sp"
         android:textStyle="bold"
@@ -193,9 +194,9 @@
         android:id="@+id/imageView11"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        android:layout_marginBottom="5dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView18"
+        app:layout_constraintBottom_toBottomOf="@+id/reportbutton"
         app:layout_constraintEnd_toStartOf="@+id/reportbutton"
+        app:layout_constraintTop_toTopOf="@+id/reportbutton"
         app:srcCompat="@drawable/siren" />
 
     <Button
@@ -317,8 +318,9 @@
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginBottom="5dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView38"
+        app:layout_constraintBottom_toBottomOf="@+id/textView43"
         app:layout_constraintEnd_toStartOf="@+id/textView43"
+        app:layout_constraintTop_toTopOf="@+id/textView43"
         app:srcCompat="@drawable/siren" />
 
     <TextView
