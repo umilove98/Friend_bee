@@ -81,7 +81,7 @@ public class ReciptFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_recipt, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.recipt_fragment_recyclerview);
 
-        list = ReciptItem.createContactsList(5);
+        list = ReciptItem.createContactsList(2);
 
         recyclerView.setHasFixedSize(true);
         adapter = new ReciptAdapter(getActivity(), list);

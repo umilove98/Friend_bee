@@ -99,7 +99,12 @@ public class MypageFragment extends Fragment {
 
                     Myprofile myprofile = task.getResult().getValue(Myprofile.class);
                     text_name.setText(myprofile.getName());
-                    text_age.setText("24세 남");
+                    String birth = myprofile.getBirth_number();
+                    String temp = birth.substring(0, 2);
+                    int ii = Integer.parseInt(temp);
+                    ii -= 75;
+
+                    text_age.setText(ii + "세 남");
                 }
             }
         });

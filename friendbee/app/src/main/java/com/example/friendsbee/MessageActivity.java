@@ -85,49 +85,7 @@ public class MessageActivity extends AppCompatActivity {
         checkChatRoom();
     }
 
-    //푸시알람...구현x
-    /*
-    private void sendGcm()
-    {
-        final Gson gson = new Gson();
-        final NotificationModel notificationModel = new NotificationModel();
-        firebaseDatabase.getReference().child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot dataSnapshot : snapshot.getChildren())
-                {
-                    String name = dataSnapshot.child("name").getValue().toString();
-                    notificationModel.notification.title = name;
-                    notificationModel.to = destUser.pushToken;
-                    notificationModel.notification.text = editText.getText().toString();
-                    notificationModel.data.title = name;
-                    notificationModel.data.text = editText.getText().toString();
-                }
-                //서버에 알림 데이터를 json 형태로
-                RequestBody requestBody = RequestBody.create(MediaType.parse("application/json; charset=utf8"),gson.toJson(notificationModel));
-                Request request = new Request.Builder()
-                        .header("Context-Type","application/json")
-                        .addHeader("Authorization", "서버키")
-                        .url("서버 url")
-                        .post(requestBody)
-                        .build();
-                OkHttpClient okHttpClient = new OkHttpClient();
-                okHttpClient.newCall(request).enqueue(new Callback() {
-                    @Override
-                    public void onFailure(@NotNull Call call, @NotNull IOException e) {
-                    }
-                    @Override
-                    public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
-                    }
-                });
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });
-        //서버에 토큰을 db에 저장하고, 저장한 토큰을 가지고 서버에서 FirebaseMessagingService 에 메시지를 보낸다.
-    }
-*/
+
     private void sendMsg()
     {
         button.setOnClickListener(new View.OnClickListener() {
@@ -268,7 +226,7 @@ public class MessageActivity extends AppCompatActivity {
             {
                 //나의 말풍선 오른쪽으로
                 viewHolder.textViewMsg.setText(comments.get(position).message);
-                viewHolder.textViewMsg.setBackgroundResource(R.drawable.blackstar_icon);
+                //viewHolder.textViewMsg.setBackgroundResource(R.drawable.blackstar_icon);
                 viewHolder.linearLayoutDest.setVisibility(View.INVISIBLE);        //상대방 레이아웃
                 viewHolder.linearLayoutRoot.setGravity(Gravity.RIGHT);
                 viewHolder.linearLayoutTime.setGravity(Gravity.RIGHT);
@@ -280,7 +238,7 @@ public class MessageActivity extends AppCompatActivity {
                         .into(holder.imageViewProfile);
                 viewHolder.textViewName.setText(destUser.name);
                 viewHolder.linearLayoutDest.setVisibility(View.VISIBLE);
-                viewHolder.textViewMsg.setBackgroundResource(R.drawable.blackstar_icon);
+                //viewHolder.textViewMsg.setBackgroundResource(R.drawable.blackstar_icon);
                 viewHolder.textViewMsg.setText(comments.get(position).message);
                 viewHolder.linearLayoutRoot.setGravity(Gravity.LEFT);
                 viewHolder.linearLayoutTime.setGravity(Gravity.LEFT);
