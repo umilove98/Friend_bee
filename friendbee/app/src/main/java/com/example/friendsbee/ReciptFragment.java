@@ -1,15 +1,24 @@
 package com.example.friendsbee;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -31,6 +40,8 @@ public class ReciptFragment extends Fragment {
     private RecyclerView recyclerView;
     private ArrayList<ReciptItem> list = new ArrayList<ReciptItem>();
     private ReciptAdapter adapter;
+    private FirebaseDatabase mDatabase;
+    private DatabaseReference DatabaseRef;
 
     public ReciptFragment() {
         // Required empty public constructor
@@ -70,13 +81,37 @@ public class ReciptFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_recipt, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.recipt_fragment_recyclerview);
 
-        list = ReciptItem.createContactsList(5);
+        list = ReciptItem.createContactsList(2);
+
         recyclerView.setHasFixedSize(true);
         adapter = new ReciptAdapter(getActivity(), list);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
 
+        mDatabase = FirebaseDatabase.getInstance();
+        DatabaseRef = mDatabase.getReference();
+
+        //값을 받아서 보음
+        /*DatabaseRef.child("requests").child("-N2Un7maER8gbqY9Hq4P").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (!task.isSuccessful()) {
+                    Log.e("firebase", "Error getting data", task.getException());
+                }
+                else {
+                    Log.d("firebase", String.valueOf(task.getResult().getValue()));
+
+                    ReciptItem reciptItem = task.getResult().getValue(ReciptItem.class);
+                    //reciptItem.gethour();
+                    Intent intent = new Intent();
+
+                }
+            }
+        });*/
+
+
         Log.e("Frag", "MainFragment");
         return view;
+
     }
 }

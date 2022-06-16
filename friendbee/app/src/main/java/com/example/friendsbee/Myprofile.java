@@ -1,13 +1,16 @@
 package com.example.friendsbee;
 
 public class Myprofile {
-    private String name;
-    private String nick_name;
-    private String phone_number;
-    private String birth_number;
-    public String profileImageUrl; // 사용자 프로필사진
-    public String uid; // 현재 사용자(로그인한)
+    private String name = "";
+    private String nick_name = "";
+    private String phone_number = "";
+    private String birth_number = "";
+    public String profileImageUrl = ""; // 사용자 프로필사진
+    public String uid = ""; // 현재 사용자(로그인한)
 
+    public Myprofile(){
+
+    }
 
     public Myprofile(String name, String nick_name, String phone_number, String birth_number,String profileImageUrl, String uid){
         this.name = name;
@@ -36,4 +39,5 @@ public class Myprofile {
     public String getUid() {return this.uid;}
     public void setUid() {this.uid = uid;}
 }
+
 

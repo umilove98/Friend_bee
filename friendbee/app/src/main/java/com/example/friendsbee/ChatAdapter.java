@@ -37,6 +37,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.Holder> {
     public Holder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_chat, parent, false);
         Holder holder = new Holder(view);
+
         return holder;
     }
 
@@ -78,13 +79,16 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.Holder> {
                         // 아무것도 없으면
                         //어댑터에 직접 리스너 인터페이스를 정의하고 액티비티 or 프래그먼트에서 해당 리스너 객체를 생성하고 어댑터에 전달해 호출되게 하는 것이다.
                     }
-
                     if (pos == 1){
                         Toast.makeText(context, "1", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(context, ChatRoomActivity2.class);
+                        context.startActivity(intent);
                     }
                     else
                         Toast.makeText(context, "클릭이벤트", Toast.LENGTH_SHORT).show();
                 }
+
+
             });
 
         }

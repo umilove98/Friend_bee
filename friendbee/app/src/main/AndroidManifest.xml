@@ -10,7 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Friendsbee">
         <activity
+            android:name=".request_list"
+            android:exported="false" />
+        <activity
             android:name=".FragmentHomeDetailMenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChatRoomActivity2"
+            android:exported="false" />
+        <activity
+            android:name=".RequestActivity"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
