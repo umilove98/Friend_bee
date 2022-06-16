@@ -6,15 +6,14 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,11 +27,11 @@ import java.util.concurrent.TimeUnit;
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener firebaseAuthListener;
-    private EditText editTextEmail;
-    private EditText editTextPassword;
-    private Button buttonLogIn;
-    private Button buttonSignUp;
-    private Button ver_btn;
+    private EditText editTextPhoneNum;  // 전화번호 입력 텍스트필드
+    private EditText editTextPassword;  // 인증번호 입력 텍스트필드
+    private Button buttonVer;     // 인증받기 버튼
+    private Button buttonLogIn;     // 로그인 버튼
+    private TextView textSignUp;    // 회원가입 텍스트
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
     private String s1;
 
@@ -43,8 +42,8 @@ public class LoginActivity extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
 
-        editTextEmail = (EditText) findViewById(R.id.login_email);
-        editTextPassword = (EditText) findViewById(R.id.login_password);
+        editTextPhoneNum = (EditText) findViewById(R.id.registerBirth);
+        editTextPassword = (EditText) findViewById(R.id.loginPassword);
 
         mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             @Override
@@ -66,9 +65,8 @@ public class LoginActivity extends AppCompatActivity {
         };
 
 
-
-        buttonSignUp = (Button) findViewById(R.id.join_button);
-        buttonSignUp.setOnClickListener(new View.OnClickListener() {
+        textSignUp = (TextView) findViewById(R.id.textViewSignUp);
+        textSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // SignUpActivity 연결
@@ -77,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        buttonLogIn = (Button) findViewById(R.id.login_button);
+        buttonLogIn = (Button) findViewById(R.id.btnLogIn);
         buttonLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,11 +90,11 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        ver_btn = (Button) findViewById(R.id.button);
-        ver_btn.setOnClickListener(new View.OnClickListener() {
+        buttonVer = (Button) findViewById(R.id.btnVer);
+        buttonVer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String Phone_Number = editTextEmail.getText().toString();
+                String Phone_Number = editTextPhoneNum.getText().toString();
                 if(TextUtils.isEmpty(Phone_Number)){
                     Toast.makeText(LoginActivity.this,"enter phone number",Toast.LENGTH_SHORT).show();
                 }

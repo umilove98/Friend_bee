@@ -46,15 +46,15 @@ import java.util.concurrent.TimeUnit;
 
 public class RegisterActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
-    private EditText editTextPhoneNumber;
-    private EditText editTextVer;
-    private Button nick_button;
-    private Button regist_button;
-    private Button ver_button;
-    private ImageView img_button;
-    private EditText editTextName;
-    private EditText editTextNick_Name;
-    private EditText editTextBirth_Number;
+    private EditText editTextPhoneNumber;   // 전화번호 입력 필드
+    private EditText editTextVer;   // 인증번호 입력 필드
+    private Button nick_button; // 닉네임 중복 확인 버튼
+    private Button regist_button;   // 회원가입 하기 버튼
+    private Button ver_button;  // 전화번호 인증하기 버튼
+    private ImageView img_button;   // 프로필 사진 등록 +버튼
+    private EditText editTextName;  // 이름 입력 필드
+    private EditText editTextNick_Name; //닉네임 입력 필드
+    private EditText editTextBirth_Number;  // 주민등록번호 입력 필드
     private Uri imageUri;
     private String pathUri;
     private String uid;
@@ -249,6 +249,7 @@ public class RegisterActivity extends AppCompatActivity {
                         startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                     }
                 })
+
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
