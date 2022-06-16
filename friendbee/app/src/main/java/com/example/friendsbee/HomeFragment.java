@@ -1,6 +1,8 @@
 package com.example.friendsbee;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -32,6 +35,7 @@ public class HomeFragment extends Fragment {
 
     private Button Eating, cafe, walking, game, exer, study, sing, talk;
     private Spinner spinnerCategory;
+    private TextView HomeBanner;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -164,6 +168,16 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        HomeBanner = view.findViewById(R.id.HomeBanner);
+        HomeBanner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent;
+                String url = "http://www.naver.com";
+                intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(intent);
+            }
+        });
 
 
 
