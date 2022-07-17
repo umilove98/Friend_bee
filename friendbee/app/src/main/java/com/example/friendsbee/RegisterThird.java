@@ -14,6 +14,7 @@ public class RegisterThird extends AppCompatActivity implements View.OnClickList
     EditText registerBirth, registerBirth2;
     ImageButton backBtn3;
     Button nextBtn3;
+    String name, nickname, birth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,16 +29,24 @@ public class RegisterThird extends AppCompatActivity implements View.OnClickList
 
         nextBtn3 = (Button) findViewById(R.id.nextBtn3);
         nextBtn3.setOnClickListener(this);
+
+        Intent intent = getIntent();
+        name = intent.getStringExtra("name");
+        nickname = intent.getStringExtra("nickname");
     }
 
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.backBtn3) {
-            Intent intent01 = new Intent(RegisterThird.this, LoginActivity.class);
+            Intent intent01 = new Intent(RegisterThird.this, RegisterSecond.class);
             startActivity(intent01);
         }
         if (view.getId() == R.id.nextBtn3) {
             Intent intent02 = new Intent(RegisterThird.this, RegisterFourth.class);
+            birth = registerBirth.getText().toString() + registerBirth2.getText().toString();
+            intent02.putExtra("name", name);
+            intent02.putExtra("nickname", nickname);
+            intent02.putExtra("birth", birth);
             startActivity(intent02);
         }
     }

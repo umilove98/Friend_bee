@@ -14,6 +14,7 @@ public class RegisterFirst extends AppCompatActivity implements View.OnClickList
     EditText registerName;
     ImageButton backBtn1;
     Button nextBtn1;
+    String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,8 @@ public class RegisterFirst extends AppCompatActivity implements View.OnClickList
         }
         if (view.getId() == R.id.nextBtn1) {
             Intent intent02 = new Intent(RegisterFirst.this, RegisterSecond.class);
+            name = registerName.getText().toString();
+            intent02.putExtra("name", name);
             startActivity(intent02);
         }
     }

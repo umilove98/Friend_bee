@@ -54,6 +54,21 @@
             android:name=".MainActivity"
             android:exported="true" />
         <activity
+            android:name=".RegisterSecond"
+            android:exported="true" />
+        <activity
+            android:name=".RegisterThird"
+            android:exported="true" />
+        <activity
+            android:name=".RegisterFourth"
+            android:exported="true" />
+        <activity
+            android:name=".RegisterFifth"
+            android:exported="true" />
+        <activity
+            android:name=".RegisterFirst"
+            android:exported="true" />
+        <activity
             android:name=".SplashScreen"
             android:exported="true"
             android:theme="@style/SplashScreen">
