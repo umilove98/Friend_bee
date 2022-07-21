@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
@@ -151,7 +152,7 @@ public class RegisterFourth extends AppCompatActivity implements View.OnClickLis
 
         nextBtn4.setEnabled(true);
         nextBtn4.setClickable(true);
-        nextBtn4.setBackgroundColor(R.drawable.button_style);
+        nextBtn4.setBackgroundColor(Color.YELLOW);
 
         pd.dismiss();
 

@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class RegisterFifth extends AppCompatActivity implements View.OnClickListener {
 
@@ -69,6 +70,7 @@ public class RegisterFifth extends AppCompatActivity implements View.OnClickList
         if (view.getId() == R.id.finishBtn) {
             Intent intent02 = new Intent(RegisterFifth.this, LoginActivity.class);
             startActivity(intent02);
+            Toast.makeText(RegisterFifth.this,"회원가입 성공", Toast.LENGTH_SHORT).show();
         }
     }
 
