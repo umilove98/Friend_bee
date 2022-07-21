@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
@@ -62,8 +63,9 @@ public class RegisterFourth extends AppCompatActivity implements View.OnClickLis
         registerPassNum = (EditText) findViewById(R.id.registerPassNum);
 
         registerPassText = (TextView) findViewById(R.id.registerPassText);
-        registerPassText.setOnClickListener(this)
-        ;
+        registerPassText.setOnClickListener(this);
+        editTextVer = findViewById(R.id.registerPassNum);
+
         backBtn4 = (ImageButton) findViewById(R.id.backBtn4);
         backBtn4.setOnClickListener(this);
 
@@ -76,6 +78,13 @@ public class RegisterFourth extends AppCompatActivity implements View.OnClickLis
         mStorage = FirebaseStorage.getInstance();
         mDatabase = FirebaseDatabase.getInstance();
 
+        firebaseAuth = FirebaseAuth.getInstance();
+        mStorage = FirebaseStorage.getInstance();
+        mDatabase = FirebaseDatabase.getInstance();
+
+        pd = new ProgressDialog(this);
+        pd.setTitle("please wait...");
+        pd.setCanceledOnTouchOutside(false);
 
 
         mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
@@ -98,13 +107,6 @@ public class RegisterFourth extends AppCompatActivity implements View.OnClickLis
             }
         };
 
-
-
-        Intent intent = getIntent();
-        name = intent.getStringExtra("name");
-        nickname = intent.getStringExtra("nickname");
-        birth = intent.getStringExtra("birth");
-        phone_number = registerPhoneNum.getText().toString();
     }
 
     @Override
@@ -113,16 +115,30 @@ public class RegisterFourth extends AppCompatActivity implements View.OnClickLis
             Intent intent01 = new Intent(RegisterFourth.this, RegisterThird.class);
             startActivity(intent01);
         }
+
         if (view.getId() == R.id.registerPassText) {
+            // 인증요청 버튼
+            String Phone_Number = registerPhoneNum.getText().toString();
+            if(TextUtils.isEmpty(Phone_Number)){
+                Toast.makeText(RegisterFourth.this,"enter phone number",Toast.LENGTH_SHORT).show();
+            }
+            else{
+                startPhoneNumberVerification(Phone_Number);
+            }
 
         }
+
         if (view.getId() == R.id.registerVerBtn) {
-            Intent intent02 = new Intent(RegisterFourth.this, RegisterFifth.class);
             String code = editTextVer.getText().toString();
+            Intent intent = getIntent();
+            name = intent.getStringExtra("name");
+            nickname = intent.getStringExtra("nickname");
+            birth = intent.getStringExtra("birth");
+            phone_number = registerPhoneNum.getText().toString();
             verifyPhoneNumberWithCode(s, code);
             Toast.makeText(RegisterFourth.this, "회원가입 성공", Toast.LENGTH_SHORT).show();
-            startActivity(intent02);
         }
+
         if (view.getId() == R.id.nextBtn4) {
             Intent intent03 = new Intent(RegisterFourth.this, RegisterFifth.class);
             startActivity(intent03);
@@ -130,11 +146,17 @@ public class RegisterFourth extends AppCompatActivity implements View.OnClickLis
     }
 
     private void verifyPhoneNumberWithCode(String s, String code) {
-        pd.setMessage("Verifiy Code");
+        pd.setMessage("잠시만 기다려주세요...");
         pd.show();
 
-        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(s,code);
-        signInWithPhoneAuthCredential(credential);
+        nextBtn4.setEnabled(true);
+        nextBtn4.setClickable(true);
+        nextBtn4.setBackgroundColor(R.drawable.button_style);
+
+        pd.dismiss();
+
+        //PhoneAuthCredential credential = PhoneAuthProvider.getCredential(s,code);
+        //signInWithPhoneAuthCredential(credential);
     }
 
     private void startPhoneNumberVerification(String phone_number) {

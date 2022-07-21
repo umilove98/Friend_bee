@@ -88,14 +88,12 @@ public class MypageFragment extends Fragment {
         text_age = view.findViewById(R.id.textView5);
         img = view.findViewById(R.id.imageView);
 
-       // FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-       // name = user.getUid();
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        name = user.getUid();
 
 
-        text_name.setText("juwon");
-        text_age.setText("24세 남");
-
-       /* mDatabase = FirebaseDatabase.getInstance();
+        mDatabase = FirebaseDatabase.getInstance();
         DatabaseRef = mDatabase.getReference();
 
         DatabaseRef.child("profile").child(name).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
@@ -118,7 +116,7 @@ public class MypageFragment extends Fragment {
                     text_age.setText(ii + "세 남");
                 }
             }
-        });*/
+        });
 
 
 

@@ -95,12 +95,12 @@
             android:textSize="22sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
+    <android.widget.Button
         android:id="@+id/nextBtn4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/button_style"
+        android:background="@color/gray_100"
         android:fontFamily="@font/font_custom"
         android:includeFontPadding="false"
         android:text="다음"
