@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     DatabaseReference DatabaseRef;
 
     private Spinner spinner;
-
+//  2. 학교 근처 에서 같이 식사를 한 후 학교 근처 카페에서 노트북으로 학원 수업을 듣는다. 3. 학교 끝나자마자 같이 학원에 간다
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

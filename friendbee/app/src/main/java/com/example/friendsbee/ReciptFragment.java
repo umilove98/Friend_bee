@@ -1,64 +1,33 @@
 package com.example.friendsbee;
 
-import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.provider.MediaStore;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseReference;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.ArrayList;
-
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ReciptFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class ReciptFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private RecyclerView recyclerView;
-    private ArrayList<ReciptItem> list = new ArrayList<ReciptItem>();
-    private ReciptAdapter adapter;
-    private FirebaseDatabase mDatabase;
-    private DatabaseReference DatabaseRef;
-    private ImageView recipt_user_image;
+    RecyclerView reciptview;
+    ReciptAdapter adapter;
+
 
     public ReciptFragment() {
-        // Required empty public constructor
+
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ReciptFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static ReciptFragment newInstance(String param1, String param2) {
         ReciptFragment fragment = new ReciptFragment();
         Bundle args = new Bundle();
@@ -80,48 +49,32 @@ public class ReciptFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         View view = inflater.inflate(R.layout.fragment_recipt, container, false);
-        recipt_user_image = view.findViewById(R.id.recipt_user_image);
-        /*recyclerView = (RecyclerView) view.findViewById(R.id.recipt_fragment_recyclerview);
 
-        list = ReciptItem.createContactsList(2);
+        reciptview = (RecyclerView)view.findViewById(R.id.recipt_fragment_recyclerview);
+        reciptview.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        recyclerView.setHasFixedSize(true);
-        adapter = new ReciptAdapter(getActivity(), list);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(adapter);
+        FirebaseRecyclerOptions<ReciptModel> options =
+                new FirebaseRecyclerOptions.Builder<ReciptModel>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("requests"), ReciptModel.class)
+                        .build();
 
-        mDatabase = FirebaseDatabase.getInstance();
-        DatabaseRef = mDatabase.getReference();
+        adapter = new ReciptAdapter(options);
+        reciptview.setAdapter(adapter);
 
-        //값을 받아서 보음
-        /*DatabaseRef.child("requests").child("-N2Un7maER8gbqY9Hq4P").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                if (!task.isSuccessful()) {
-                    Log.e("firebase", "Error getting data", task.getException());
-                }
-                else {
-                    Log.d("firebase", String.valueOf(task.getResult().getValue()));
-
-                    ReciptItem reciptItem = task.getResult().getValue(ReciptItem.class);
-                    //reciptItem.gethour();
-                    Intent intent = new Intent();
-
-                }
-            }
-        });*/
-
-        recipt_user_image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(), ApplicationStatus.class);
-                startActivity(intent);
-            }
-        });
-        //Log.e("Frag", "MainFragment");
         return view;
+    }
 
+    @Override
+    public void onStart(){
+        super.onStart();
+        adapter.startListening();
+    }
+
+    @Override
+    public void onStop(){
+        super.onStop();
+        adapter.stopListening();
     }
 }

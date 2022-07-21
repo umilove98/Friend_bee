@@ -32,19 +32,11 @@ import com.google.firebase.database.ValueEventListener;
 import java.net.URI;
 import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link MypageFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class MypageFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
     private FirebaseDatabase mDatabase;
@@ -54,7 +46,6 @@ public class MypageFragment extends Fragment {
     private ImageView img;
 
     public MypageFragment() {
-        // Required empty public constructor
 
     }
 
@@ -95,10 +86,10 @@ public class MypageFragment extends Fragment {
         text_name.setText("juwon");
         text_age.setText("24세 남");
 
-       /* mDatabase = FirebaseDatabase.getInstance();
-        DatabaseRef = mDatabase.getReference();
+       //mDatabase = FirebaseDatabase.getInstance();
+        //DatabaseRef = mDatabase.getReference();
 
-        DatabaseRef.child("profile").child(name).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+        /* DatabaseRef.child("profile").child(name).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if (!task.isSuccessful()) {
