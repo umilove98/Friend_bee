@@ -9,9 +9,12 @@ public class RequestInfo {
     private String category;
     private int hour;
     private int min;
+    private String userName;
+    private int age;
+    private String purl;
 
 
-    public RequestInfo(String title, String place, String contents, String date, int price, String category, int hour, int min){
+    public RequestInfo(String title, String place, String contents, String date, int price, String category, int hour, int min, String userName, int age, String purl){
         this.title = title;
         this.place = place;
         this.contents = contents;
@@ -20,6 +23,9 @@ public class RequestInfo {
         this.category = category;
         this.hour = hour;
         this.min = min;
+        this.userName = userName;
+        this.age = age;
+        this.purl = purl;
     }
 
     public String getTitle() {return this.title;}
@@ -45,5 +51,30 @@ public class RequestInfo {
 
     public int getMin() {return this.min;}
     public void setMin() {this.min = min;}
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getPurl() {
+        return purl;
+    }
+
+    public void setPurl(String purl) {
+        this.purl = purl;
+    }
+
 
 }
