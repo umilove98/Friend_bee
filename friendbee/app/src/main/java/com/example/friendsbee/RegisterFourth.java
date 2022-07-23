@@ -156,8 +156,8 @@ public class RegisterFourth extends AppCompatActivity implements View.OnClickLis
 
         pd.dismiss();
 
-        //PhoneAuthCredential credential = PhoneAuthProvider.getCredential(s,code);
-        //signInWithPhoneAuthCredential(credential);
+        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(s,code);
+        signInWithPhoneAuthCredential(credential);
     }
 
     private void startPhoneNumberVerification(String phone_number) {
@@ -184,25 +184,10 @@ public class RegisterFourth extends AppCompatActivity implements View.OnClickLis
 
                         uid = authResult.getUser().getUid();
                         String uid_code = uid.toString();
-                        Uri file = Uri.fromFile(new File(pathUri)); // path
 
-                        StorageReference storageReference = mStorage.getReference().child("usersprofileImages").child("uid/"+file.getLastPathSegment());
+                        Myprofile myprofile = new Myprofile(name, nickname, phone_number, birth ,profileImageUrl, uid);
+                        mDatabase.getReference().child("profile").child(uid_code).setValue(myprofile);
 
-                        storageReference.putFile(imageUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
-                            @Override
-                            public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
-
-                                Myprofile myprofile = new Myprofile(name, nickname, phone_number, birth ,profileImageUrl, uid);
-                                mDatabase.getReference().child("profile").child(uid_code)
-                                        .setValue(myprofile);
-                            }
-                        })
-                                .addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(RegisterFourth.this,"프로필 저장 실패 ", Toast.LENGTH_SHORT).show();
-                                    }
-                                });
 
                         pd.dismiss();
                         Toast.makeText(RegisterFourth.this,"hi " + uid, Toast.LENGTH_SHORT).show();
