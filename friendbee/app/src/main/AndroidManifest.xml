@@ -15,6 +15,9 @@
             android:name=".request_list"
             android:exported="false" />
         <activity
+            android:name=".MessageActivity"
+            android:exported="false" />
+        <activity
             android:name=".ReviewWrite"
             android:exported="false" />
         <activity

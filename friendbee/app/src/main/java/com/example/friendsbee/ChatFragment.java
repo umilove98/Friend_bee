@@ -1,5 +1,6 @@
 package com.example.friendsbee;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -44,6 +46,8 @@ public class ChatFragment extends Fragment {
     ChatAdapter.OnUserClickListener onUserClickListener;
 
     private SwipeRefreshLayout swipeRefreshLayout;
+
+    String myImgUrl;
 
     public ChatFragment() {
         // Required empty public constructor
@@ -98,12 +102,17 @@ public class ChatFragment extends Fragment {
         onUserClickListener = new ChatAdapter.OnUserClickListener() {
             @Override
             public void onUserClicked(int position) {
+                startActivity(new Intent(getContext(), MessageActivity.class)
+                    .putExtra("username_of_roommate", users.get(position).getNick_name())
+                    .putExtra("email_of_roommate", users.get(position).getPhone_number())
+                    .putExtra("img_of_roommate", users.get(position).getProfileImageUrl())
+                    .putExtra("my_img",myImgUrl)
+                );
                 Toast.makeText(getContext(), "Tapped on user" + users.get(position).getNick_name(), Toast.LENGTH_SHORT).show();
             }
         };
 
         getUsers();
-
         return view;
     }
 
@@ -121,6 +130,13 @@ public class ChatFragment extends Fragment {
                 recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                 recyclerView.setAdapter(usersAdapter);
                 recyclerView.setVisibility(View.VISIBLE);
+
+                for(Myprofile user: users){
+                    if (user.getPhone_number().equals(FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber())){
+                        myImgUrl = user.getProfileImageUrl();
+                        return;
+                    }
+                }
             }
 
             @Override
