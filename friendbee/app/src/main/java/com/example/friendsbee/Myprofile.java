@@ -12,6 +12,12 @@ public class Myprofile {
 
     }
 
+    public Myprofile(String nick_name, String phone_number, String profileImageUrl){
+        this.nick_name = nick_name;
+        this.phone_number = phone_number;
+        this.profileImageUrl = profileImageUrl;
+    }
+
     public Myprofile(String name, String nick_name, String phone_number, String birth_number,String profileImageUrl, String uid){
         this.name = name;
         this.nick_name = nick_name;

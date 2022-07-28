@@ -39,8 +39,8 @@ public class RequestActivity extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(RequestActivity.this, ChatRoomActivity2.class);
-                startActivity(intent);
+              //Intent intent = new Intent(RequestActivity.this, ChatRoomActivity2.class)
+                //startActivity(intent);
             }
         });
 

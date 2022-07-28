@@ -42,9 +42,6 @@
             android:name=".FragmentHomeDetailMenuActivity"
             android:exported="false" />
         <activity
-            android:name=".ChatRoomActivity2"
-            android:exported="false" />
-        <activity
             android:name=".LoginActivity"
             android:exported="true" />
         <activity

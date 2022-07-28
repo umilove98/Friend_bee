@@ -7,14 +7,17 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.friendsbee.databinding.ActivityMainBinding;
 
 import java.util.ArrayList;
@@ -24,13 +27,18 @@ import java.util.List;
 public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.Holder> {
 
     private Context context;
-    private List<WordItem> list = new ArrayList<>();
+    private ArrayList<Myprofile> users;
+    private OnUserClickListener onUserClickListener;
 
-    public ChatAdapter(Context context, List<WordItem> list) {
+    public ChatAdapter(Context context, ArrayList<Myprofile> users, OnUserClickListener onUserClickListener) {
         this.context = context;
-        this.list = list;
+        this.users = users;
+        this.onUserClickListener = onUserClickListener;
     }
 
+    interface OnUserClickListener{
+        void onUserClicked(int position);
+    }
     // ViewHolder 생성
     // row layout을 화면에 뿌려주고 holder에 연결
     @Override
@@ -41,56 +49,41 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.Holder> {
         return holder;
     }
 
-    /*
-     * Todo 만들어진 ViewHolder에 data 삽입 ListView의 getView와 동일
-     *
-     * */
     @Override
     public void onBindViewHolder(Holder holder, int position) {
         // 각 위치에 문자열 세팅
-        int itemposition = position;
-        holder.wordText.setText(list.get(itemposition).word);
-        holder.meaningText.setText(list.get(itemposition).meaning);
-        Log.e("StudyApp", "onBindViewHolder" + itemposition);
+        holder.title.setText(users.get(position).getNick_name());
+        Glide.with(context).load(users.get(position).getProfileImageUrl()).error(R.drawable.blackstar_icon).placeholder(R.drawable.blackstar_icon).into(holder.imageView);
+        //holder.lastMe.setText(myprofile.getNick_name());
+
     }
 
 
     // 몇개의 데이터를 리스트로 뿌려줘야하는지 반드시 정의해줘야한다
     @Override
     public int getItemCount() {
-        return list.size(); // RecyclerView의 size return
+        return users.size(); // RecyclerView의 size return
     }
 
     // ViewHolder는 하나의 View를 보존하는 역할을 한다
     public class Holder extends RecyclerView.ViewHolder{
-        public TextView wordText;
-        public TextView meaningText;
+        public TextView title;
+        public TextView lastMe;
+        public ImageView imageView;
 
         public Holder(View view){
             super(view);
-                wordText = (TextView) view.findViewById(R.id.chat_textview_title);
-                meaningText = (TextView) view.findViewById(R.id.chat_item_textview_lastmessage);
 
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    int pos = getAdapterPosition();
-                    if(pos != RecyclerView.NO_POSITION){
-                        // 아무것도 없으면
-                        //어댑터에 직접 리스너 인터페이스를 정의하고 액티비티 or 프래그먼트에서 해당 리스너 객체를 생성하고 어댑터에 전달해 호출되게 하는 것이다.
-                    }
-                    if (pos == 0){
-                        Toast.makeText(context, "", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(context, ChatRoomActivity2.class);
-                        context.startActivity(intent);
-                    }
-                    else
-                        Toast.makeText(context, "클릭이벤트", Toast.LENGTH_SHORT).show();
+                    onUserClickListener.onUserClicked(getAdapterPosition());
                 }
-
-
             });
 
+            title = (TextView) view.findViewById(R.id.chat_textview_title);
+            lastMe = (TextView) view.findViewById(R.id.chat_item_textview_lastmessage);
+            imageView = view.findViewById(R.id.chat_item_imageview);
         }
     }
 

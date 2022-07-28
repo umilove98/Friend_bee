@@ -2,9 +2,11 @@ package com.example.friendsbee;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,6 +14,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Toast;
+
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -31,9 +39,11 @@ public class ChatFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     private RecyclerView recyclerView;
-    private ArrayList<WordItem> list = new ArrayList<>();
-    private ChatAdapter adapter;
+    private ArrayList<Myprofile> users;
+    private ChatAdapter usersAdapter;
+    ChatAdapter.OnUserClickListener onUserClickListener;
 
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     public ChatFragment() {
         // Required empty public constructor
@@ -73,20 +83,50 @@ public class ChatFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_chat, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.chatfragment_recyclerview);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        swipeRefreshLayout = view.findViewById(R.id.swipeLayout);
+        users = new ArrayList<>();
 
-        list = WordItem.createContactsList(2);
-        recyclerView.setHasFixedSize(true);
-        adapter = new ChatAdapter(getActivity(), list);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(adapter);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                getUsers();
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
 
+        onUserClickListener = new ChatAdapter.OnUserClickListener() {
+            @Override
+            public void onUserClicked(int position) {
+                Toast.makeText(getContext(), "Tapped on user" + users.get(position).getNick_name(), Toast.LENGTH_SHORT).show();
+            }
+        };
 
-
-        Log.e("Frag", "MainFragment");
-
-
-
+        getUsers();
 
         return view;
+    }
+
+
+    private void getUsers(){
+        users.clear();
+        FirebaseDatabase.getInstance().getReference("profile").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    users.add(dataSnapshot.getValue(Myprofile.class));
+                }
+                recyclerView.setHasFixedSize(true);
+                usersAdapter = new ChatAdapter(getActivity(), users, onUserClickListener);
+                recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+                recyclerView.setAdapter(usersAdapter);
+                recyclerView.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }

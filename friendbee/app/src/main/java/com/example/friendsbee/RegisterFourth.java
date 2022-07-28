@@ -190,8 +190,7 @@ public class RegisterFourth extends AppCompatActivity implements View.OnClickLis
 
 
                         pd.dismiss();
-                        Toast.makeText(RegisterFourth.this,"hi " + uid, Toast.LENGTH_SHORT).show();
-                        String phone = firebaseAuth.getCurrentUser().getPhoneNumber();
+                        Toast.makeText(RegisterFourth.this,"hi " + nickname, Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(RegisterFourth.this, LoginActivity.class));
                     }
                 })

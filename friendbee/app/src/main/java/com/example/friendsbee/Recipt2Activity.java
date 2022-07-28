@@ -39,8 +39,8 @@ public class Recipt2Activity extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Recipt2Activity.this, ChatRoomActivity2.class);
-                startActivity(intent);
+               // Intent intent = new Intent(Recipt2Activity.this, ChatRoomActivity2.class);
+               // startActivity(intent);
             }
         });
 
