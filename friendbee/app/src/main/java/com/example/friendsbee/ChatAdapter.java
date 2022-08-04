@@ -29,6 +29,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.Holder> {
     private Context context;
     private ArrayList<Myprofile> users;
     private OnUserClickListener onUserClickListener;
+    private int size;
 
     public ChatAdapter(Context context, ArrayList<Myprofile> users, OnUserClickListener onUserClickListener) {
         this.context = context;

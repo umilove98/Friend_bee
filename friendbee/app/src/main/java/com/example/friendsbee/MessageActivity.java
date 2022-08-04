@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,7 +25,7 @@ public class MessageActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private EditText edtMessageInput;
     private TextView txtChattingWith;
-    private ImageButton imgSend;
+    private ImageView imgSend, imgToolbar;
 
     private MessageAdapter messageAdapter;
     private ArrayList<Message> messages;
@@ -39,13 +41,15 @@ public class MessageActivity extends AppCompatActivity {
         usernameOfTheRoommate = getIntent().getStringExtra("username_of_roommate");
         emailOfRoommate = getIntent().getStringExtra("email_of_roommate");
 
-        recyclerView = findViewById(R.id.recyclerv);
-        edtMessageInput = findViewById(R.id.editText1);
-        txtChattingWith = findViewById(R.id.chattingwith);
-        imgSend = findViewById(R.id.btn_send1);
+        recyclerView = findViewById(R.id.recyclerMessages);
+        edtMessageInput = findViewById(R.id.edtText);
+        txtChattingWith = findViewById(R.id.txtChattingWith);
+        imgSend = findViewById(R.id.imageView);
+        imgToolbar = findViewById(R.id.img_toolbar);
 
 
         txtChattingWith.setText(usernameOfTheRoommate);
+
         messages = new ArrayList<>();
 
         imgSend.setOnClickListener(new View.OnClickListener() {
@@ -56,9 +60,14 @@ public class MessageActivity extends AppCompatActivity {
             }
         });
 
+
+
+
         messageAdapter = new MessageAdapter(messages, getIntent().getStringExtra("my_img"),getIntent().getStringExtra("img_of_roommate"),MessageActivity.this);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(MessageActivity.this));
         recyclerView.setAdapter(messageAdapter);
+
+        Glide.with(MessageActivity.this).load(getIntent().getStringExtra("img_of_roommate")).placeholder(R.drawable.blackstar_icon).error(R.drawable.blackstar_icon).into(imgToolbar);
 
         setUpChatRoom();
     }
@@ -87,7 +96,7 @@ public class MessageActivity extends AppCompatActivity {
     }
 
     private void attachMessageListener(String chatRoomId){
-        FirebaseDatabase.getInstance().getReference("message/" + chatRoomId).addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference("messages/" + chatRoomId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 messages.clear();

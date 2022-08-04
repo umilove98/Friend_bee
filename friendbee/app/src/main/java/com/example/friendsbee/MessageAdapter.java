@@ -43,8 +43,11 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageH
 
     @Override
     public void onBindViewHolder(@NonNull MessageHolder holder, int position) {
+
+
         holder.txtMessage.setText(messages.get(position).getContet());
         Log.d("messagg", messages.get(position).getContet());
+
         ConstraintLayout constraintLayout = holder.ccll;
 
        if (messages.get(position).getSender().equals(FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber())){
@@ -54,7 +57,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageH
             constraintSet.clear(R.id.profile_cardView, ConstraintSet.LEFT);
             constraintSet.clear(R.id.txt_message_content, ConstraintSet.LEFT);
             constraintSet.connect(R.id.profile_cardView,ConstraintSet.RIGHT,R.id.ccLayout,ConstraintSet.RIGHT,0);
-            constraintSet.connect(R.id.txt_message_content,ConstraintSet.RIGHT,R.id.profile_cardView,ConstraintSet.RIGHT,0);
+            constraintSet.connect(R.id.txt_message_content,ConstraintSet.RIGHT,R.id.profile_cardView,ConstraintSet.LEFT,0);
             constraintSet.applyTo(constraintLayout);
         }else{
             Glide.with(context).load(receiverImg).error(R.drawable.blackstar_icon).placeholder(R.drawable.blackstar_icon).into(holder.profImage);
@@ -67,11 +70,11 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageH
             constraintSet.applyTo(constraintLayout);
 
         }
+
     }
 
     @Override
     public int getItemCount() {
-        Log.d("size", String.valueOf(messages.size()));
         return messages.size();
     }
 
