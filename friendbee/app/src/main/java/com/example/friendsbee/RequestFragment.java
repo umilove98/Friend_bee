@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -32,6 +33,7 @@ public class RequestFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     String category, contents, date, place, title, hour, min, price, userName, age, purl;
+    private Button apply;
 
     public RequestFragment() {
 
@@ -82,6 +84,7 @@ public class RequestFragment extends Fragment {
         TextView priceholder = view.findViewById(R.id.request_form_price);
         TextView nameholder = view.findViewById(R.id.request_form_nickname);
         TextView ageholder = view.findViewById(R.id.request_form_age);
+        apply = view.findViewById(R.id.request_form_apply_btn);
 
 
         titleholder.setText(title);
@@ -92,6 +95,7 @@ public class RequestFragment extends Fragment {
         nameholder.setText(userName);
         ageholder.setText(age);
         Glide.with(getContext()).load(purl).into(imageholder);
+
 
 
         return view;

@@ -62,6 +62,7 @@ public class ReciptAdapter extends FirebaseRecyclerAdapter<ReciptModel,ReciptAda
             recipt_place = itemView.findViewById(R.id.recipt_place);
             recipt_price = itemView.findViewById(R.id.recipt_price);
             recipt_username = itemView.findViewById(R.id.recipt_user_name);
+
         }
     }
 }

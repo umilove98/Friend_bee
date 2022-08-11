@@ -2,10 +2,7 @@ package com.example.friendsbee;
 
 import static java.lang.Integer.parseInt;
 
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
-import android.app.FragmentTransaction;
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -25,7 +22,6 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.DatePicker;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -36,7 +32,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.time.LocalDate;
-import java.util.Calendar;
 
 
 public class CreateFragment extends Fragment implements View.OnClickListener, RadioGroup.OnCheckedChangeListener {
