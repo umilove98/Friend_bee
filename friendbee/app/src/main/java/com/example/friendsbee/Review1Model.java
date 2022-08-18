@@ -1,6 +1,6 @@
 package com.example.friendsbee;
 
-public class ReviewInfo {
+public class Review1Model {
     private String review;
     private float rating;
     private String date;
@@ -41,8 +41,8 @@ public class ReviewInfo {
         this.userName = userName;
     }
 
-    public int getAge() {
-        return age;
+    public String getAge() {
+        return Integer.toString(age);
     }
 
     public void setAge(int age) {
@@ -57,7 +57,11 @@ public class ReviewInfo {
         this.purl = purl;
     }
 
-    public ReviewInfo(String review, float rating, String date, String userName, int age, String purl){
+    public Review1Model(){
+
+    }
+
+    public Review1Model(String review, float rating, String date, String userName, int age, String purl){
         this.review = review;
         this.rating = rating;
         this.date = date;

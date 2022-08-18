@@ -12,9 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Friendsbee">
         <activity
-            android:name=".request_list"
-            android:exported="false" />
-        <activity
             android:name=".MessageActivity"
             android:exported="false" />
         <activity
@@ -24,22 +21,10 @@
             android:name=".WroteReview"
             android:exported="false" />
         <activity
-            android:name=".Recipt22Activity"
-            android:exported="false" />
-        <activity
-            android:name=".Recipt2Activity"
-            android:exported="false" />
-        <activity
-            android:name=".Recipt3Activity"
-            android:exported="false" />
-        <activity
             android:name=".MyReview"
             android:exported="false" />
         <activity
             android:name=".ApplicationStatus"
-            android:exported="false" />
-        <activity
-            android:name=".RequestActivity"
             android:exported="false" />
         <activity
             android:name=".FragmentHomeDetailMenuActivity"

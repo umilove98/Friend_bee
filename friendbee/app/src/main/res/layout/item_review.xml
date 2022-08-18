@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f0f0f0">
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/layout_background"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/reveiw1_user_image"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/reveiw1_user_image"
+            android:layout_width="61dp"
+            android:layout_height="61dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/maxresdefault"
+            app:layout_constraintStart_toStartOf="@id/textView18"
+            app:layout_constraintTop_toTopOf="@+id/textView18" />
+
+        <TextView
+            android:id="@+id/review1_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="크롱"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/reveiw1_user_image"
+            app:layout_constraintTop_toTopOf="@+id/textView18" />
+
+        <TextView
+            android:id="@+id/review1_age_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="24세 . 여"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/review1_user_name"
+            app:layout_constraintTop_toTopOf="@+id/textView18" />
+
+        <RatingBar
+            android:id="@+id/review1_ratingBar"
+            style="@style/Widget.AppCompat.RatingBar.Indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:background="#ffffff"
+            android:numStars="5"
+            android:progressTint="@color/yellow_500"
+            android:rating="3"
+            android:stepSize="1"
+            app:layout_constraintStart_toEndOf="@id/reveiw1_user_image"
+            app:layout_constraintTop_toBottomOf="@id/review1_user_name" />
+
+        <TextView
+            android:id="@+id/review1_contents"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="만나서 너무 좋았어요! 맛있게 잘 먹었습니다. 근데 아쉬운거 딱 한가지 뽑자면 약간 늦은거...?"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@id/textView18"
+            app:layout_constraintStart_toStartOf="@id/textView18"
+            app:layout_constraintTop_toBottomOf="@id/review1_ratingBar" />
+
+        <TextView
+            android:id="@+id/review1_date_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="작성시간 : 2022-06-18 13:52"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="@id/textView18"
+            app:layout_constraintTop_toBottomOf="@id/review1_contents" />
+
+        <TextView
+            android:id="@+id/textView37"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="꿀벌"
+            android:textColor="@color/blue"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/textView18"
+            app:layout_constraintStart_toStartOf="@id/textView18" />
+
+        <TextView
+            android:id="@+id/reportbutton"
+            android:layout_width="45dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/white"
+            android:gravity="center"
+            android:text="신고"
+            android:textColor="@color/red"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/textView18"
+            app:layout_constraintEnd_toEndOf="@id/textView18" />
+
+        <ImageView
+            android:id="@+id/imageView11"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginBottom="16dp"
+            app:srcCompat="@drawable/siren"
+            app:layout_constraintBottom_toBottomOf="@id/textView18"
+            app:layout_constraintEnd_toStartOf="@id/reportbutton" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

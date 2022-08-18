@@ -87,7 +87,7 @@ public class HomeFragment extends Fragment {
                 //String str = spinnerCategory.getItemAtPosition(1).toString();
                 spinnerCategory.setSelection(1);
                 //Toast.makeText(getContext(),str,Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getContext(),request_list.class);
+                Intent intent = new Intent(getContext(),RequestFragment.class);
                 startActivity(intent);
             }
         });

@@ -19,8 +19,8 @@ public class ApplicationStatus extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ApplicationStatus.this, Recipt2Activity.class);
-                startActivity(intent);
+                //Intent intent = new Intent(ApplicationStatus.this, Recipt2Activity.class);
+                //startActivity(intent);
             }
         });
     }

@@ -125,6 +125,8 @@ public class ReviewWriteFragment extends Fragment implements View.OnClickListene
             ReviewInfo reviewInfo = new ReviewInfo(review, ratingbar, date, userName, age, purl);
             DatabaseRef.child("review").push().setValue(reviewInfo);
             Toast.makeText(getContext(), "리뷰 등록 성공", Toast.LENGTH_SHORT).show();
+            ((MainActivity)getActivity()).binding.bottomNavigationView.setSelectedItemId(R.id.recipt);
+            ((MainActivity)getActivity()).replaceFragment(new Review1Fragment());
         }
 
     }
