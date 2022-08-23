@@ -12,9 +12,11 @@ public class RequestInfo {
     private String userName;
     private int age;
     private String purl;
+    private String uni_key;
+    private int condi;
 
 
-    public RequestInfo(String title, String place, String contents, String date, int price, String category, int hour, int min, String userName, int age, String purl){
+    public RequestInfo(String title, String place, String contents, String date, int price, String category, int hour, int min, String userName, int age, String purl, String uni_key, int condi){
         this.title = title;
         this.place = place;
         this.contents = contents;
@@ -26,6 +28,8 @@ public class RequestInfo {
         this.userName = userName;
         this.age = age;
         this.purl = purl;
+        this.uni_key = uni_key;
+        this.condi = condi;
     }
 
     public String getTitle() {return this.title;}
@@ -74,6 +78,22 @@ public class RequestInfo {
 
     public void setPurl(String purl) {
         this.purl = purl;
+    }
+
+    public String getUni_key() {
+        return uni_key;
+    }
+
+    public void setUni_key(String uni_key) {
+        this.uni_key = uni_key;
+    }
+
+    public int getCondi() {
+        return condi;
+    }
+
+    public void setCondi(int condi) {
+        this.condi = condi;
     }
 
 

@@ -85,6 +85,12 @@ public class RequestFragment extends Fragment {
         TextView nameholder = view.findViewById(R.id.request_form_nickname);
         TextView ageholder = view.findViewById(R.id.request_form_age);
         apply = view.findViewById(R.id.request_form_apply_btn);
+        apply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // re
+            }
+        });
 
 
         titleholder.setText(title);

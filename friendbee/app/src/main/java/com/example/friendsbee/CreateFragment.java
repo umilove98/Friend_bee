@@ -55,6 +55,7 @@ public class CreateFragment extends Fragment implements View.OnClickListener, Ra
     private DatabaseReference DatabaseRef;
     private String userName, purl;
     private int age;
+    int condi = 1;
 
 
 
@@ -155,10 +156,13 @@ public class CreateFragment extends Fragment implements View.OnClickListener, Ra
         final int hour = parseInt(spinnerHour.getSelectedItem().toString().substring(0,2));
         final int min = parseInt(spinnerMin.getSelectedItem().toString().substring(0,2));
 
+
+
         if(view.getId() == R.id.create_button){ // 요청서 작성 버튼을 터치했을 경우
 
             if(title.length() > 0 && place.length() > 0){   // 필수 요소들 입력 확인
-                RequestInfo requestInfo = new RequestInfo(title, place, contents, date, price, category, hour, min, userName, age, purl); // requestInfo 클래스에 지정해둔 데이터 저장 형태에 맞춰 생성
+                String uni_key = DatabaseRef.child("requests").push().getKey();
+                RequestInfo requestInfo = new RequestInfo(title, place, contents, date, price, category, hour, min, userName, age, purl,uni_key, condi); // requestInfo 클래스에 지정해둔 데이터 저장 형태에 맞춰 생성
                 DatabaseRef.child("requests").push().setValue(requestInfo);   // request 테이블에 생성한 요청서를 등록
                 Toast.makeText(getContext(), "등록 성공", Toast.LENGTH_SHORT).show();
                 ((MainActivity)getActivity()).menu.findItem(R.id.home).setIcon(R.drawable.home_icon);
