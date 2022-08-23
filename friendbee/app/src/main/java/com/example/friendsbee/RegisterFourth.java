@@ -54,6 +54,7 @@ public class RegisterFourth extends AppCompatActivity implements View.OnClickLis
     private String uid;
     private Uri imageUri;
     private String pathUri;
+    private String coin = "0";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -185,7 +186,7 @@ public class RegisterFourth extends AppCompatActivity implements View.OnClickLis
                         uid = authResult.getUser().getUid();
                         String uid_code = uid.toString();
 
-                        Myprofile myprofile = new Myprofile(name, nickname, phone_number, birth ,profileImageUrl, uid);
+                        Myprofile myprofile = new Myprofile(name, nickname, phone_number, birth ,profileImageUrl, uid, coin);
                         mDatabase.getReference().child("profile").child(uid_code).setValue(myprofile);
 
 
