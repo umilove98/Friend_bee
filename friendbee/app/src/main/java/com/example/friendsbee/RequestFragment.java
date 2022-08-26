@@ -7,16 +7,20 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,14 +36,21 @@ public class RequestFragment extends Fragment {
 
     private String mParam1;
     private String mParam2;
-    String category, contents, date, place, title, hour, min, price, userName, age, purl;
+    String category, contents, date, place, title, hour, min, price, userName, age, purl, uniq_key;
+    int condi, cnt;
     private Button apply;
+    private DatabaseReference mDatabase;
+    private FirebaseAuth firebaseAuth;
+
+
+    
+
 
     public RequestFragment() {
 
     }
 
-    public RequestFragment(String category, String contents, String date, String hour, String min, String place, String title, String price, String userName, String age, String purl) {
+    public RequestFragment(String category, String contents, String date, String hour, String min, String place, String title, String price, String userName, String age, String purl,int condi, String uniq_key) {
         this.category = category;
         this.contents = contents;
         this.date = date;
@@ -51,6 +62,8 @@ public class RequestFragment extends Fragment {
         this.userName = userName;
         this.age = age;
         this.purl = purl;
+        this.condi = condi;
+        this.uniq_key = uniq_key;
     }
 
     public static RequestFragment newInstance(String param1, String param2) {
@@ -96,7 +109,19 @@ public class RequestFragment extends Fragment {
         ageholder.setText(age);
         Glide.with(getContext()).load(purl).into(imageholder);
 
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        firebaseAuth = FirebaseAuth.getInstance();
 
+        cnt = 1;
+        apply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // 고유키로 찾은다음에 데이터 베이스 현재 계정 불러와서 uid 데이터베이스에 넣기
+                String cur_uid = firebaseAuth.getCurrentUser().getUid();
+                mDatabase.child("requests").child(uniq_key).child("apply"+ cnt).setValue(cur_uid);
+                cnt++;
+            }
+        });
 
         return view;
     }

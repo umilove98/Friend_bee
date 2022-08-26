@@ -34,8 +34,8 @@ public class ReciptAdapter extends FirebaseRecyclerAdapter<ReciptModel,ReciptAda
                     @Override
                     public void onClick(View view) {
                         AppCompatActivity activity=(AppCompatActivity) view.getContext();
-                        activity.getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,new RequestFragment(model.getCategory(), model.getContents(), model.getDate(), model.getHour(), model.getMin(), model.getPlace(), model.getTitle(), model.getPrice(), model.getUserName(), model.getAge(), model.getPurl())).addToBackStack(null).commit();
-
+                        activity.getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,new RequestFragment(model.getCategory(), model.getContents(), model.getDate(), model.getHour(), model.getMin(), model.getPlace(), model.getTitle(), model.getPrice(), model.getUserName(), model.getAge(), model.getPurl(), model.getCondi(),model.getUniq_key())).addToBackStack(null).commit();
+                        // 위에 코드에 상태, 고유키 추가
                     }
                 });
 
