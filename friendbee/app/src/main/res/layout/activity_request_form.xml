@@ -34,7 +34,8 @@
                 android:background="@color/white"
                 android:padding="15dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/chevron_icon" />
+                android:src="@drawable/chevron_icon"
+                tools:ignore="SpeakableTextPresentCheck" />
 
             <TextView
                 android:layout_width="match_parent"

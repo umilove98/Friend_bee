@@ -58,6 +58,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageH
             constraintSet.clear(R.id.txt_message_content, ConstraintSet.LEFT);
             constraintSet.connect(R.id.profile_cardView,ConstraintSet.RIGHT,R.id.ccLayout,ConstraintSet.RIGHT,0);
             constraintSet.connect(R.id.txt_message_content,ConstraintSet.RIGHT,R.id.profile_cardView,ConstraintSet.LEFT,0);
+            holder.txtMessage.getResources().getColor(R.color.yellow_500);
             constraintSet.applyTo(constraintLayout);
         }else{
             Glide.with(context).load(receiverImg).error(R.drawable.blackstar_icon).placeholder(R.drawable.blackstar_icon).into(holder.profImage);
@@ -68,6 +69,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageH
             constraintSet.clear(R.id.txt_message_content, ConstraintSet.RIGHT);
             constraintSet.connect(R.id.profile_cardView,ConstraintSet.LEFT,R.id.ccLayout,ConstraintSet.LEFT,0);
             constraintSet.connect(R.id.txt_message_content,ConstraintSet.LEFT,R.id.profile_cardView,ConstraintSet.RIGHT,0);
+            holder.txtMessage.getResources().getColor(R.color.gray_100);
             constraintSet.applyTo(constraintLayout);
 
         }
