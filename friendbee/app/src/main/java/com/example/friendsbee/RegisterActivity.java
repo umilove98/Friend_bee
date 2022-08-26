@@ -74,7 +74,7 @@ public class RegisterActivity extends AppCompatActivity {
     String nick_name;
     String birth_number;
     String phone_number;
-    int coin;
+    String coin;
 
 
     @Override
@@ -150,7 +150,7 @@ public class RegisterActivity extends AppCompatActivity {
                     nick_name = editTextNick_Name.getText().toString();
                     birth_number = editTextBirth_Number.getText().toString();
                     phone_number = editTextPhoneNumber.getText().toString();
-                    coin = 0;
+                    coin = "0";
                     verifyPhoneNumberWithCode(s, code);
                     Toast.makeText(RegisterActivity.this, "회원가입 성공", Toast.LENGTH_SHORT).show();
                 }
