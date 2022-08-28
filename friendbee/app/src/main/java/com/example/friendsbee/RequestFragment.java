@@ -120,6 +120,11 @@ public class RequestFragment extends Fragment {
                 String cur_uid = firebaseAuth.getCurrentUser().getUid();
                 mDatabase.child("requests").child(uniq_key).child("apply"+ cnt).setValue(cur_uid);
                 cnt++;
+
+                AppCompatActivity activity=(AppCompatActivity) view.getContext();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,new StatusFragment(category, contents, date, place, title, hour, min, price, userName, age, purl, condi,uniq_key)).addToBackStack(null).commit();
+                // 위에 코드에 상태, 고유키 추가
+
             }
         });
 

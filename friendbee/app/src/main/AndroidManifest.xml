@@ -24,9 +24,6 @@
             android:name=".MyReview"
             android:exported="false" />
         <activity
-            android:name=".ApplicationStatus"
-            android:exported="false" />
-        <activity
             android:name=".FragmentHomeDetailMenuActivity"
             android:exported="false" />
         <activity
