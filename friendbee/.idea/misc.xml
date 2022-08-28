@@ -3,6 +3,42 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/JangJieun/Desktop/workspace/Friend_bee/friendbee/app/src/main/res/drawable/home_menu_button_border.xml" value="0.325" />
+        <entry key="..\:/Users/JangJieun/Desktop/workspace/Friend_bee/friendbee/app/src/main/res/layout/activity_main.xml" value="0.26992753623188404" />
+        <entry key="..\:/Users/JangJieun/Desktop/workspace/Friend_bee/friendbee/app/src/main/res/layout/activity_message.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/JangJieun/Desktop/workspace/Friend_bee/friendbee/app/src/main/res/layout/activity_recipt2.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/JangJieun/Desktop/workspace/Friend_bee/friendbee/app/src/main/res/layout/activity_request_form.xml" value="0.34646739130434784" />
+        <entry key="..\:/Users/JangJieun/Desktop/workspace/Friend_bee/friendbee/app/src/main/res/layout/activity_request_form2.xml" value="0.34646739130434784" />
+        <entry key="..\:/Users/JangJieun/Desktop/workspace/Friend_bee/friendbee/app/src/main/res/layout/activity_request_form3.xml" value="0.34646739130434784" />
+        <entry key="..\:/Users/JangJieun/Desktop/workspace/Friend_bee/friendbee/app/src/main/res/layout/activity_request_list.xml" value="0.34646739130434784" />
+        <entry key="..\:/Users/JangJieun/Desktop/workspace/Friend_bee/friendbee/app/src/main/res/layout/application_status.xml" value="0.27355072463768115" />
+        <entry key="..\:/Users/JangJieun/Desktop/workspace/Friend_bee/friendbee/app/src/main/res/layout/background_splash.xml" value="0.34646739130434784" />
+        <entry key="..\:/Users/JangJieun/Desktop/workspace/Friend_bee/friendbee/app/src/main/res/layout/fragment_chat.xml" value="0.34646739130434784" />
+        <entry key="..\:/Users/JangJieun/Desktop/workspace/Friend_bee/friendbee/app/src/main/res/layout/fragment_create.xml" value="0.34646739130434784" />
+        <entry key="..\:/Users/JangJieun/Desktop/workspace/Friend_bee/friendbee/app/src/main/res/layout/fragment_home.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/JangJieun/Desktop/workspace/Friend_bee/friendbee/app/src/main/res/layout/fragment_home_detail_menu.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/JangJieun/Desktop/workspace/Friend_bee/friendbee/app/src/main/res/layout/fragment_mypage.xml" value="0.34646739130434784" />
+        <entry key="..\:/Users/JangJieun/Desktop/workspace/Friend_bee/friendbee/app/src/main/res/layout/fragment_recipt.xml" value="0.34646739130434784" />
+        <entry key="..\:/Users/JangJieun/Desktop/workspace/Friend_bee/friendbee/app/src/main/res/layout/fragment_request.xml" value="0.34646739130434784" />
+        <entry key="..\:/Users/JangJieun/Desktop/workspace/Friend_bee/friendbee/app/src/main/res/layout/fragment_review1.xml" value="0.34646739130434784" />
+        <entry key="..\:/Users/JangJieun/Desktop/workspace/Friend_bee/friendbee/app/src/main/res/layout/fragment_review_write.xml" value="0.34646739130434784" />
+        <entry key="..\:/Users/JangJieun/Desktop/workspace/Friend_bee/friendbee/app/src/main/res/layout/item_chat.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/JangJieun/Desktop/workspace/Friend_bee/friendbee/app/src/main/res/layout/item_messagebox.xml" value="0.34646739130434784" />
+        <entry key="..\:/Users/JangJieun/Desktop/workspace/Friend_bee/friendbee/app/src/main/res/layout/item_recipt.xml" value="0.34646739130434784" />
+        <entry key="..\:/Users/JangJieun/Desktop/workspace/Friend_bee/friendbee/app/src/main/res/layout/item_review.xml" value="0.34646739130434784" />
+        <entry key="..\:/Users/JangJieun/Desktop/workspace/Friend_bee/friendbee/app/src/main/res/layout/login_layout.xml" value="0.34646739130434784" />
+        <entry key="..\:/Users/JangJieun/Desktop/workspace/Friend_bee/friendbee/app/src/main/res/layout/message_holder.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/JangJieun/Desktop/workspace/Friend_bee/friendbee/app/src/main/res/layout/register_fifth.xml" value="0.27355072463768115" />
+        <entry key="..\:/Users/JangJieun/Desktop/workspace/Friend_bee/friendbee/app/src/main/res/layout/register_first.xml" value="0.27355072463768115" />
+        <entry key="..\:/Users/JangJieun/Desktop/workspace/Friend_bee/friendbee/app/src/main/res/layout/register_fourth.xml" value="0.27355072463768115" />
+        <entry key="..\:/Users/JangJieun/Desktop/workspace/Friend_bee/friendbee/app/src/main/res/layout/register_layout.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/JangJieun/Desktop/workspace/Friend_bee/friendbee/app/src/main/res/layout/register_second.xml" value="0.27355072463768115" />
+        <entry key="..\:/Users/JangJieun/Desktop/workspace/Friend_bee/friendbee/app/src/main/res/layout/register_third.xml" value="0.34646739130434784" />
+        <entry key="..\:/Users/JangJieun/Desktop/workspace/Friend_bee/friendbee/app/src/main/res/layout/review_my.xml" value="0.34646739130434784" />
+        <entry key="..\:/Users/JangJieun/Desktop/workspace/Friend_bee/friendbee/app/src/main/res/layout/review_my_write.xml" value="0.34646739130434784" />
+        <entry key="..\:/Users/JangJieun/Desktop/workspace/Friend_bee/friendbee/app/src/main/res/layout/review_write_layout.xml" value="0.34646739130434784" />
+        <entry key="..\:/Users/JangJieun/Desktop/workspace/Friend_bee/friendbee/app/src/main/res/layout/room_right_item_list.xml" value="0.34646739130434784" />
+        <entry key="..\:/Users/JangJieun/Desktop/workspace/Friend_bee/friendbee/app/src/main/res/layout/toolbar.xml" value="0.34646739130434784" />
         <entry key="..\:/Users/umilo/Desktop/Friend_bee/friendbee/app/src/main/res/drawable/background_splashscreen.xml" value="0.45" />
         <entry key="..\:/Users/umilo/Desktop/Friend_bee/friendbee/app/src/main/res/drawable/blue_modify_button.xml" value="0.495" />
         <entry key="..\:/Users/umilo/Desktop/Friend_bee/friendbee/app/src/main/res/drawable/border.xml" value="0.495" />
@@ -12,7 +48,9 @@
         <entry key="..\:/Users/umilo/Desktop/Friend_bee/friendbee/app/src/main/res/drawable/menu_selector_color.xml" value="0.322" />
         <entry key="..\:/Users/umilo/Desktop/Friend_bee/friendbee/app/src/main/res/drawable/redcircle.xml" value="0.495" />
         <entry key="..\:/Users/umilo/Desktop/Friend_bee/friendbee/app/src/main/res/layout/activity_main.xml" value="0.5536458333333333" />
+        <entry key="..\:/Users/umilo/Desktop/Friend_bee/friendbee/app/src/main/res/layout/application_status.xml" value="0.3654891304347826" />
         <entry key="..\:/Users/umilo/Desktop/Friend_bee/friendbee/app/src/main/res/layout/background_splash.xml" value="0.5536458333333333" />
+        <entry key="..\:/Users/umilo/Desktop/Friend_bee/friendbee/app/src/main/res/layout/fragment_mypage.xml" value="0.34692028985507245" />
         <entry key="..\:/Users/umilo/Desktop/Friend_bee/friendbee/app/src/main/res/layout/fragment_recipt.xml" value="0.4017210144927536" />
         <entry key="..\:/Users/umilo/Desktop/Friend_bee/friendbee/app/src/main/res/layout/fragment_request.xml" value="0.5682291666666667" />
         <entry key="..\:/Users/umilo/Desktop/Friend_bee/friendbee/app/src/main/res/layout/fragment_review_write.xml" value="0.5682291666666667" />
@@ -54,7 +92,6 @@
         <entry key="app/src/main/res/layout/item_recipt.xml" value="0.3458333333333333" />
         <entry key="app/src/main/res/layout/item_review.xml" value="0.16818642350557245" />
         <entry key="app/src/main/res/layout/item_status.xml" value="0.16869300911854104" />
-        <entry key="app/src/main/res/layout/item_sub_status.xml" value="0.346875" />
         <entry key="app/src/main/res/layout/login_layout.xml" value="0.21195652173913043" />
         <entry key="app/src/main/res/layout/message_holder.xml" value="0.16818642350557245" />
         <entry key="app/src/main/res/layout/register_fifth.xml" value="0.3458333333333333" />
@@ -67,6 +104,7 @@
         <entry key="app/src/main/res/layout/review_my_write.xml" value="0.21195652173913043" />
         <entry key="app/src/main/res/layout/review_write_layout.xml" value="0.16869300911854104" />
         <entry key="app/src/main/res/layout/room_right_item_list.xml" value="0.16869300911854104" />
+        <entry key="app/src/main/res/layout/toolbar.xml" value="0.16869300911854104" />
       </map>
     </option>
   </component>

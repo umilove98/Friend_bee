@@ -56,7 +56,7 @@
                     android:orientation="vertical">
 
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/recipt_user_image"
+                        android:id="@+id/status_user_image"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_margin="10dp"
@@ -64,7 +64,7 @@
                         android:src="@drawable/logo" />
 
                     <TextView
-                        android:id="@+id/recipt_user_name"
+                        android:id="@+id/status_user_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -81,7 +81,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/recipt_title"
+                        android:id="@+id/status_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="고기 잘 굽는 사람"
@@ -90,7 +90,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/recipt_time"
+                        android:id="@+id/status_time"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="22-03-31\n오후 8:00 ~ 10:00 (2시간)"
@@ -105,7 +105,7 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/recipt_place"
+                            android:id="@+id/status_place"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="서울시 동대문구"
@@ -118,7 +118,7 @@
                             android:orientation="horizontal">
 
                             <TextView
-                                android:id="@+id/recipt_price"
+                                android:id="@+id/status_coin"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:paddingRight="5dp"
@@ -133,26 +133,14 @@
                                 android:src="@drawable/coin" />
                         </LinearLayout>
 
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/button4"
-                            style="@style/Widget.MaterialComponents.Button.Icon"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginEnd="16dp"
-                            android:backgroundTint="@color/red"
-                            android:fontFamily="@font/font_custom"
-                            android:includeFontPadding="false"
-                            android:text="삭제"
-                            android:textFontWeight="700"
-                            android:textSize="15sp" />
+
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         >
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/button3"
+                        android:id="@+id/change_button"
                         style="@style/Widget.MaterialComponents.Button.Icon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -166,7 +154,7 @@
                         android:textSize="15sp" />
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/button000"
+                        android:id="@+id/delete_button"
                         style="@style/Widget.MaterialComponents.Button.Icon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

@@ -3,6 +3,7 @@ package com.example.friendsbee;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -23,11 +24,11 @@ public class StatusAdapter extends FirebaseRecyclerAdapter<RequestInfo, StatusAd
 
     @Override
     protected void onBindViewHolder(@NonNull myviewholder holder, int position, @NonNull RequestInfo model) {
-        //holder.review.setText(model.getReview());
-        //holder.rating.setRating(model.getRating());
         holder.date.setText(model.getDate());
         holder.userName.setText(model.getUserName());
-        holder.age.setText(model.getAge());
+        holder.title.setText(model.getTitle());
+        holder.coin.setText(model.getAge());
+        holder.place.setText(model.getPlace());
         Glide.with(holder.userImg.getContext()).load(model.getPurl()).into(holder.userImg);
 
     }
@@ -41,8 +42,8 @@ public class StatusAdapter extends FirebaseRecyclerAdapter<RequestInfo, StatusAd
 
     public class myviewholder extends RecyclerView.ViewHolder{
         ImageView userImg;
-        TextView review, date, userName, age;
-        RatingBar rating;
+        TextView date, userName;
+        Button change_b, delete_b, coin, place, title;
         //여기서 객체 선언
 
 
@@ -50,12 +51,15 @@ public class StatusAdapter extends FirebaseRecyclerAdapter<RequestInfo, StatusAd
             super(itemView);
 
             // findviewbyid 로 객체 연결
-            userImg = itemView.findViewById(R.id.reveiw1_user_image);
-            review = itemView.findViewById(R.id.review1_contents);
-            //rating = itemView.findViewById(R.id.review1_ratingBar);
-            date = itemView.findViewById(R.id.review1_date_time);
-            userName = itemView.findViewById(R.id.review1_user_name);
-            age = itemView.findViewById(R.id.review1_age_gender);
+            date = itemView.findViewById(R.id.status_time);
+            userImg = itemView.findViewById(R.id.status_user_image);
+            userName = itemView.findViewById(R.id.status_user_name);
+            change_b = itemView.findViewById(R.id.change_button);
+            delete_b = itemView.findViewById(R.id.delete_button);
+            //coin = itemView.findViewById(R.id.status_coin);
+            //place = itemView.findViewById(R.id.status_place);
+            //title = itemView.findViewById(R.id.status_title);
+
 
         }
     }

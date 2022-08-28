@@ -131,8 +131,4 @@ public class RequestFragment extends Fragment {
         return view;
     }
 
-    public void onBackPressed(){
-        AppCompatActivity activity=(AppCompatActivity)getContext();
-        activity.getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,new ReciptFragment()).addToBackStack(null).commit();
-    }
 }
