@@ -49,7 +49,7 @@ public class MypageFragment extends Fragment {
     private String mParam2;
     private FirebaseDatabase mDatabase;
     private DatabaseReference DatabaseRef;
-    private TextView text_name, text_age;
+    private TextView text_name, text_age, review_view, gusghkd;
     private String name;
     private ImageView img;
 
@@ -87,6 +87,8 @@ public class MypageFragment extends Fragment {
         text_name = view.findViewById(R.id.textView4);
         text_age = view.findViewById(R.id.textView5);
         img = view.findViewById(R.id.imageView);
+        review_view = view.findViewById(R.id.textView22);
+        gusghkd = view.findViewById(R.id.textView24);
 
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -119,8 +121,24 @@ public class MypageFragment extends Fragment {
         });
 
 
+        review_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((MainActivity)getActivity()).binding.bottomNavigationView.setSelectedItemId(R.id.recipt);
+                ((MainActivity)getActivity()).replaceFragment(new Review1Fragment());
+            }
+        });
+
+        gusghkd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((MainActivity)getActivity()).binding.bottomNavigationView.setSelectedItemId(R.id.recipt);
+                ((MainActivity)getActivity()).replaceFragment(new StatusFragment());
+            }
+        });
 
         return view;
     }
+
 
 }

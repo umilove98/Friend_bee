@@ -87,24 +87,24 @@ public class StatusFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceStatdnfle) {
-        View view = inflater.inflate(R.layout.application_status_tes, container, false);
+        View view = inflater.inflate(R.layout.application_status, container, false);
 
 
-        /*review1view = (RecyclerView)view.findViewById(R.id.recycler_status);
+        review1view = (RecyclerView)view.findViewById(R.id.recycler_status);
         review1view.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        FirebaseRecyclerOptions<RequestInfo> options =
-                new FirebaseRecyclerOptions.Builder<RequestInfo>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("requests"), RequestInfo.class)
+        FirebaseRecyclerOptions<StatusModel> options =
+                new FirebaseRecyclerOptions.Builder<StatusModel>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("requests"), StatusModel.class)
                         .build();
         adapter = new StatusAdapter(options);
-        review1view.setAdapter(adapter);*/
+        review1view.setAdapter(adapter);
 
 
         return view;
     }
 
-    /*@Override
+    @Override
     public void onStart(){
         super.onStart();
         adapter.startListening();
@@ -114,6 +114,6 @@ public class StatusFragment extends Fragment {
     public void onStop(){
         super.onStop();
         adapter.stopListening();
-    }*/
+    }
 
 }
