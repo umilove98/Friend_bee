@@ -128,6 +128,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/font_custom"
+            android:inputType="numberPassword"
             android:includeFontPadding="false"
             android:textFontWeight="400"
             android:textSize="17sp" />

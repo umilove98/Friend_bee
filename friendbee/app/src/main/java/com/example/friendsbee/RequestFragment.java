@@ -18,6 +18,7 @@ import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -38,9 +39,10 @@ public class RequestFragment extends Fragment {
     private String mParam2;
     String category, contents, date, place, title, hour, min, price, userName, age, purl, uniq_key;
     int condi, cnt;
-    private Button apply;
+    private Button apply, check;
     private DatabaseReference mDatabase;
     private FirebaseAuth firebaseAuth;
+
 
 
     
@@ -98,6 +100,7 @@ public class RequestFragment extends Fragment {
         TextView nameholder = view.findViewById(R.id.request_form_nickname);
         TextView ageholder = view.findViewById(R.id.request_form_age);
         apply = view.findViewById(R.id.request_form_apply_btn);
+        check = view.findViewById(R.id.nickName_button);
 
 
         titleholder.setText(title);
@@ -128,6 +131,7 @@ public class RequestFragment extends Fragment {
 
             }
         });
+
 
         return view;
     }

@@ -127,7 +127,7 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(AuthResult authResult) {
                         String phone = firebaseAuth.getCurrentUser().getPhoneNumber();
-                        Toast.makeText(LoginActivity.this,"Logged in", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this,"환영합니다 :)", Toast.LENGTH_SHORT).show();
 
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     }
@@ -135,7 +135,7 @@ public class LoginActivity extends AppCompatActivity {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(LoginActivity.this,"코드 틀림", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this,"인증번호를 다시 한번 확인 해 주세요", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
