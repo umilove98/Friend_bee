@@ -105,7 +105,7 @@ public class RequestFragment extends Fragment {
         TextView nameholder = view.findViewById(R.id.request_form_nickname);
         TextView ageholder = view.findViewById(R.id.request_form_age);
         apply = view.findViewById(R.id.request_form_apply_btn);
-        check = view.findViewById(R.id.nickName_button);
+        //check = view.findViewById(R.id.nickName_button);
         chat = view.findViewById(R.id.request_form_chat_btn);
 
 

@@ -149,7 +149,7 @@
                         android:backgroundTint="@color/blue"
                         android:fontFamily="@font/font_custom"
                         android:includeFontPadding="false"
-                        android:text="수정"
+                        android:text="수락"
                         android:textFontWeight="700"
                         android:textSize="15sp" />
 
