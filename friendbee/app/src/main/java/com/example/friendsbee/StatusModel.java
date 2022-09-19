@@ -7,6 +7,7 @@ public class StatusModel {
     private String userName;
     private int age;
     private String purl;
+    private String apply1;
 
 
     public String getReview() {
@@ -57,16 +58,13 @@ public class StatusModel {
         this.purl = purl;
     }
 
-    public StatusModel(){
-
+    public String getApply1() {
+        return apply1;
     }
 
-    public StatusModel(String review, float rating, String date, String userName, int age, String purl){
-        this.review = review;
-        this.rating = rating;
-        this.date = date;
-        this.userName = userName;
-        this.age = age;
-        this.purl = purl;
+    public void setApply1(String apply1) {
+        this.apply1 = apply1;
     }
+
+
 }

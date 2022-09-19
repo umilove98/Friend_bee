@@ -96,7 +96,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.63" />
+        app:layout_constraintGuide_percent="0.57" />
 
     <TextView
         android:id="@+id/textView15"
@@ -343,7 +343,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="4dp"
-        android:layout_marginBottom="36dp"
         android:backgroundTint="@color/blue"
         android:fontFamily="@font/font_custom"
         android:includeFontPadding="false"
@@ -353,7 +352,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/textView38"
         app:layout_constraintEnd_toStartOf="@+id/button6"
         app:layout_constraintStart_toStartOf="@+id/home_v_guideline29"
-        />
+        app:layout_constraintTop_toTopOf="@+id/textView38" />
 
     <Button
         android:id="@+id/button6"
@@ -362,7 +361,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="36dp"
         android:backgroundTint="@color/red"
         android:fontFamily="@font/font_custom"
         android:includeFontPadding="false"
@@ -371,7 +369,8 @@
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView38"
         app:layout_constraintEnd_toEndOf="@+id/textView38"
-        app:layout_constraintStart_toEndOf="@+id/button5" />
+        app:layout_constraintStart_toEndOf="@+id/button5"
+        app:layout_constraintTop_toTopOf="@+id/textView38" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
