@@ -1,5 +1,6 @@
 package com.example.friendsbee;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,9 +19,14 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 
 public class StatusAdapter extends FirebaseRecyclerAdapter<StatusModel, StatusAdapter.myviewholder> {
 
+    StatusFragment statusFragment;
+    FirebaseRecyclerOptions<StatusModel> options;
+    String apply1;
 
-    public StatusAdapter(@NonNull FirebaseRecyclerOptions<StatusModel> options) {
+    public StatusAdapter(@NonNull FirebaseRecyclerOptions<StatusModel> options, StatusFragment statusFragment) {
+
         super(options);
+        this.statusFragment = statusFragment;
     }
 
     @Override
@@ -32,23 +38,15 @@ public class StatusAdapter extends FirebaseRecyclerAdapter<StatusModel, StatusAd
        // holder.coin.setText(model.getAge());
       //  holder.place.setText(model.getPlace());
         Glide.with(holder.userImg.getContext()).load(model.getPurl()).into(holder.userImg);
+        apply1 = model.getApply1();
+        Status_SubAdapter adapter = new Status_SubAdapter(options,apply1);
 
+        holder.recyclerView.setHasFixedSize(true);
+        holder.recyclerView.setLayoutManager(new LinearLayoutManager(statusFragment.getContext()
+                , LinearLayoutManager.HORIZONTAL
+                ,false));
+        holder.recyclerView.setAdapter(adapter);
 
-
-        // 자식 레이아웃 매니저 설정
-        /*LinearLayoutManager layoutManager = new LinearLayoutManager(
-                itemViewHolder.rvSubItem.getContext(),
-                LinearLayoutManager.HORIZONTAL,
-                false
-        );
-        layoutManager.setInitialPrefetchItemCount(item.getSubItemList().size());
-
-        // 자식 어답터 설정
-        SubItemAdapter subItemAdapter = new SubItemAdapter(item.getSubItemList());
-
-        itemViewHolder.rvSubItem.setLayoutManager(layoutManager);
-        itemViewHolder.rvSubItem.setAdapter(subItemAdapter);
-        itemViewHolder.rvSubItem.setRecycledViewPool(viewPool);*/
     }
 
     @NonNull
@@ -62,6 +60,8 @@ public class StatusAdapter extends FirebaseRecyclerAdapter<StatusModel, StatusAd
         ImageView userImg;
         TextView date, userName;
         Button change_b, delete_b, coin, place, title;
+        RecyclerView recyclerView;
+
         //여기서 객체 선언
 
 
@@ -74,6 +74,8 @@ public class StatusAdapter extends FirebaseRecyclerAdapter<StatusModel, StatusAd
             userName = itemView.findViewById(R.id.status_user_name);
             change_b = itemView.findViewById(R.id.change_button);
             delete_b = itemView.findViewById(R.id.delete_button);
+            recyclerView= itemView.findViewById(R.id.recycler_status);
+
             // 라사이클러뷰
             //coin = itemView.findViewById(R.id.status_coin);
             //place = itemView.findViewById(R.id.status_place);

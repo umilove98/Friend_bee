@@ -2,6 +2,7 @@ package com.example.friendsbee;
 
 import static java.lang.Integer.parseInt;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -27,8 +28,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class RequestFragment extends Fragment {
 
@@ -39,9 +42,11 @@ public class RequestFragment extends Fragment {
     private String mParam2;
     String category, contents, date, place, title, hour, min, price, userName, age, purl, uniq_key;
     int condi, cnt;
-    private Button apply, check;
+    private Button apply, chat;
     private DatabaseReference mDatabase;
     private FirebaseAuth firebaseAuth;
+    ChatAdapter.OnUserClickListener onUserClickListener;
+    private ChatAdapter usersAdapter;
 
 
 
@@ -101,6 +106,7 @@ public class RequestFragment extends Fragment {
         TextView ageholder = view.findViewById(R.id.request_form_age);
         apply = view.findViewById(R.id.request_form_apply_btn);
         check = view.findViewById(R.id.nickName_button);
+        chat = view.findViewById(R.id.request_form_chat_btn);
 
 
         titleholder.setText(title);
@@ -123,7 +129,7 @@ public class RequestFragment extends Fragment {
                 String cur_uid = firebaseAuth.getCurrentUser().getUid();
                 mDatabase.child("requests").child(uniq_key).child("apply"+ cnt).setValue(cur_uid);
                 cnt++;
-                // 누르면 등록 완료됨
+                Toast.makeText(getContext(), "지원되었습니다" , Toast.LENGTH_SHORT).show();
 
                 //AppCompatActivity activity=(AppCompatActivity) view.getContext();
                 //activity.getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,new StatusFragment(category, contents, date, place, title, hour, min, price, userName, age, purl, condi,uniq_key)).addToBackStack(null).commit();
@@ -132,8 +138,16 @@ public class RequestFragment extends Fragment {
             }
         });
 
+        chat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //startActivity(new Intent(getContext(), MessageActivity.class));
+                Toast.makeText(getContext(), "채팅방을 확인해주세요" , Toast.LENGTH_SHORT).show();
+            }
+        });
 
         return view;
     }
+
 
 }
