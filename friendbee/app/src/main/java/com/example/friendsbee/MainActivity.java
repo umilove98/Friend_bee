@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
                     menu.findItem(R.id.create).setIcon(R.drawable.create_icon);
                     menu.findItem(R.id.chat).setIcon(R.drawable.chat_icon);
                     //title.setText("마이페이지");
-                    replaceFragment((new ReviewWriteFragment()));
+                    replaceFragment((new MypageFragment()));
                     break;
             }
 

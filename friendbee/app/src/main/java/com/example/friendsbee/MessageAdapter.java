@@ -64,6 +64,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageH
             Glide.with(context).load(receiverImg).error(R.drawable.blackstar_icon).placeholder(R.drawable.blackstar_icon).into(holder.profImage);
             ConstraintSet constraintSet = new ConstraintSet();
             constraintSet.clone(constraintLayout);
+
             constraintSet.clear(R.id.profile_cardView, ConstraintSet.RIGHT);
             constraintSet.clear(R.id.txt_message_content, ConstraintSet.RIGHT);
             constraintSet.connect(R.id.profile_cardView,ConstraintSet.LEFT,R.id.ccLayout,ConstraintSet.LEFT,0);

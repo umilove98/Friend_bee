@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -39,12 +40,9 @@ import java.util.ArrayList;
  */
 public class MypageFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
     private FirebaseDatabase mDatabase;
@@ -73,8 +71,6 @@ public class MypageFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
-
-
         }
     }
 
@@ -114,6 +110,7 @@ public class MypageFragment extends Fragment {
                     ii -= 75;
 
                     text_age.setText(ii + "세 남");
+                    Glide.with(getContext()).load(myprofile.getProfileImageUrl()).into(img);
                 }
             }
         });

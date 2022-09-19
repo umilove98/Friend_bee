@@ -42,7 +42,8 @@ public class CreateFragment extends Fragment implements View.OnClickListener, Ra
     private String mParam1;
     private String mParam2;
     private Button createButton;    // 요청서 작성 버튼
-    private FirebaseDatabase mDatabase;    // 데이터베이스 레퍼런스 객체 생성
+    private FirebaseDatabase mDatabase;
+    private DatabaseReference mDatabase2;// 데이터베이스 레퍼런스 객체 생성
     EditText titlebox, placebox, contentsbox, datebox, pricebox;    // 제목, 장소, 요청 사항, 날짜, 친구비
     FirebaseUser user;
     Spinner spinnerCategory, spinnerHour, spinnerMin;   // 요청 항목 선택, 예상 소요 시간, 분
@@ -55,6 +56,8 @@ public class CreateFragment extends Fragment implements View.OnClickListener, Ra
     private DatabaseReference DatabaseRef;
     private String userName, purl;
     private int age;
+    private int condi;
+    private String uniq_key;
 
 
 
@@ -154,12 +157,20 @@ public class CreateFragment extends Fragment implements View.OnClickListener, Ra
         final String category = spinnerCategory.getSelectedItem().toString();
         final int hour = parseInt(spinnerHour.getSelectedItem().toString().substring(0,2));
         final int min = parseInt(spinnerMin.getSelectedItem().toString().substring(0,2));
+        condi = 0;
+
+
 
         if(view.getId() == R.id.create_button){ // 요청서 작성 버튼을 터치했을 경우
 
-            if(title.length() > 0 && place.length() > 0){   // 필수 요소들 입력 확인
-                RequestInfo requestInfo = new RequestInfo(title, place, contents, date, price, category, hour, min, userName, age, purl); // requestInfo 클래스에 지정해둔 데이터 저장 형태에 맞춰 생성
-                DatabaseRef.child("requests").push().setValue(requestInfo);   // request 테이블에 생성한 요청서를 등록
+            if(title.length() > 0 && place.length() > 0){
+                //uniq_key = DatabaseRef.child("requests").push().getKey();
+                mDatabase2 = DatabaseRef.child("requests").push();
+                uniq_key = mDatabase2.getKey();
+                RequestInfo requestInfo = new RequestInfo(title, place, contents, date, price, category, hour, min, userName, age, purl,condi,uniq_key); // requestInfo 클래스에 지정해둔 데이터 저장 형태에 맞춰 생성
+                mDatabase2.setValue(requestInfo);
+                // request 테이블에 생성한 요청서를 등록
+                //DatabaseRef.child("requests").child(uniq_key).push().setValue(requestInfo);
                 Toast.makeText(getContext(), "등록 성공", Toast.LENGTH_SHORT).show();
                 ((MainActivity)getActivity()).menu.findItem(R.id.home).setIcon(R.drawable.home_icon);
                 ((MainActivity)getActivity()).binding.bottomNavigationView.setSelectedItemId(R.id.recipt);

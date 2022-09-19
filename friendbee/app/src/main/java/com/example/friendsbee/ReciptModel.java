@@ -13,11 +13,14 @@ public class ReciptModel{
     public String userName;
     public int age;
     public String purl;
+    public int condi;
+    public String uniq_key;
+
 
     public ReciptModel() {
     }
 
-    public ReciptModel(String category, String contents, String date, int hour, int min, String place, int price, String title, String userName, int age, String purl) {
+    public ReciptModel(String category, String contents, String date, int hour, int min, String place, int price, String title, String userName, int age, String purl, int condi, String uniq_key) {
         this.category = category;
         this.contents = contents;
         this.date = date;
@@ -29,7 +32,8 @@ public class ReciptModel{
         this.userName = userName;
         this.age = age;
         this.purl = purl;
-
+        this.condi = condi;
+        this.uniq_key = uniq_key;
     }
 
     public String getCategory() {
@@ -118,6 +122,20 @@ public class ReciptModel{
 
     public void setPurl(String purl) {
         this.purl = purl;
+    }
+
+    public int getCondi() { return condi; }
+
+    public void setCondi(int condi) {
+        this.condi = condi;
+    }
+
+    public String getUniq_key() {
+        return uniq_key;
+    }
+
+    public void setUniq_key(String uniq_key) {
+        this.uniq_key = uniq_key;
     }
 }
 

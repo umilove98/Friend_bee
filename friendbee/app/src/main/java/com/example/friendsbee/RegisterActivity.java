@@ -74,6 +74,7 @@ public class RegisterActivity extends AppCompatActivity {
     String nick_name;
     String birth_number;
     String phone_number;
+    String coin;
 
 
     @Override
@@ -149,6 +150,7 @@ public class RegisterActivity extends AppCompatActivity {
                     nick_name = editTextNick_Name.getText().toString();
                     birth_number = editTextBirth_Number.getText().toString();
                     phone_number = editTextPhoneNumber.getText().toString();
+                    coin = "0";
                     verifyPhoneNumberWithCode(s, code);
                     Toast.makeText(RegisterActivity.this, "회원가입 성공", Toast.LENGTH_SHORT).show();
                 }
@@ -232,7 +234,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 profileImageUrl = imageUrl.getResult().toString();
 
 
-                                Myprofile myprofile = new Myprofile(name, nick_name, phone_number, birth_number,profileImageUrl, uid);
+                                Myprofile myprofile = new Myprofile(name, nick_name, phone_number, birth_number,profileImageUrl, uid, coin);
                                 mDatabase.getReference().child("profile").child(uid_code)
                                         .setValue(myprofile);
                             }
@@ -270,6 +272,5 @@ public class RegisterActivity extends AppCompatActivity {
         cursor.moveToFirst();
         return cursor.getString(index);
     }
-
 
 }

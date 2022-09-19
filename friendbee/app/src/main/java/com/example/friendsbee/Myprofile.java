@@ -7,6 +7,7 @@ public class Myprofile {
     private String birth_number = "";
     public String profileImageUrl = ""; // 사용자 프로필사진
     public String uid = ""; // 현재 사용자(로그인한)
+    public String coin = "";
 
     public Myprofile(){
 
@@ -18,13 +19,14 @@ public class Myprofile {
         this.profileImageUrl = profileImageUrl;
     }
 
-    public Myprofile(String name, String nick_name, String phone_number, String birth_number,String profileImageUrl, String uid){
+    public Myprofile(String name, String nick_name, String phone_number, String birth_number,String profileImageUrl, String uid, String coin){
         this.name = name;
         this.nick_name = nick_name;
         this.phone_number = phone_number;
         this.birth_number = birth_number;
         this.profileImageUrl = profileImageUrl;
         this.uid = uid;
+        this.coin = coin;
     }
 
     public String getName() {return this.name;}
@@ -44,6 +46,9 @@ public class Myprofile {
 
     public String getUid() {return this.uid;}
     public void setUid() {this.uid = uid;}
+
+    public String getCoin() {return this.coin;}
+    public void setCoin() {this.coin = coin;}
 }
 
 
