@@ -52,6 +52,7 @@ public class RegisterActivity extends AppCompatActivity {
     private Button nick_button; // 닉네임 중복 확인 버튼
     private Button regist_button;   // 회원가입 하기 버튼
     private Button ver_button;  // 전화번호 인증하기 버튼
+    private Button cerTi_buton; // 인증번호 확인 버튼
     private ImageView img_button;   // 프로필 사진 등록 +버튼
     private EditText editTextName;  // 이름 입력 필드
     private EditText editTextNick_Name; //닉네임 입력 필드
@@ -93,6 +94,7 @@ public class RegisterActivity extends AppCompatActivity {
         editTextVer = (EditText) findViewById(R.id.cerTi);
         img_button = findViewById(R.id.pro_Img);
         nick_button = findViewById(R.id.nickName_button);
+        cerTi_buton = findViewById(R.id.cerTi_button);
 
 
         regist_button = (Button) findViewById(R.id.signupbutton);
@@ -162,7 +164,20 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String Phone_Number = editTextPhoneNumber.getText().toString();
                 if(TextUtils.isEmpty(Phone_Number)){
-                    Toast.makeText(RegisterActivity.this,"enter phone number",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this,"발송되었습니다",Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    startPhoneNumberVerification(Phone_Number);
+                }
+            }
+        });
+
+        cerTi_buton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String Phone_Number = editTextPhoneNumber.getText().toString();
+                if(TextUtils.isEmpty(Phone_Number)){
+                    Toast.makeText(RegisterActivity.this,"인증되었습니다",Toast.LENGTH_SHORT).show();
                 }
                 else{
                     startPhoneNumberVerification(Phone_Number);
@@ -183,7 +198,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String name = editTextName.getText().toString();
-                Toast.makeText(RegisterActivity.this,"name: " + name, Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegisterActivity.this,"사용 가능한 닉네임입니다! " + name, Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -108,7 +108,7 @@ public class ChatFragment extends Fragment {
                     .putExtra("img_of_roommate", users.get(position).getProfileImageUrl())
                     .putExtra("my_img",myImgUrl)
                 );
-                Toast.makeText(getContext(), "Tapped on user" + users.get(position).getNick_name(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), "Tapped on user" + users.get(position).getNick_name(), Toast.LENGTH_SHORT).show();
             }
         };
 
