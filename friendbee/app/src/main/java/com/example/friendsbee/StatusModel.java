@@ -1,5 +1,7 @@
 package com.example.friendsbee;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 public class StatusModel {
     private String review;
     private float rating;
@@ -8,7 +10,6 @@ public class StatusModel {
     private int age;
     private String purl;
     private String apply1;
-
 
     public String getReview() {
         return review;

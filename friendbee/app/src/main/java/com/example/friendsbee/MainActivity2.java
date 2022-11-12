@@ -2,11 +2,13 @@ package com.example.friendsbee;
 
 import static java.lang.Integer.parseInt;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.provider.ContactsContract;
@@ -14,6 +16,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,12 +35,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.net.URI;
 import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link MypageFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class MypageFragment extends Fragment {
+
+public class MainActivity2 extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -52,14 +51,15 @@ public class MypageFragment extends Fragment {
     private TextView text_name, text_age, review_view, gusghkd;
     private String name;
     private ImageView img;
+    private Button button;
 
-    public MypageFragment() {
+    public MainActivity2() {
         // Required empty public constructor
 
     }
 
-    public static MypageFragment newInstance(String param1, String param2) {
-        MypageFragment fragment = new MypageFragment();
+    public static MainActivity2 newInstance(String param1, String param2) {
+        MainActivity2 fragment = new MainActivity2();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -82,14 +82,14 @@ public class MypageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        ViewGroup view = (ViewGroup) inflater.inflate(R.layout.fragment_mypage, container, false);
+        ViewGroup view = (ViewGroup) inflater.inflate(R.layout.activity_recipt2, container, false);
 
         text_name = view.findViewById(R.id.textView4);
         text_age = view.findViewById(R.id.textView5);
         img = view.findViewById(R.id.imageView);
         review_view = view.findViewById(R.id.textView22);
         gusghkd = view.findViewById(R.id.textView24);
-
+        button = view.findViewById(R.id.go_to_review);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         name = user.getUid();
@@ -98,44 +98,17 @@ public class MypageFragment extends Fragment {
         mDatabase = FirebaseDatabase.getInstance();
         DatabaseRef = mDatabase.getReference();
 
-        DatabaseRef.child("profile").child(name).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                if (!task.isSuccessful()) {
-                    Log.e("firebase", "Error getting data", task.getException());
-                }
-                else {
-
-
-                    Myprofile myprofile = task.getResult().getValue(Myprofile.class);
-                    text_name.setText(myprofile.getName());
-                    String birth = myprofile.getBirth_number();
-                    String temp = birth.substring(0, 2);
-                    String st = myprofile.getProfileImageUrl();
-                    int ii = parseInt(temp);
-                    ii -= 75;
-
-                    text_age.setText(ii + "세 남");
-                }
-            }
-        });
-
-
-        review_view.setOnClickListener(new View.OnClickListener() {
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((MainActivity)getActivity()).binding.bottomNavigationView.setSelectedItemId(R.id.recipt);
-                ((MainActivity)getActivity()).replaceFragment(new Review1Fragment());
+                AppCompatActivity activity=(AppCompatActivity) view.getContext();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,new ReviewWriteFragment()).addToBackStack(null).commit();
+                // 위에 코드에 상태, 고유키 추가
             }
         });
 
-        gusghkd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ((MainActivity)getActivity()).binding.bottomNavigationView.setSelectedItemId(R.id.recipt);
-                ((MainActivity)getActivity()).replaceFragment(new StatusFragment());
-            }
-        });
+
+
 
         return view;
     }

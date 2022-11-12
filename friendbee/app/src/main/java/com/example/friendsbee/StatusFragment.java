@@ -97,7 +97,11 @@ public class StatusFragment extends Fragment {
                 new FirebaseRecyclerOptions.Builder<StatusModel>()
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("requests"), StatusModel.class)
                         .build();
+
+
+
         adapter = new StatusAdapter(options,this);
+
         review1view.setAdapter(adapter);
 
 

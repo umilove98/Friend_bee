@@ -163,14 +163,20 @@
                         android:backgroundTint="@color/red"
                         android:fontFamily="@font/font_custom"
                         android:includeFontPadding="false"
-                        android:text="삭제"
+                        android:text="추가"
                         android:textFontWeight="700"
                         android:textSize="15sp" />
                     </LinearLayout>
 
                 </LinearLayout>
-            </LinearLayout>
         </LinearLayout>
+            </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/status_recyclerview1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"/>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

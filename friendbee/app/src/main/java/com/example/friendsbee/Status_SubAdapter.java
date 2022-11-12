@@ -1,5 +1,7 @@
 package com.example.friendsbee;
 
+import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,20 +15,24 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.FirebaseDatabase;
 
-public class Status_SubAdapter extends FirebaseRecyclerAdapter<StatusModel, Status_SubAdapter.myviewholder> {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+
+public class Status_SubAdapter extends RecyclerView.Adapter<Status_SubAdapter.myviewholder> {
 
 
-    public Status_SubAdapter(@NonNull FirebaseRecyclerOptions<StatusModel> options, String apply1) {
-        super(options);
+    private ArrayList<StatusSubModel> arrayList;
+
+
+    public Status_SubAdapter(ArrayList<StatusSubModel> arrayList) {
+        this.arrayList = arrayList;
+
     }
 
-    @Override
-    protected void onBindViewHolder(@NonNull myviewholder holder, int position, @NonNull StatusModel model) {
 
-        holder.userName.setText(model.getUserName());
-        Glide.with(holder.userImg.getContext()).load(model.getPurl()).into(holder.userImg);
-    }
 
     @NonNull
     @Override
@@ -35,20 +41,27 @@ public class Status_SubAdapter extends FirebaseRecyclerAdapter<StatusModel, Stat
         return new myviewholder(view);
     }
 
+    @Override
+    public void onBindViewHolder(@NonNull myviewholder holder, int position) {
+        StatusSubModel statusSubModel = arrayList.get(position);
+        holder.title.setText(statusSubModel.getTitle());
+
+    }
+
+
+    @Override
+    public int getItemCount() {
+        return arrayList.size();
+    }
+
     public class myviewholder extends RecyclerView.ViewHolder{
-        ImageView userImg;
-        TextView userName;
-        Button change_b, delete_b;
+        TextView title;
         //여기서 객체 선언
 
 
         public myviewholder(@NonNull View itemView) {
             super(itemView);
-
-            userImg = itemView.findViewById(R.id.imageButton5);
-            userName = itemView.findViewById(R.id.textView40);
-            change_b = itemView.findViewById(R.id.button5);
-            delete_b = itemView.findViewById(R.id.button6);
+            title = itemView.findViewById(R.id.textView40);
 
         }
     }

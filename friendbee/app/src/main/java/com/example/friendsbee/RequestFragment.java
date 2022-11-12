@@ -134,6 +134,7 @@ public class RequestFragment extends Fragment {
                 //AppCompatActivity activity=(AppCompatActivity) view.getContext();
                 //activity.getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,new StatusFragment(category, contents, date, place, title, hour, min, price, userName, age, purl, condi,uniq_key)).addToBackStack(null).commit();
 
+                mDatabase.child("title").setValue(userName);
 
             }
         });
