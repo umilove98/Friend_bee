@@ -38,6 +38,9 @@ public class StatusAdapter extends FirebaseRecyclerAdapter<StatusModel, StatusAd
     DatabaseReference mDatabase;
     Status_SubAdapter adapter;
     String name;
+    Myprofile myprofile;
+    ArrayList<StatusSubModel> arrayList;
+    private RecyclerView.RecycledViewPool viewPool = new RecyclerView.RecycledViewPool();
 
 
     public StatusAdapter(@NonNull FirebaseRecyclerOptions<StatusModel> options, StatusFragment statusFragment) {
@@ -58,8 +61,21 @@ public class StatusAdapter extends FirebaseRecyclerAdapter<StatusModel, StatusAd
         FirebaseDatabase.getInstance().getReference().child("profile").child(model.getApply1()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Myprofile myprofile = snapshot.getValue(Myprofile.class);
+                myprofile = snapshot.getValue(Myprofile.class);
                 name = myprofile.getName();
+                arrayList = new ArrayList<>();
+                StatusSubModel subItem = new StatusSubModel(name);
+                arrayList.add(subItem);
+                adapter = new Status_SubAdapter(arrayList);
+                LinearLayoutManager layoutManager = new LinearLayoutManager(
+                        holder.recyclerView.getContext(),
+                        LinearLayoutManager.VERTICAL,
+                        false
+                );
+                holder.recyclerView.setHasFixedSize(true);
+                holder.recyclerView.setLayoutManager(layoutManager);
+                holder.recyclerView.setAdapter(adapter);
+                holder.recyclerView.setRecycledViewPool(viewPool);
             }
 
             @Override
@@ -91,19 +107,6 @@ public class StatusAdapter extends FirebaseRecyclerAdapter<StatusModel, StatusAd
                 false
         );
 
-        ArrayList<StatusSubModel> arrayList = new ArrayList<>();
-
-
-
-
-
-        StatusSubModel subItem = new StatusSubModel(name);
-        arrayList.add(subItem);
-
-        adapter = new Status_SubAdapter(arrayList);
-        holder.recyclerView.setHasFixedSize(true);
-        holder.recyclerView.setLayoutManager(layoutManager);
-        holder.recyclerView.setAdapter(adapter);
 
         Glide.with(holder.userImg.getContext()).load(model.getPurl()).into(holder.userImg);
         apply1 = model.getApply1();

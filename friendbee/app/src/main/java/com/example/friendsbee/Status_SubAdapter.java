@@ -29,7 +29,6 @@ public class Status_SubAdapter extends RecyclerView.Adapter<Status_SubAdapter.my
 
     public Status_SubAdapter(ArrayList<StatusSubModel> arrayList) {
         this.arrayList = arrayList;
-
     }
 
 
@@ -45,7 +44,6 @@ public class Status_SubAdapter extends RecyclerView.Adapter<Status_SubAdapter.my
     public void onBindViewHolder(@NonNull myviewholder holder, int position) {
         StatusSubModel statusSubModel = arrayList.get(position);
         holder.title.setText(statusSubModel.getTitle());
-
     }
 
 
